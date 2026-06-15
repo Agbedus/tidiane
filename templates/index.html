@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Tidiane Ouattara — African Space Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/icons/fontawesome/css/all.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-messages" style="position: fixed; top: 80px; right: 20px; z-index: 1001; display: flex; flex-direction: column; gap: 10px;">
+      {% for message in messages %}
+        <div class="flash-message" style="background: var(--gold); color: var(--navy); padding: 12px 24px; font-family: var(--ff-mono); font-size: 0.75rem; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); animation: slideIn 0.3s ease-out;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+    <script>
+      setTimeout(() => {
+        document.querySelectorAll('.flash-message').forEach(m => m.style.opacity = '0');
+        setTimeout(() => document.querySelectorAll('.flash-message').forEach(m => m.remove()), 500);
+      }, 5000);
+    </script>
+  {% endif %}
+{% endwith %}
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo"><img src="{{ url_for('static', filename='assets/images/tidiane_logo_light.png') }}" alt="Dr. T. Ouattara" class="nav-logo-img" /></div>
+  <ul class="nav-links">
+    <li><a onclick="scrollTo('about')">About</a></li>
+    <li><a onclick="openSheet('events')">Events</a></li>
+    <li><a onclick="openSheet('experience')">Experience</a></li>
+    <li><a onclick="openSheet('photos')">Gallery</a></li>
+    <li><a onclick="openSheet('books')">Books</a></li>
+    <li><a onclick="scrollTo('contact')">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-orbit hero-orbit-1"><div class="orbit-dot"></div></div>
+  <div class="hero-orbit hero-orbit-2"><div class="orbit-dot"></div></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">African Space Agency · President &amp; Director General</div>
+    <h1 class="hero-name">Dr. Tidiane<br /><em>Ouattara</em></h1>
+    <p class="hero-title">Steering Africa's sovereign presence<br />in the space domain</p>
+    <div class="hero-divider"></div>
+    <p class="hero-bio">
+      A visionary scientist and statesman, Dr. Ouattara leads the African Space Agency in its mission to harness space science, Earth observation, and satellite technology for the sustainable development of the African continent.
+    </p>
+    <div class="hero-cta-row">
+      <button class="btn-primary" onclick="openSheet('experience')">Profile &amp; Career →</button>
+      <button class="btn-ghost" onclick="openSheet('books')">Books &amp; Research</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="portrait-art" style="background-image:url('{{ url_for('static', filename='assets/images/tidiane.jpg') }}');background-size:cover;background-position:center top;">
+      <div class="portrait-badge">
+        <div class="portrait-badge-title">Director General</div>
+        <div class="portrait-badge-org">African Space Agency</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text reveal-left">
+    <div class="section-label">About</div>
+    <h2 class="section-heading">Architect of Africa's<br /><em>Space Sovereignty</em></h2>
+    <p>Dr. Tidiane Ouattara has dedicated over three decades to advancing space science, satellite communications, and Earth observation across the African continent. As the inaugural President of the African Space Agency, he leads a continental mandate to coordinate, harmonize, and amplify Africa's capacities in space.</p>
+    <p>His work bridges science and diplomacy — forging partnerships with ESA, NASA, JAXA, and CNSA while ensuring that space technology translates directly into agricultural resilience, disaster preparedness, and climate action for African communities.</p>
+    <blockquote class="about-quote">
+      "Space is not a luxury for Africa. It is infrastructure — as essential as roads, as vital as water."
+    </blockquote>
+  </div>
+  <div class="reveal-right">
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">54</div>
+        <div class="stat-label">Member states represented</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Years in space science</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">18</div>
+        <div class="stat-label">International partnerships</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Published works</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDS: EVENTS, PHOTOS, EXPERIENCE OVERVIEW -->
+<section class="cards-section" style="padding:100px 80px;">
+
+  <div class="space-bg">
+    <div class="space-planet" style="width:50px;height:50px;top:15%;right:6%;">
+      <div class="planet-body"></div>
+      <div class="planet-ring" style="width:80px;height:24px;margin:-12px 0 0 -40px;"></div>
+      <div class="space-moon" style="top:-14px;left:calc(50% - 2px);--orbit-dur:5s;"></div>
+    </div>
+    <div class="space-satellite" style="top:55%;left:-20px;--drift-dur:35s;--drift-x:120vw;--drift-y:-40px;"></div>
+    <div class="space-satellite" style="top:75%;left:-30px;--drift-dur:45s;--drift-x:130vw;--drift-y:60px;opacity:.15;"></div>
+  </div>
+
+  <div class="cards-header reveal">
+    <div>
+      <div class="section-label">Explore</div>
+      <h2 class="section-heading" style="margin-bottom:0;">Milestones &amp; <em>Moments</em></h2>
+    </div>
+    <p style="max-width:320px; font-size:.85rem; color:var(--text-muted); line-height:1.7;">
+      From global summits to landmark policy achievements — a profile in leadership.
+    </p>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card reveal" onclick="openSheet('events')">
+      <div class="card-thumb">
+        <div class="card-thumb-bg" style="background:url('{{ url_for('static', filename='assets/images/hero-africa-space.jpg') }}') center/cover"></div>
+        <div class="card-thumb-inner"><i class="fal fa-globe card-thumb-icon"></i></div>
+      </div>
+      <div class="card-overlay"></div>
+      <div class="card-body">
+        <div class="card-tag">Calendar</div>
+        <div class="card-title">Upcoming &amp; Recent Events</div>
+        <div class="card-desc">Summits, keynotes, intergovernmental engagements, and public addresses across five continents.</div>
+        <div class="card-arrow">View Events <span>→</span></div>
+      </div>
+    </div>
+
+    <div class="card reveal" onclick="openSheet('photos')" style="transition-delay:.1s;">
+      <div class="card-thumb">
+        <div class="card-thumb-bg" style="background:url('{{ url_for('static', filename='assets/images/observatory-milky-way.jpg') }}') center/cover"></div>
+        <div class="card-thumb-inner"><i class="fal fa-camera card-thumb-icon"></i></div>
+      </div>
+      <div class="card-overlay"></div>
+      <div class="card-body">
+        <div class="card-tag">Gallery</div>
+        <div class="card-title">Photo Journal</div>
+        <div class="card-desc">A visual record of Dr. Ouattara at international forums, space installations, and diplomatic missions.</div>
+        <div class="card-arrow">View Gallery <span>→</span></div>
+      </div>
+    </div>
+
+    <div class="card reveal" onclick="openSheet('experience')" style="transition-delay:.2s;">
+      <div class="card-thumb">
+        <div class="card-thumb-bg" style="background:url('{{ url_for('static', filename='assets/images/satellite-dishes-night.jpg') }}') center/cover"></div>
+        <div class="card-thumb-inner"><i class="fal fa-satellite card-thumb-icon"></i></div>
+      </div>
+      <div class="card-overlay"></div>
+      <div class="card-body">
+        <div class="card-tag">Career</div>
+        <div class="card-title">Professional Experience</div>
+        <div class="card-desc">From early research roles to leading the continental space agenda — a career spanning science, policy, and leadership.</div>
+        <div class="card-arrow">Full Biography <span>→</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE (scroll preview) -->
+<section id="experience" style="position:relative;">
+    <div class="constellation-bg constellation-subtle" style="width:360px;height:360px;top:auto;bottom:10px;left:auto;right:10px;opacity:.6;">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        <circle class="constellation-star" cx="28" cy="24" r="1.0"/><!-- Antares -->
+        <circle class="constellation-star" cx="42" cy="20" r=".7"/><!-- Graffias -->
+        <circle class="constellation-star" cx="56" cy="18" r=".6"/>
+        <circle class="constellation-star" cx="66" cy="28" r=".7"/>
+        <circle class="constellation-star" cx="74" cy="42" r=".8"/>
+        <circle class="constellation-star" cx="78" cy="56" r=".7"/>
+        <circle class="constellation-star" cx="74" cy="70" r=".6"/>
+        <circle class="constellation-star" cx="68" cy="84" r=".8"/><!-- Sargas -->
+        <circle class="constellation-star" cx="52" cy="92" r=".6"/>
+        <path class="constellation-line" d="M28,24 L42,20 L56,18 L66,28 L74,42 L78,56 L74,70 L68,84 L52,92"/>
+        <path class="constellation-glow" d="M28,24 L42,20 L56,18 L66,28 L74,42 L78,56 L74,70 L68,84 L52,92"/>
+      </svg>
+    </div>
+  <div class="reveal">
+    <div class="section-label">Career Highlights</div>
+    <h2 class="section-heading">A Lifetime of<br /><em>Scientific Leadership</em></h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-year reveal"><div class="tl-year-text">2021—</div></div>
+    <div class="tl-content reveal">
+      <div class="tl-role">President &amp; Director General</div>
+      <div class="tl-org">African Space Agency (AfSA), Cairo, Egypt</div>
+      <div class="tl-desc">Appointed as the inaugural head of the newly established continental agency, mandated under the African Union to coordinate all member-state space programs and represent Africa in global space governance.</div>
+    </div>
+    <div class="tl-year reveal"><div class="tl-year-text">2015–21</div></div>
+    <div class="tl-content reveal">
+      <div class="tl-role">Director of Space Programs</div>
+      <div class="tl-org">African Union Commission, Addis Ababa</div>
+      <div class="tl-desc">Led the drafting of the African Space Policy and Strategy; coordinated Earth observation data-sharing frameworks across 32 member states.</div>
+    </div>
+    <div class="tl-year reveal"><div class="tl-year-text">2008–15</div></div>
+    <div class="tl-content reveal">
+      <div class="tl-role">Senior Scientist — Remote Sensing</div>
+      <div class="tl-org">ISRO-Africa Collaborative Program / New Delhi &amp; Dakar</div>
+      <div class="tl-desc">Conducted pioneering research in multi-spectral analysis for land degradation monitoring across the Sahel and Horn of Africa regions.</div>
+    </div>
+    <div class="tl-year reveal"><div class="tl-year-text">1999–08</div></div>
+    <div class="tl-content reveal" style="padding-bottom:0;">
+      <div class="tl-role">Research Fellow — Astrophysics</div>
+      <div class="tl-org">Université de Ouagadougou / ESA Fellowship Program</div>
+      <div class="tl-desc">Doctoral and post-doctoral work on stellar classification in low-luminosity galactic environments; recipient of the ESA Young Researcher Award (2003).</div>
+    </div>
+  </div>
+  <div style="margin-top:56px;" class="reveal">
+    <button class="btn-ghost" onclick="openSheet('experience')">Full Professional Biography →</button>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="reveal">
+    <div class="section-label">Publications &amp; Works</div>
+    <h2 class="section-heading">Books Dr. Ouattara<br /><em>Recommends &amp; Authors</em></h2>
+  </div>
+  <div class="books-grid">
+
+    {% for book in books %}
+    <div class="book-card reveal" onclick="openSheet('books')" style="transition-delay:{{ loop.index0 * 0.12 }}s;">
+      <div class="book-cover {{ book.cover_image_class }}">
+        <div class="book-spine"></div>
+        <div class="book-cover-inner">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 90%,rgba(184,151,90,.2) 0%,transparent 70%)"></div>
+          <div style="position:absolute;top:32px;right:32px;width:60px;height:60px;border:1px solid rgba(184,151,90,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem"><i class="fal fa-stars"></i></div>
+          <div class="book-cover-title">{{ book.title | safe }}</div>
+          <div class="book-cover-sub">{% if book.is_authored %}Authored by Dr. Ouattara{% else %}{{ book.subtitle }}{% endif %}</div>
+        </div>
+      </div>
+      <div class="book-meta">
+        <div class="book-status">{{ book.status }}</div>
+        <div class="book-meta-title">{{ book.title }}</div>
+        <div class="book-meta-desc">{{ book.description[:150] }}{% if book.description|length > 150 %}...{% endif %}</div>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">{% if 'Forthcoming' in book.status %}Pre-order{% else %}Purchase{% endif %} / Details →</button>
+      </div>
+    </div>
+    {% else %}
+    <!-- Fallback if no books in DB yet -->
+    <p>Loading publications...</p>
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal-left">
+    <div class="section-label">Contact</div>
+    <h2 class="section-heading">Get in<br /><em>Touch</em></h2>
+    <p>For media enquiries, speaking engagements, partnership discussions, or institutional correspondence, please reach out through the channels below or submit a message.</p>
+    <div class="contact-links">
+      <div class="contact-link">
+        <div class="contact-link-icon"><i class="fal fa-envelope"></i></div>
+        <span>office@drtidianeouattara.org</span>
+      </div>
+      <div class="contact-link">
+        <div class="contact-link-icon"><i class="fal fa-location-dot"></i></div>
+        <span>African Space Agency, Cairo, Egypt</span>
+      </div>
+      <div class="contact-link">
+        <div class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+        <span>linkedin.com/in/tidiane-ouattara</span>
+      </div>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <form class="contact-form" action="{{ url_for('main.contact') }}" method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      <div class="form-field">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" name="name" type="text" placeholder="Your name" required maxlength="200" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Organisation</label>
+        <input class="form-input" name="org" type="text" placeholder="Your institution or company" maxlength="200" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Email</label>
+        <input class="form-input" name="email" type="email" placeholder="your@email.com" required maxlength="200" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Message</label>
+        <textarea class="form-input form-textarea" name="message" placeholder="Your message…" required minlength="10" maxlength="5000"></textarea>
+      </div>
+      <button class="btn-primary" type="submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span>© 2024 Dr. Tidiane Ouattara</span>
+  <span>African Space Agency</span>
+  <span>Cairo · Addis Ababa · Accra</span>
+</footer>
+
+<!-- SHEETS -->
+<div class="sheet-backdrop" id="sheet-backdrop" onclick="closeSheet()"></div>
+<div id="sheets-container">
+  
+  <!-- Events Sheet -->
+  <div class="sheet" id="sheet-events">
+    <div class="sheet-header">
+      <div class="sheet-header-label">Calendar — Events</div>
+      <button class="sheet-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="sheet-body" style="position:relative;">
+      <div class="constellation-bg constellation-subtle" style="width:260px;height:320px;top:40px;bottom:auto;left:auto;right:10px;opacity:.55;">
+        <svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMid meet">
+          <circle class="constellation-star" cx="20" cy="15" r=".9"/>
+          <circle class="constellation-star" cx="42" cy="10" r="1.0"/>
+          <circle class="constellation-star" cx="60" cy="20" r=".7"/>
+          <circle class="constellation-star" cx="78" cy="14" r=".7"/>
+          <circle class="constellation-star" cx="88" cy="32" r=".8"/>
+          <circle class="constellation-star" cx="82" cy="55" r=".7"/>
+          <circle class="constellation-star" cx="68" cy="70" r=".8"/>
+          <circle class="constellation-star" cx="48" cy="62" r=".7"/>
+          <circle class="constellation-star" cx="30" cy="78" r=".6"/>
+          <circle class="constellation-star" cx="12" cy="95" r=".7"/>
+          <path class="constellation-line" d="M20,15 L42,10 L60,20 L78,14 L88,32 L82,55 L68,70 L48,62 L30,78 L12,95"/>
+          <path class="constellation-glow" d="M20,15 L42,10 L60,20 L78,14 L88,32 L82,55 L68,70 L48,62 L30,78 L12,95"/>
+        </svg>
+      </div>
+      <div class="sheet-title" style="position:relative;z-index:1;">Events &amp; Engagements</div>
+      <div class="sheet-subtitle">2024–2025 · Global Agenda</div>
+      <div class="sheet-divider"></div>
+      
+      {% for event in events %}
+      <div class="sheet-event-item">
+        <div class="event-date-box">
+          <div class="event-day">{{ event.day }}</div>
+          <div class="event-month">{{ event.month_year }}</div>
+        </div>
+        <div>
+          <div class="event-info-title">{{ event.title }}</div>
+          <div class="event-info-loc"><i class="fal fa-location-dot"></i> {{ event.location }}</div>
+          <div class="event-info-desc">{{ event.description }}</div>
+        </div>
+      </div>
+      {% else %}
+      <p>No upcoming events scheduled.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Photos Sheet -->
+  <div class="sheet" id="sheet-photos">
+    <div class="sheet-header">
+      <div class="sheet-header-label">Gallery — Photo Journal</div>
+      <button class="sheet-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="sheet-body" style="position:relative;">
+      <div class="space-bg" style="opacity:.4;">
+        <div class="space-planet" style="width:32px;height:32px;top:10%;right:8%;">
+          <div class="planet-body"></div>
+          <div class="planet-ring" style="width:52px;height:16px;margin:-8px 0 0 -26px;"></div>
+          <div class="space-moon" style="top:-10px;left:calc(50% - 2px);--orbit-dur:4s;"></div>
+        </div>
+      </div>
+      <div class="sheet-title" style="position:relative;z-index:1;">Photo Journal</div>
+      <div class="sheet-subtitle">International Engagements &amp; Field Visits</div>
+      <div class="sheet-divider"></div>
+      <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:32px;">A curated selection of photographs documenting Dr. Ouattara's work across Africa and on the world stage.</p>
+      <div class="sheet-photo-grid">
+        {% for photo in photos %}
+        <div class="sheet-photo {% if photo.span_two %}span-2{% endif %}">
+          <div class="sheet-photo-inner" style="background-image:url('{{ url_for('static', filename=photo.image_path) }}');background-size:cover;background-position:center;"></div>
+          <div class="sheet-photo-caption">{{ photo.caption }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience Sheet (Still static for now as it's a long bio) -->
+  {% include 'partials/sheet-experience.html' %}
+
+  <!-- Books Sheet -->
+  <div class="sheet" id="sheet-books">
+    <div class="sheet-header">
+      <div class="sheet-header-label">Publications &amp; Books</div>
+      <button class="sheet-close" onclick="closeSheet()">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div class="sheet-title">Books &amp; Recommended Reads</div>
+      <div class="sheet-subtitle">Works Authored, Co-authored &amp; Curated</div>
+      <div class="sheet-divider"></div>
+      <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:40px;">Dr. Ouattara believes in the power of the written word to shape policy, inspire youth, and define Africa's future in space. Below are his publications and a selection of titles he recommends.</p>
+      
+      {% for book in books %}
+      <div class="sheet-book-detail">
+        <div class="sheet-book-cover {{ book.cover_image_class }}" style="height:260px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(184,151,90,.2),transparent 70%)"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-stars"></i></div>
+          <div style="position:absolute;bottom:20px;left:24px;right:24px;">
+            <div style="font-family:var(--ff-display);font-size:1.1rem;font-weight:900;color:var(--white);line-height:1.2;">{{ book.title | safe }}</div>
+            <div style="font-family:var(--ff-mono);font-size:.6rem;color:var(--gold-light);margin-top:6px;letter-spacing:.1em;">{{ book.author | upper }}</div>
+          </div>
+        </div>
+        <div>
+          <div class="book-status">{{ book.status }}</div>
+          <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">{{ book.title }}</div>
+          <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">{{ book.description }}</div>
+          <div style="font-family:var(--ff-mono);font-size:.65rem;color:var(--text-muted);letter-spacing:.1em;margin-bottom:4px;">{{ book.publisher_info }}</div>
+          <a href="{{ book.buy_link }}" target="_blank" class="sheet-book-buy" style="text-decoration:none; display:inline-flex;">
+            {% if 'Forthcoming' in book.status %}Pre-order{% else %}Buy{% endif %} — Details →
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div style="margin-top:16px;">
+        <div style="font-family:var(--ff-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Also Recommended by Dr. Ouattara</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <!-- These are external recommendations, keeping them static or could add a 'Recommended' table -->
+          <div style="padding:20px 24px;border:1px solid var(--border);display:flex;gap:20px;align-items:flex-start;">
+            <div style="font-size:1.5rem;opacity:.6;flex-shrink:0;"><i class="fal fa-book-open"></i></div>
+            <div>
+              <div style="font-family:var(--ff-display);color:var(--white);font-weight:700;margin-bottom:4px;">The Case for Mars — Carl Sagan</div>
+              <div style="font-size:.8rem;color:var(--text-muted);">"The book that convinced me that space is humanity's common heritage — and that Africa must claim her share of that future."</div>
+            </div>
+          </div>
+          <!-- ... more recommendations ... -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>

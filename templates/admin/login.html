@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Login — Dr. Tidiane CMS</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0B1929;
+    color: #F5F0E8;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+  }
+  .login-box {
+    background: #112240;
+    padding: 48px 40px;
+    border: 1px solid rgba(184,151,90,.22);
+    width: 100%; max-width: 380px;
+  }
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #B8975A;
+  }
+  p { font-size: .82rem; color: #8899AA; margin-bottom: 32px; }
+  .error { color: #e74c3c; font-size: .82rem; margin-bottom: 16px; }
+  label {
+    display: block;
+    font-size: .7rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: #8899AA;
+    margin-bottom: 8px;
+  }
+  input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(184,151,90,.22);
+    color: #F5F0E8;
+    font-size: .9rem;
+    outline: none;
+  }
+  input:focus { border-color: #B8975A; }
+  button {
+    width: 100%;
+    padding: 14px;
+    background: #B8975A;
+    color: #0B1929;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  button:hover { background: #D4AF7A; }
+</style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Dr. Tidiane CMS</h1>
+    <p>Please log in to continue.</p>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+    {% for field, errors in form.errors.items() %}
+      {% for err in errors %}
+        <div class="error">{{ err }}</div>
+      {% endfor %}
+    {% endfor %}
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <label for="username">Username</label>
+      {{ form.username(id='username', class='') }}
+      <label for="password">Password</label>
+      {{ form.password(id='password', class='') }}
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+</body>
+</html>
