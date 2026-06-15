@@ -16,6 +16,18 @@ def index():
     return render_template('index.html', events=events, books=books, photos=photos, form=form)
 
 
+def _mail_is_configured(app):
+    sender = app.config.get('MAIL_DEFAULT_SENDER')
+    server = app.config.get('MAIL_SERVER')
+    username = app.config.get('MAIL_USERNAME')
+    password = app.config.get('MAIL_PASSWORD')
+    if not sender or not server or not username or not password:
+        return False
+    if 'your-' in username.lower() or 'your-' in password.lower():
+        return False
+    return True
+
+
 @main_bp.route('/contact', methods=['POST'])
 @limiter.limit("5 per minute")
 def contact():
@@ -26,13 +38,10 @@ def contact():
             f"Organization: {form.org.data or 'N/A'}\n\n"
             f"Message:\n{form.message.data}"
         )
-        sender = current_app.config.get('MAIL_DEFAULT_SENDER')
-        mail_server = current_app.config.get('MAIL_SERVER')
-
-        if sender and mail_server:
+        if _mail_is_configured(current_app):
             msg = Message(
                 subject=f"New Message from {form.name.data} ({form.org.data or 'No org'})",
-                recipients=[sender],
+                recipients=[current_app.config['MAIL_DEFAULT_SENDER']],
             )
             msg.body = msg_body
             try:
