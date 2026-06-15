@@ -1,5 +1,6 @@
 from app.models import Event, Book, Photo, db
 from app.services import create_event, create_book, create_photo
+from app.config import Config
 
 
 class TestIndex:
@@ -79,10 +80,10 @@ class TestAdminAuth:
         resp = client.get('/auth/login')
         assert resp.status_code == 200
 
-    def test_login_valid(self, client, app):
+    def test_login_valid(self, client):
         resp = client.post('/auth/login', data={
-            'username': 'admin',
-            'password': 'changeme-on-first-deploy',
+            'username': Config.ADMIN_USERNAME,
+            'password': Config.ADMIN_PASSWORD,
         })
         assert resp.status_code == 302
 

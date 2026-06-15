@@ -1,3 +1,8 @@
+import os
+
+os.environ.setdefault('ADMIN_PASSWORD', 'test-admin-password')
+os.environ.setdefault('SECRET_KEY', 'test-secret-key-32-characters-long!!')
+
 import pytest
 from app import create_app
 

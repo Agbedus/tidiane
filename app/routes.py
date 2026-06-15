@@ -19,24 +19,31 @@ def index():
 @main_bp.route('/contact', methods=['POST'])
 @limiter.limit("5 per minute")
 def contact():
-    sender = current_app.config.get('MAIL_DEFAULT_SENDER')
     form = ContactForm()
     if form.validate_on_submit():
-        msg = Message(
-            subject=f"New Message from {form.name.data} ({form.org.data or 'No org'})",
-            recipients=[sender],
-        )
-        msg.body = (
+        msg_body = (
             f"From: {form.name.data} <{form.email.data}>\n"
             f"Organization: {form.org.data or 'N/A'}\n\n"
             f"Message:\n{form.message.data}"
         )
-        try:
-            mail.send(msg)
-            flash('Your message has been sent successfully!')
-        except Exception as e:
-            current_app.logger.error("Failed to send email: %s", e)
-            flash('There was an error sending your message. Please try again later.')
+        sender = current_app.config.get('MAIL_DEFAULT_SENDER')
+        mail_server = current_app.config.get('MAIL_SERVER')
+
+        if sender and mail_server:
+            msg = Message(
+                subject=f"New Message from {form.name.data} ({form.org.data or 'No org'})",
+                recipients=[sender],
+            )
+            msg.body = msg_body
+            try:
+                mail.send(msg)
+                flash('Your message has been sent successfully!')
+            except Exception as e:
+                current_app.logger.error("Failed to send email: %s", e)
+                flash('There was an error sending your message. Please try again later.')
+        else:
+            current_app.logger.info("Mail not configured — logging message instead:\n%s", msg_body)
+            flash('Your message has been received (mail server not configured).')
     else:
         for field, errors in form.errors.items():
             for error in errors:
