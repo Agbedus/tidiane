@@ -74,9 +74,21 @@ function closeSheet() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
 
 /* ── Scroll to ──────────────────────────────────────────── */
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-}
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', e => {
+    const id = link.textContent.trim().toLowerCase();
+    const map = { 'about': 'about', 'contact': 'contact' };
+    const targetId = map[id];
+    if (!targetId) return;
+    e.preventDefault();
+    document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    /* close mobile menu if open */
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks && navLinks.style.display === 'flex') {
+      navLinks.style.cssText = '';
+    }
+  });
+});
 
 /* ── Parallax on hero orbits ────────────────────────────── */
 window.addEventListener('scroll', () => {
