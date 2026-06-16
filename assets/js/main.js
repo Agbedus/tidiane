@@ -74,7 +74,7 @@ function closeSheet() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
 
 /* ── Scroll to ──────────────────────────────────────────── */
-function scrollTo(id) {
+function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
 
