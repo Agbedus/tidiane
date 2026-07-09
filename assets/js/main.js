@@ -100,8 +100,21 @@ function toggleMobileNav() {
   `;
 }
 
+/* ── Sheet sub-tabs ──────────────────────────────────────── */
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.sheet-subtab');
+  if (!btn) return;
+  const sheet = btn.closest('.sheet');
+  if (!sheet) return;
+  sheet.querySelectorAll('.sheet-subtab').forEach(b => b.classList.remove('active'));
+  sheet.querySelectorAll('.subtab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = sheet.querySelector('#subtab-' + btn.dataset.subtab);
+  if (panel) panel.classList.add('active');
+});
+
 /* ── Load sheet partials ────────────────────────────────── */
-const SHEETS = ['events', 'photos', 'experience', 'books'];
+const SHEETS = ['events', 'photos', 'experience', 'author'];
 function loadSheetPartials() {
   const container = document.getElementById('sheets-container');
   if (!container) return;

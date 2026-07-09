@@ -122,8 +122,8 @@ img { display: block; width: 100%; }
   transition: opacity .9s .1s var(--ease-out), transform .9s .1s var(--ease-out);
 }
 .hero-name em {
-  font-style: italic;
-  color: var(--gold-light);
+  font-style: normal;
+  color: var(--white);
 }
 .hero-title {
   margin-top: 20px;
@@ -161,11 +161,11 @@ img { display: block; width: 100%; }
 }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 13px 28px;
+  padding: 15px 34px;
   background: var(--gold);
   color: var(--navy);
   font-family: var(--ff-mono);
-  font-size: .7rem;
+  font-size: .72rem;
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -176,11 +176,11 @@ img { display: block; width: 100%; }
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 13px 28px;
+  padding: 15px 34px;
   background: transparent;
   color: var(--cream);
   font-family: var(--ff-mono);
-  font-size: .7rem;
+  font-size: .72rem;
   letter-spacing: .14em;
   text-transform: uppercase;
   cursor: pointer;
@@ -320,7 +320,7 @@ section { padding: 120px 80px; position: relative; }
   color: var(--white);
   margin-bottom: 24px;
 }
-.section-heading em { font-style: italic; color: var(--gold-light); }
+.section-heading em { font-style: normal; color: var(--white); }
 
 /* ── ABOUT ────────────────────────────────────────────────── */
 #about {
@@ -878,6 +878,57 @@ footer span { color: var(--gold); }
 }
 .sheet-book-buy:hover { background: var(--gold-light); }
 
+/* ── Sheet sub-tabs ───────────────────────────────────────── */
+.sheet-subtabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  flex-shrink: 0;
+}
+.sheet-subtab {
+  padding: 14px 28px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--ff-mono);
+  font-size: .65rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color .25s, border-color .25s;
+  margin-bottom: -1px;
+}
+.sheet-subtab:hover { color: var(--gold); }
+.sheet-subtab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.subtab-panel { display: none; }
+.subtab-panel.active { display: block; }
+.subtab-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  text-align: center;
+}
+.subtab-placeholder-icon {
+  font-size: 2.5rem;
+  color: var(--gold-dim);
+  margin-bottom: 20px;
+  opacity: .5;
+}
+.subtab-placeholder-text {
+  font-family: var(--ff-mono);
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 /* ── COLOR SCHEMES per book ───────────────────────────────── */
 .bc-1 { background: linear-gradient(135deg, #1A2744 0%, #0B1929 100%); }
 .bc-2 { background: linear-gradient(135deg, #1F2B1A 0%, #0F1A0A 100%); }
@@ -1033,16 +1084,6 @@ footer span { color: var(--gold); }
   5%   { opacity: .25; }
   90%  { opacity: .25; }
   100% { transform: translate(calc(var(--drift-x, 200px)), calc(var(--drift-y, -100px))) rotate(15deg); opacity: 0; }
-}
-
-/* ── BIGGER BUTTONS ──────────────────────────────────────── */
-.btn-primary {
-  padding: 15px 34px;
-  font-size: .72rem;
-}
-.btn-ghost {
-  padding: 15px 34px;
-  font-size: .72rem;
 }
 
 /* ── NAV MICRO-INTERACTIONS ──────────────────────────────── */
