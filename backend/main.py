@@ -28,8 +28,9 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 
 # ── Database ────────────────────────────────────────────────────────
-_DB_PATH = ROOT / "data" / "tidiane.db"
-_DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+_DB_DIR = Path(os.getenv("DB_DIR", str(DATA_DIR)))
+_DB_DIR.mkdir(parents=True, exist_ok=True)
+_DB_PATH = _DB_DIR / "tidiane.db"
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite+aiosqlite:///{_DB_PATH}")
 engine = create_async_engine(DATABASE_URL, echo=False)
 async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
