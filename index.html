@@ -16,14 +16,20 @@
 <nav id="nav">
   <div class="nav-logo"><img src="assets/images/tidiane_logo_light.png" alt="H.E. Dr. T. Ouattara" class="nav-logo-img" /></div>
   <ul class="nav-links">
-    <li><a onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</a></li>
-    <li><a onclick="openSheet('experience')">Achievements</a></li>
-    <li><a onclick="openSheet('author')">Author</a></li>
-    <li><a onclick="openSheet('photos')">Gallery</a></li>
-    <li><a onclick="scrollToSection('contact')">Connect with Tidiane</a></li>
+    <li><a onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="nav.home">Home</a></li>
+    <li><a onclick="openSheet('experience')" data-i18n="nav.achievements">Achievements</a></li>
+    <li><a onclick="openSheet('author')" data-i18n="nav.author">Author</a></li>
+    <li><a onclick="openSheet('photos')" data-i18n="nav.gallery">Gallery</a></li>
+    <li><a onclick="scrollToSection('contact')" data-i18n="nav.connect">Connect with Tidiane</a></li>
   </ul>
-  <div class="nav-toggle" onclick="toggleMobileNav()">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <div class="lang-toggle" id="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <div class="nav-toggle" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
@@ -33,16 +39,16 @@
   <div class="hero-orbit hero-orbit-1"><div class="orbit-dot"></div></div>
   <div class="hero-orbit hero-orbit-2"><div class="orbit-dot"></div></div>
   <div class="hero-left">
-    <div class="hero-eyebrow">President, Council of the African Space Agency</div>
-    <h1 class="hero-name">H.E. Dr. Tidiane<br />Ouattara</h1>
-    <p class="hero-title">Steering Africa's sovereign presence<br />in the space domain</p>
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">President, Council of the African Space Agency</div>
+    <h1 class="hero-name"><span data-i18n="hero.name_line1">H.E. Dr. Tidiane</span><br /><span data-i18n="hero.name_line2">Ouattara</span></h1>
+    <p class="hero-title" data-i18n="hero.title">Steering Africa's sovereign presence<br />in the space domain</p>
     <div class="hero-divider"></div>
-    <p class="hero-bio">
+    <p class="hero-bio" data-i18n="hero.bio">
       H.E. Dr. Tidiane Ouattara is a distinguished African space leader, strategist, and international advocate for science, technology, and innovation. He is the elected President of the Council of the African Space Agency and has held senior leadership roles at the Canadian Space Agency and the African Union Commission.
     </p>
     <div class="hero-cta-row">
-      <button class="btn-primary" onclick="openSheet('experience')">Profile &amp; Career →</button>
-      <button class="btn-ghost" onclick="openSheet('author')">Books &amp; Research</button>
+      <button class="btn-primary" onclick="openSheet('experience')" data-i18n="hero.btn_profile">Profile &amp; Career →</button>
+      <button class="btn-ghost" onclick="openSheet('author')" data-i18n="hero.btn_books">Books &amp; Research</button>
     </div>
   </div>
   <div class="hero-right">
@@ -58,11 +64,11 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-text reveal-left">
-    <div class="section-label">About</div>
-    <h2 class="section-heading">Architect of Africa's<br />Space Sovereignty</h2>
-    <p>H.E. Dr. Tidiane Ouattara is the elected President of the Council of the African Space Agency. A space scientist with a PhD in Remote Sensing and GIS from Université de Sherbrooke (Canada), he has built a 29-year career at the intersection of space science, policy, and international diplomacy — holding senior leadership roles at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission.</p>
-    <p>He has mobilised over US $155M for African space and Earth observation programmes, led the GMES &amp; Africa initiative across 45 countries, and driven the ratification of the African Space Policy and Strategy by all 55 AU member states. His work bridges science and diplomacy, forging international partnerships that translate space knowledge into agricultural resilience, disaster preparedness, and climate action for African communities.</p>
-    <blockquote class="about-quote">
+    <div class="section-label" data-i18n="about.label">About</div>
+    <h2 class="section-heading" data-i18n="about.heading">Architect of Africa's<br />Space Sovereignty</h2>
+    <p data-i18n="about.p1">H.E. Dr. Tidiane Ouattara is the elected President of the Council of the African Space Agency. A space scientist with a PhD in Remote Sensing and GIS from Université de Sherbrooke (Canada), he has built a 29-year career at the intersection of space science, policy, and international diplomacy — holding senior leadership roles at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission.</p>
+    <p data-i18n="about.p2">He has mobilised over US $155M for African space and Earth observation programmes, led the GMES &amp; Africa initiative across 45 countries, and driven the ratification of the African Space Policy and Strategy by all 55 AU member states. His work bridges science and diplomacy, forging international partnerships that translate space knowledge into agricultural resilience, disaster preparedness, and climate action for African communities.</p>
+    <blockquote class="about-quote" data-i18n="about.quote">
       "Space is not a luxury for Africa. It is infrastructure — as essential as roads, as vital as water."
     </blockquote>
   </div>
@@ -70,19 +76,19 @@
     <div class="about-stats">
       <div class="stat-card">
         <div class="stat-number">55</div>
-        <div class="stat-label">Member states represented</div>
+        <div class="stat-label" data-i18n="about.stat_55">Member states represented</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">30+</div>
-        <div class="stat-label">Years of Leadership in the Space Sector</div>
+        <div class="stat-label" data-i18n="about.stat_30">Years of Leadership in the Space Sector</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">100+</div>
-        <div class="stat-label">International Partnerships</div>
+        <div class="stat-label" data-i18n="about.stat_100">International Partnerships</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">7</div>
-        <div class="stat-label">Books</div>
+        <div class="stat-label" data-i18n="about.stat_7">Books</div>
       </div>
     </div>
   </div>
@@ -103,10 +109,10 @@
 
   <div class="cards-header reveal">
     <div>
-      <div class="section-label">Explore</div>
-      <h2 class="section-heading" style="margin-bottom:0;">Milestones &amp; Moments</h2>
+      <div class="section-label" data-i18n="cards.label">Explore</div>
+      <h2 class="section-heading" style="margin-bottom:0;" data-i18n="cards.heading">Milestones &amp; Moments</h2>
     </div>
-    <p style="max-width:320px; font-size:.85rem; color:var(--text-muted); line-height:1.7;">
+    <p style="max-width:320px; font-size:.85rem; color:var(--text-muted); line-height:1.7;" data-i18n="cards.subtitle">
       From global summits to landmark policy achievements — a profile in leadership.
     </p>
   </div>
@@ -119,10 +125,10 @@
       </div>
       <div class="card-overlay"></div>
       <div class="card-body">
-        <div class="card-tag">Calendar</div>
-        <div class="card-title">Upcoming &amp; Recent Events</div>
-        <div class="card-desc">Summits, keynotes, intergovernmental engagements, and public addresses across five continents.</div>
-        <div class="card-arrow">View Events <span>→</span></div>
+        <div class="card-tag" data-i18n="cards.events_tag">Calendar</div>
+        <div class="card-title" data-i18n="cards.events_title">Upcoming &amp; Recent Events</div>
+        <div class="card-desc" data-i18n="cards.events_desc">Summits, keynotes, intergovernmental engagements, and public addresses across five continents.</div>
+        <div class="card-arrow" data-i18n="cards.events_link">View Events <span>→</span></div>
       </div>
     </div>
 
@@ -133,10 +139,10 @@
       </div>
       <div class="card-overlay"></div>
       <div class="card-body">
-        <div class="card-tag">Gallery</div>
-        <div class="card-title">Photo Journal</div>
-        <div class="card-desc">A visual record of H.E. Dr. Ouattara at international forums, space installations, and diplomatic missions.</div>
-        <div class="card-arrow">View Gallery <span>→</span></div>
+        <div class="card-tag" data-i18n="cards.photos_tag">Gallery</div>
+        <div class="card-title" data-i18n="cards.photos_title">Photo Journal</div>
+        <div class="card-desc" data-i18n="cards.photos_desc">A visual record of H.E. Dr. Ouattara at international forums, space installations, and diplomatic missions.</div>
+        <div class="card-arrow" data-i18n="cards.photos_link">View Gallery <span>→</span></div>
       </div>
     </div>
 
@@ -147,10 +153,10 @@
       </div>
       <div class="card-overlay"></div>
       <div class="card-body">
-        <div class="card-tag">Career</div>
-        <div class="card-title">Professional Experience</div>
-        <div class="card-desc">From early research roles to leading the continental space agenda — a career spanning science, policy, and leadership.</div>
-        <div class="card-arrow">Full Biography <span>→</span></div>
+        <div class="card-tag" data-i18n="cards.career_tag">Career</div>
+        <div class="card-title" data-i18n="cards.career_title">Professional Experience</div>
+        <div class="card-desc" data-i18n="cards.career_desc">From early research roles to leading the continental space agenda — a career spanning science, policy, and leadership.</div>
+        <div class="card-arrow" data-i18n="cards.career_link">Full Biography <span>→</span></div>
       </div>
     </div>
 
@@ -175,51 +181,51 @@
       </svg>
     </div>
   <div class="reveal">
-    <div class="section-label">Career Highlights</div>
-    <h2 class="section-heading">A Lifetime of<br />Strategic Leadership</h2>
+    <div class="section-label" data-i18n="experience.label">Career Highlights</div>
+    <h2 class="section-heading" data-i18n="experience.heading">A Lifetime of<br />Strategic Leadership</h2>
   </div>
   <div class="timeline">
     <div class="tl-year reveal"><div class="tl-year-text">2024—</div></div>
     <div class="tl-content reveal">
-      <div class="tl-role">President, Council of the African Space Agency</div>
-      <div class="tl-org">African Space Agency (AfSA), Cairo, Egypt</div>
-      <div class="tl-desc">Elected by the African Union Assembly as the inaugural President of the AfSA Council. Leading the operationalisation of the Agency — including the build-out of its headquarters, the recruitment of 156 permanent staff, and the negotiation of strategic partnerships with ESA, NASA, JAXA, ISRO, and CNSA.</div>
+      <div class="tl-role" data-i18n="timeline.t1_role">President, Council of the African Space Agency</div>
+      <div class="tl-org" data-i18n="timeline.t1_org">African Space Agency (AfSA), Cairo, Egypt</div>
+      <div class="tl-desc" data-i18n="timeline.t1_desc">Elected by the African Union Assembly as the inaugural President of the AfSA Council. Leading the operationalisation of the Agency — including the build-out of its headquarters, the recruitment of 156 permanent staff, and the negotiation of strategic partnerships with ESA, NASA, JAXA, ISRO, and CNSA.</div>
     </div>
     <div class="tl-year reveal"><div class="tl-year-text">2016–24</div></div>
     <div class="tl-content reveal">
-      <div class="tl-role">Manager, African Space Programme</div>
-      <div class="tl-org">African Union Commission, Addis Ababa</div>
-      <div class="tl-desc">Led the development and implementation of the African Outer Space Programme and the GMES &amp; Africa Programme (€55M). Drove the ratification of the African Space Policy and Strategy by all 55 member states. Mobilised over €100M in investment, including the Africa–Europe Space Partnership Programme.</div>
+      <div class="tl-role" data-i18n="timeline.t2_role">Manager, African Space Programme</div>
+      <div class="tl-org" data-i18n="timeline.t2_org">African Union Commission, Addis Ababa</div>
+      <div class="tl-desc" data-i18n="timeline.t2_desc">Led the development and implementation of the African Outer Space Programme and the GMES &amp; Africa Programme (€55M). Drove the ratification of the African Space Policy and Strategy by all 55 member states. Mobilised over €100M in investment, including the Africa–Europe Space Partnership Programme.</div>
     </div>
     <div class="tl-year reveal"><div class="tl-year-text">2010–16</div></div>
     <div class="tl-content reveal">
-      <div class="tl-role">Head Manager — Geospatial Programs</div>
-      <div class="tl-org">Environment and Climate Change Canada</div>
-      <div class="tl-desc">Led geospatial data management and ecosystem assessment planning for the Canadian Wildlife Service. Developed the geospatial component of Canada's National Conservation Plan. Managed teams of 20 staff and a budget of over CAD $3M.</div>
+      <div class="tl-role" data-i18n="timeline.t3_role">Head Manager — Geospatial Programs</div>
+      <div class="tl-org" data-i18n="timeline.t3_org">Environment and Climate Change Canada</div>
+      <div class="tl-desc" data-i18n="timeline.t3_desc">Led geospatial data management and ecosystem assessment planning for the Canadian Wildlife Service. Developed the geospatial component of Canada's National Conservation Plan. Managed teams of 20 staff and a budget of over CAD $3M.</div>
     </div>
     <div class="tl-year reveal"><div class="tl-year-text">2004–06</div></div>
     <div class="tl-content reveal">
-      <div class="tl-role">International Relations Manager</div>
-      <div class="tl-org">Canadian Space Agency</div>
-      <div class="tl-desc">Managed international space policy portfolios covering Earth Observation, Navigation, Robotics, and Space Sciences for Africa, the Americas, and the United Nations. Led the Canadian delegation to UNCOPUOS.</div>
+      <div class="tl-role" data-i18n="timeline.t4_role">International Relations Manager</div>
+      <div class="tl-org" data-i18n="timeline.t4_org">Canadian Space Agency</div>
+      <div class="tl-desc" data-i18n="timeline.t4_desc">Managed international space policy portfolios covering Earth Observation, Navigation, Robotics, and Space Sciences for Africa, the Americas, and the United Nations. Led the Canadian delegation to UNCOPUOS.</div>
     </div>
     <div class="tl-year reveal"><div class="tl-year-text">1996–01</div></div>
     <div class="tl-content reveal" style="padding-bottom:0;">
-      <div class="tl-role">PhD in Remote Sensing &amp; GIS / Lecturer</div>
-      <div class="tl-org">Université de Sherbrooke, Canada</div>
-      <div class="tl-desc">Earned a PhD in Remote Sensing and Geographical Information Systems. Taught courses in hydrology, satellite image analysis, GIS, and climatology. Published peer-reviewed research on erosion modelling in semi-arid environments.</div>
+      <div class="tl-role" data-i18n="timeline.t5_role">PhD in Remote Sensing &amp; GIS / Lecturer</div>
+      <div class="tl-org" data-i18n="timeline.t5_org">Université de Sherbrooke, Canada</div>
+      <div class="tl-desc" data-i18n="timeline.t5_desc">Earned a PhD in Remote Sensing and Geographical Information Systems. Taught courses in hydrology, satellite image analysis, GIS, and climatology. Published peer-reviewed research on erosion modelling in semi-arid environments.</div>
     </div>
   </div>
   <div style="margin-top:56px;" class="reveal">
-    <button class="btn-ghost" onclick="openSheet('experience')">Full Professional Biography →</button>
+    <button class="btn-ghost" onclick="openSheet('experience')" data-i18n="experience.btn_full">Full Professional Biography →</button>
   </div>
 </section>
 
 <!-- BOOKS -->
 <section id="books">
   <div class="reveal">
-    <div class="section-label">Books</div>
-    <h2 class="section-heading">Books by H.E. Dr. Tidiane Ouattara</h2>
+    <div class="section-label" data-i18n="books.label">Books</div>
+    <h2 class="section-heading" data-i18n="books.heading">Books by H.E. Dr. Tidiane Ouattara</h2>
   </div>
   <div class="books-grid">
 
@@ -237,7 +243,7 @@
         <div class="book-status">Online Publication</div>
         <div class="book-meta-title">The Evolution of the African Space Policy and Strategy</div>
         <div class="book-meta-desc">A comprehensive account of the journey towards a unified African space policy framework, tracing the diplomatic, scientific, and political milestones that shaped the continent's collective space agenda.</div>
-        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">Get your copy →</button>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')" data-i18n="books.btn_copy">Get your copy →</button>
       </div>
     </div>
 
@@ -255,7 +261,7 @@
         <div class="book-status">Online Publication</div>
         <div class="book-meta-title">L'Évolution de la Politique et de la Stratégie Spatiales Africaines</div>
         <div class="book-meta-desc">Un récit complet du cheminement vers un cadre unifié de politique spatiale africaine, retraçant les étapes diplomatiques, scientifiques et politiques qui ont façonné l'agenda spatial collectif du continent.</div>
-        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">Get your copy →</button>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')" data-i18n="books.btn_copy">Get your copy →</button>
       </div>
     </div>
 
@@ -273,7 +279,7 @@
         <div class="book-status">Online Publication</div>
         <div class="book-meta-title">Space Governance in Africa</div>
         <div class="book-meta-desc">An examination of the institutional, legal, and regulatory frameworks shaping space activities across the African continent and the mechanisms for continental coordination and cooperation.</div>
-        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">Get your copy →</button>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')" data-i18n="books.btn_copy">Get your copy →</button>
       </div>
     </div>
 
@@ -291,7 +297,7 @@
         <div class="book-status">Online Publication</div>
         <div class="book-meta-title">La Gouvernance de l'Espace en Afrique</div>
         <div class="book-meta-desc">Un examen des cadres institutionnels, juridiques et réglementaires qui façonnent les activités spatiales à travers le continent africain et les mécanismes de coordination et de coopération continentale.</div>
-        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">Get your copy →</button>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')" data-i18n="books.btn_copy">Get your copy →</button>
       </div>
     </div>
 
@@ -309,7 +315,7 @@
         <div class="book-status">Online Publication</div>
         <div class="book-meta-title">Considerations for a Sound African Space Programme</div>
         <div class="book-meta-desc">A strategic blueprint outlining the technical, financial, and human-capital considerations necessary for building a sustainable and sovereign African space programme.</div>
-        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">Get your copy →</button>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')" data-i18n="books.btn_copy">Get your copy →</button>
       </div>
     </div>
 
@@ -327,7 +333,7 @@
         <div class="book-status">Online Publication</div>
         <div class="book-meta-title">Considérations pour un Programme Spatial Africain Robuste</div>
         <div class="book-meta-desc">Un plan stratégique décrivant les considérations techniques, financières et de capital humain nécessaires à la construction d'un programme spatial africain durable et souverain.</div>
-        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')">Get your copy →</button>
+        <button class="book-buy-btn" onclick="event.stopPropagation(); openSheet('books')" data-i18n="books.btn_copy">Get your copy →</button>
       </div>
     </div>
 
@@ -337,9 +343,9 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-info reveal-left">
-    <div class="section-label">Contact</div>
-    <h2 class="section-heading">Get in<br />Touch</h2>
-    <p>For media enquiries, speaking engagements, partnership discussions, or institutional correspondence, please reach out through the channels below or submit a message.</p>
+    <div class="section-label" data-i18n="contact.label">Contact</div>
+    <h2 class="section-heading" data-i18n="contact.heading">Get in<br />Touch</h2>
+    <p data-i18n="contact.info_text">For media enquiries, speaking engagements, partnership discussions, or institutional correspondence, please reach out through the channels below or submit a message.</p>
     <div class="contact-links">
       <div class="contact-link">
         <div class="contact-link-icon"><i class="fal fa-envelope"></i></div>
@@ -360,31 +366,32 @@
     </div>
   </div>
   <div class="reveal-right">
-    <div class="contact-form">
+    <div class="contact-form" id="contact-form">
       <div class="form-field">
-        <label class="form-label">Full Name</label>
-        <input class="form-input" type="text" placeholder="Your name" />
+        <label class="form-label" data-i18n="contact.form_name">Full Name</label>
+        <input class="form-input" id="cf-name" type="text" data-i18n-placeholder="contact.form_name_placeholder" placeholder="Your name" required />
       </div>
       <div class="form-field">
-        <label class="form-label">Organisation</label>
-        <input class="form-input" type="text" placeholder="Your institution or company" />
+        <label class="form-label" data-i18n="contact.form_org">Organisation</label>
+        <input class="form-input" id="cf-org" type="text" data-i18n-placeholder="contact.form_org_placeholder" placeholder="Your institution or company" />
       </div>
       <div class="form-field">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" placeholder="your@email.com" />
+        <label class="form-label" data-i18n="contact.form_email">Email</label>
+        <input class="form-input" id="cf-email" type="email" data-i18n-placeholder="contact.form_email_placeholder" placeholder="your@email.com" required />
       </div>
       <div class="form-field">
-        <label class="form-label">Message</label>
-        <textarea class="form-input form-textarea" placeholder="Your message…"></textarea>
+        <label class="form-label" data-i18n="contact.form_message">Message</label>
+        <textarea class="form-input form-textarea" id="cf-message" data-i18n-placeholder="contact.form_message_placeholder" placeholder="Your message…" required></textarea>
       </div>
-      <button class="btn-primary">Send Message →</button>
+      <button class="btn-primary" id="cf-submit" data-i18n="contact.form_submit">Send Message →</button>
+      <div id="cf-feedback" style="margin-top:12px;font-size:.85rem;display:none;"></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <span>© 2024 H.E. Dr. Tidiane Ouattara</span>
-  <span>Designed by Agbedus</span>
+  <span data-i18n="footer.copyright">© 2024 H.E. Dr. Tidiane Ouattara</span>
+  <span data-i18n="footer.designed_by">Designed by Agbedus</span>
 </footer>
 
 <!-- SHEETS -->
@@ -394,7 +401,7 @@
 <script type="text/html" id="tmpl-sheet-events">
 <div class="sheet" id="sheet-events">
   <div class="sheet-header">
-    <div class="sheet-header-label">Calendar — Events</div>
+    <div class="sheet-header-label" data-i18n="sheets.events_header">Calendar — Events</div>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
   <div class="sheet-body" style="position:relative;">
@@ -414,8 +421,8 @@
         <path class="constellation-glow" d="M20,15 L42,10 L60,20 L78,14 L88,32 L82,55 L68,70 L48,62 L30,78 L12,95"/>
       </svg>
     </div>
-    <div class="sheet-title" style="position:relative;z-index:1;">Events &amp; Engagements</div>
-    <div class="sheet-subtitle">2024–2025 · Global Agenda</div>
+    <div class="sheet-title" style="position:relative;z-index:1;" data-i18n="sheets.events_title">Events &amp; Engagements</div>
+    <div class="sheet-subtitle" data-i18n="sheets.events_subtitle">2024–2025 · Global Agenda</div>
     <div class="sheet-divider"></div>
     <div class="sheet-event-item">
       <div class="event-date-box">
@@ -490,7 +497,7 @@
 <script type="text/html" id="tmpl-sheet-photos">
 <div class="sheet" id="sheet-photos">
   <div class="sheet-header">
-    <div class="sheet-header-label">Gallery — Photo Journal</div>
+    <div class="sheet-header-label" data-i18n="sheets.photos_header">Gallery — Photo Journal</div>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
   <div class="sheet-body" style="position:relative;">
@@ -501,10 +508,10 @@
         <div class="space-moon" style="top:-10px;left:calc(50% - 2px);--orbit-dur:4s;"></div>
       </div>
     </div>
-    <div class="sheet-title" style="position:relative;z-index:1;">Photo Journal</div>
-    <div class="sheet-subtitle">International Engagements &amp; Field Visits</div>
+    <div class="sheet-title" style="position:relative;z-index:1;" data-i18n="sheets.photos_title">Photo Journal</div>
+    <div class="sheet-subtitle" data-i18n="sheets.photos_subtitle">International Engagements &amp; Field Visits</div>
     <div class="sheet-divider"></div>
-    <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:32px;">A curated selection of photographs documenting H.E. Dr. Ouattara's work across Africa and on the world stage.</p>
+    <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:32px;" data-i18n="sheets.photos_desc">A curated selection of photographs documenting H.E. Dr. Ouattara's work across Africa and on the world stage.</p>
     <div class="sheet-photo-grid">
       <div class="sheet-photo span-2">
         <div class="sheet-photo-inner" style="background-image:url('assets/images/tidiane-gallery-01.jpg');background-size:cover;background-position:center 20%;"></div>
@@ -551,7 +558,7 @@
         <div class="sheet-photo-caption">IAF profile — International Astronautical Federation</div>
       </div>
     </div>
-    <p style="font-size:.82rem;color:var(--text-muted);margin-top:8px;">
+    <p style="font-size:.82rem;color:var(--text-muted);margin-top:8px;" data-i18n="sheets.photos_press">
       For high-resolution press photography, please contact the AfSA communications office at <span style="color:var(--gold)">media@afsa.au.int</span>
     </p>
   </div>
@@ -561,154 +568,154 @@
 <script type="text/html" id="tmpl-sheet-experience">
 <div class="sheet" id="sheet-experience">
   <div class="sheet-header">
-    <div class="sheet-header-label">Career — Full Biography</div>
+    <div class="sheet-header-label" data-i18n="sheets.experience_header">Career — Full Biography</div>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
   <div class="sheet-body">
-    <div class="sheet-title">Professional Biography</div>
-    <div class="sheet-subtitle">Space · Policy · Leadership · 30+ Years</div>
+    <div class="sheet-title" data-i18n="sheets.experience_title">Professional Biography</div>
+    <div class="sheet-subtitle" data-i18n="sheets.experience_subtitle">Space · Policy · Leadership · 30+ Years</div>
     <div class="sheet-divider"></div>
-    <p style="font-size:.9rem;color:rgba(245,240,232,.65);line-height:1.85;margin-bottom:40px;">
+    <p style="font-size:.9rem;color:rgba(245,240,232,.65);line-height:1.85;margin-bottom:40px;" data-i18n="experience.bio">
       H.E. Dr. Tidiane Ouattara holds a PhD and a Master's degree in Remote Sensing and Geographical Information Systems from Université de Sherbrooke (Canada) and a Master's in Physical Geography from Université Cocody-Abidjan (Côte d'Ivoire). He is the elected President of the Council of the African Space Agency. Over a 29-year career spanning academia, the private sector, and public service, he has held leadership positions at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission. He has mobilised over US $155M for space and Earth observation programmes and has represented Africa at every major international space governance forum.
     </p>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">President, Council of the African Space Agency</div>
-          <div class="sheet-exp-org">African Space Agency (AfSA) — Cairo, Egypt</div>
+          <div class="sheet-exp-role" data-i18n="experience.e1_role">President, Council of the African Space Agency</div>
+          <div class="sheet-exp-org" data-i18n="experience.e1_org">African Space Agency (AfSA) — Cairo, Egypt</div>
         </div>
-        <div class="sheet-exp-years">Feb 2024 — Present</div>
+        <div class="sheet-exp-years" data-i18n="experience.e1_years">Feb 2024 — Present</div>
       </div>
-      <div class="sheet-exp-desc">Elected by the African Union Assembly to lead the governance of AfSA, the first continental space body with 156 permanent positions and an annual budget exceeding US $5M. Responsibilities include ensuring good governance, leading the African space programme, mobilising member states and strategic partners, negotiating resources, and promoting international partnerships.</div>
-      <div class="sheet-exp-desc" style="margin-top:12px;">Key achievements: operationalised the Agency with its official opening before 500+ guests; began staff recruitment, infrastructure acquisition, and first programme implementation; negotiated a €100M European Commission investment in the Global Gateway space component — Phase 1 (Africa–Europe Space Partnership Programme) of €45M launched January 2025; initiated and signed partnership agreements with ESA, EUMETSAT, EU Joint Research Centre, NASA, NOAA, CNSA, JAXA, ISRO, ROSCOMOS, AEB, UAESA, and numerous international financial institutions.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e1_desc">Elected by the African Union Assembly to lead the governance of AfSA, the first continental space body with 156 permanent positions and an annual budget exceeding US $5M. Responsibilities include ensuring good governance, leading the African space programme, mobilising member states and strategic partners, negotiating resources, and promoting international partnerships.</div>
+      <div class="sheet-exp-desc" style="margin-top:12px;" data-i18n="experience.e1_achievements">Key achievements: operationalised the Agency with its official opening before 500+ guests; began staff recruitment, infrastructure acquisition, and first programme implementation; negotiated a €100M European Commission investment in the Global Gateway space component — Phase 1 (Africa–Europe Space Partnership Programme) of €45M launched January 2025; initiated and signed partnership agreements with ESA, EUMETSAT, EU Joint Research Centre, NASA, NOAA, CNSA, JAXA, ISRO, ROSCOMOS, AEB, UAESA, and numerous international financial institutions.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Interim Director — STI / Head of Division — Science, Technology &amp; Space</div>
-          <div class="sheet-exp-org">African Union Commission — Addis Ababa, Ethiopia</div>
+          <div class="sheet-exp-role" data-i18n="experience.e2_role">Interim Director — STI / Head of Division — Science, Technology &amp; Space</div>
+          <div class="sheet-exp-org" data-i18n="experience.e2_org">African Union Commission — Addis Ababa, Ethiopia</div>
         </div>
-        <div class="sheet-exp-years">Sept 2016 — Nov 2024</div>
+        <div class="sheet-exp-years" data-i18n="experience.e2_years">Sept 2016 — Nov 2024</div>
       </div>
-      <div class="sheet-exp-desc">Coordinated space science and policy initiatives across the AU Commission. Integrated space science and its applications into socioeconomic development strategies. Developed and implemented space programmes including the GMES &amp; Africa Programme and the Africa–Europe Space Partnership.</div>
-      <div class="sheet-exp-desc" style="margin-top:12px;">Key achievements: developed and implemented the African Outer Space Programme centred on Earth Observation, satellite communications, navigation and positioning, and astronomy and space science across 9 years; drafted the African Space Policy and Strategy ratified by all 55 member states; secured consensus and elaborated common African positions on space policy and programme issues; organised the first Africa–Europe Space Policy Dialogue in Dakar (2022); led the creation and operationalisation of AfSA with a 156-position structure approved by Heads of State; successfully implemented two phases of the GMES &amp; Africa Programme (€55M) involving 170+ institutions across 45 African countries — training 15,000 professionals and students, awarding 20 grants (€35M+) and 46 scholarships, equipping 11 countries with satellite data reception stations, and establishing the Women in GMES network (250+ members) and the GMES &amp; Africa Academic Network (40+ universities, 120+ faculty).</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e2_desc">Coordinated space science and policy initiatives across the AU Commission. Integrated space science and its applications into socioeconomic development strategies. Developed and implemented space programmes including the GMES &amp; Africa Programme and the Africa–Europe Space Partnership.</div>
+      <div class="sheet-exp-desc" style="margin-top:12px;" data-i18n="experience.e2_achievements">Key achievements: developed and implemented the African Outer Space Programme centred on Earth Observation, satellite communications, navigation and positioning, and astronomy and space science across 9 years; drafted the African Space Policy and Strategy ratified by all 55 member states; secured consensus and elaborated common African positions on space policy and programme issues; organised the first Africa–Europe Space Policy Dialogue in Dakar (2022); led the creation and operationalisation of AfSA with a 156-position structure approved by Heads of State; successfully implemented two phases of the GMES &amp; Africa Programme (€55M) involving 170+ institutions across 45 African countries — training 15,000 professionals and students, awarding 20 grants (€35M+) and 46 scholarships, equipping 11 countries with satellite data reception stations, and establishing the Women in GMES network (250+ members) and the GMES &amp; Africa Academic Network (40+ universities, 120+ faculty).</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Head Manager — Geospatial Data Management &amp; Ecosystem Assessment</div>
-          <div class="sheet-exp-org">Environment and Climate Change Canada — Canadian Wildlife Service</div>
+          <div class="sheet-exp-role" data-i18n="experience.e3_role">Head Manager — Geospatial Data Management &amp; Ecosystem Assessment</div>
+          <div class="sheet-exp-org" data-i18n="experience.e3_org">Environment and Climate Change Canada — Canadian Wildlife Service</div>
         </div>
-        <div class="sheet-exp-years">Aug 2012 — Sept 2016</div>
+        <div class="sheet-exp-years" data-i18n="experience.e3_years">Aug 2012 — Sept 2016</div>
       </div>
-      <div class="sheet-exp-desc">Led Earth observation and geospatial data management initiatives. Provided national leadership in applying geomatics to landscape assessment and wildlife habitat conservation planning. Developed the geospatial component of Canada's National Conservation Plan.</div>
-      <div class="sheet-exp-desc" style="margin-top:12px;">Key achievements: created and chaired the CWS Data Management Committee and Working Group; authored the CWS Sensitive Data Publication Policy and the Unit's Integrated Business Plan; managed 16 employees with a budget of CAD $1.2M+ including salaries, grants and contributions, and O&amp;M.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e3_desc">Led Earth observation and geospatial data management initiatives. Provided national leadership in applying geomatics to landscape assessment and wildlife habitat conservation planning. Developed the geospatial component of Canada's National Conservation Plan.</div>
+      <div class="sheet-exp-desc" style="margin-top:12px;" data-i18n="experience.e3_achievements">Key achievements: created and chaired the CWS Data Management Committee and Working Group; authored the CWS Sensitive Data Publication Policy and the Unit's Integrated Business Plan; managed 16 employees with a budget of CAD $1.2M+ including salaries, grants and contributions, and O&amp;M.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Manager — Landscape and Protected Areas Policy &amp; Planning</div>
-          <div class="sheet-exp-org">Environment Canada — Canadian Wildlife Service</div>
+          <div class="sheet-exp-role" data-i18n="experience.e4_role">Manager — Landscape and Protected Areas Policy &amp; Planning</div>
+          <div class="sheet-exp-org" data-i18n="experience.e4_org">Environment Canada — Canadian Wildlife Service</div>
         </div>
-        <div class="sheet-exp-years">Apr 2010 — Jul 2012</div>
+        <div class="sheet-exp-years" data-i18n="experience.e4_years">Apr 2010 — Jul 2012</div>
       </div>
-      <div class="sheet-exp-desc">Built a fully operational Policy and Planning Section from 25% to 100% staffing (20 employees) in six months. Designed and implemented the section's first integrated strategic business plan covering a budget of CAD $3.3M+ including salaries, grants/contributions (CAD $1.5M), and O&amp;M. Led national programme coordination across Environment Canada's regional offices and with other departments.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e4_desc">Built a fully operational Policy and Planning Section from 25% to 100% staffing (20 employees) in six months. Designed and implemented the section's first integrated strategic business plan covering a budget of CAD $3.3M+ including salaries, grants/contributions (CAD $1.5M), and O&amp;M. Led national programme coordination across Environment Canada's regional offices and with other departments.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Manager — Canadian Digital Elevation Model Programme</div>
-          <div class="sheet-exp-org">Natural Resources Canada — Earth Science Sector</div>
+          <div class="sheet-exp-role" data-i18n="experience.e5_role">Manager — Canadian Digital Elevation Model Programme</div>
+          <div class="sheet-exp-org" data-i18n="experience.e5_org">Natural Resources Canada — Earth Science Sector</div>
         </div>
-        <div class="sheet-exp-years">Jun 2009 — Mar 2010</div>
+        <div class="sheet-exp-years" data-i18n="experience.e5_years">Jun 2009 — Mar 2010</div>
       </div>
-      <div class="sheet-exp-desc">Managed the Canadian Digital Elevation Data (CDED) project under GEOBASE and the Limited Access Road project under the Topographic Map Revision Initiative. Revitalised the CDED project by securing buy-in and partnerships with provincial governments, NGOs, and academia. Conducted SWOT analysis. Led collective staffing activities for the Mapping Directorate.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e5_desc">Managed the Canadian Digital Elevation Data (CDED) project under GEOBASE and the Limited Access Road project under the Topographic Map Revision Initiative. Revitalised the CDED project by securing buy-in and partnerships with provincial governments, NGOs, and academia. Conducted SWOT analysis. Led collective staffing activities for the Mapping Directorate.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Head — Knowledge Management, Bilateral &amp; Multilateral Strategies</div>
-          <div class="sheet-exp-org">Natural Resources Canada — Science and Policy Integration</div>
+          <div class="sheet-exp-role" data-i18n="experience.e6_role">Head — Knowledge Management, Bilateral &amp; Multilateral Strategies</div>
+          <div class="sheet-exp-org" data-i18n="experience.e6_org">Natural Resources Canada — Science and Policy Integration</div>
         </div>
-        <div class="sheet-exp-years">Apr 2008 — Jun 2009</div>
+        <div class="sheet-exp-years" data-i18n="experience.e6_years">Apr 2008 — Jun 2009</div>
       </div>
-      <div class="sheet-exp-desc">Developed the integrated knowledge management business plan and provided strategic advice on NRCan's bilateral and multilateral strategies in natural resources. Established strategic direction for the new Knowledge Management Strategy Unit.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e6_desc">Developed the integrated knowledge management business plan and provided strategic advice on NRCan's bilateral and multilateral strategies in natural resources. Established strategic direction for the new Knowledge Management Strategy Unit.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Senior Science &amp; Technology Policy Advisor</div>
-          <div class="sheet-exp-org">Natural Resources Canada — Office of the Chief Scientist</div>
+          <div class="sheet-exp-role" data-i18n="experience.e7_role">Senior Science &amp; Technology Policy Advisor</div>
+          <div class="sheet-exp-org" data-i18n="experience.e7_org">Natural Resources Canada — Office of the Chief Scientist</div>
         </div>
-        <div class="sheet-exp-years">Nov 2006 — Apr 2008</div>
+        <div class="sheet-exp-years" data-i18n="experience.e7_years">Nov 2006 — Apr 2008</div>
       </div>
-      <div class="sheet-exp-desc">Provided strategic S&amp;T policy advice to the Chief Scientist and Assistant Deputy Minister. Led the concept and development of NRCan's S&amp;T Strategy prospectus covering priority-setting, governance, capacity-building, collaboration, and stakeholder engagement. Analysed S&amp;T policy across 9 innovative countries (France, UK, US, China, Japan, Norway, Finland, Australia, New Zealand).</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e7_desc">Provided strategic S&amp;T policy advice to the Chief Scientist and Assistant Deputy Minister. Led the concept and development of NRCan's S&amp;T Strategy prospectus covering priority-setting, governance, capacity-building, collaboration, and stakeholder engagement. Analysed S&amp;T policy across 9 innovative countries (France, UK, US, China, Japan, Norway, Finland, Australia, New Zealand).</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Senior Manager — International Relations</div>
-          <div class="sheet-exp-org">Canadian Space Agency</div>
+          <div class="sheet-exp-role" data-i18n="experience.e8_role">Senior Manager — International Relations</div>
+          <div class="sheet-exp-org" data-i18n="experience.e8_org">Canadian Space Agency</div>
         </div>
-        <div class="sheet-exp-years">Oct 2004 — Oct 2006</div>
+        <div class="sheet-exp-years" data-i18n="experience.e8_years">Oct 2004 — Oct 2006</div>
       </div>
-      <div class="sheet-exp-desc">Provided strategic advice to senior management and the CSA Executive Committee on international space policy. Developed the first CSA Strategic Framework for Earth Observation in Africa and MoUs with the Argentine Space Agency and Egypt's NARSS. Led the Canadian delegation to UNCOPUOS for two years. Conducted scientific and commercial missions to Egypt, Algeria, and South Africa.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e8_desc">Provided strategic advice to senior management and the CSA Executive Committee on international space policy. Developed the first CSA Strategic Framework for Earth Observation in Africa and MoUs with the Argentine Space Agency and Egypt's NARSS. Led the Canadian delegation to UNCOPUOS for two years. Conducted scientific and commercial missions to Egypt, Algeria, and South Africa.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Geomatics Engineer &amp; International Relations Officer</div>
-          <div class="sheet-exp-org">Natural Resources Canada</div>
+          <div class="sheet-exp-role" data-i18n="experience.e9_role">Geomatics Engineer &amp; International Relations Officer</div>
+          <div class="sheet-exp-org" data-i18n="experience.e9_org">Natural Resources Canada</div>
         </div>
-        <div class="sheet-exp-years">May 2002 — Sept 2004</div>
+        <div class="sheet-exp-years" data-i18n="experience.e9_years">May 2002 — Sept 2004</div>
       </div>
-      <div class="sheet-exp-desc">Developed an expert system for landslide monitoring and a remote sensing/GIS methodology for rapid change detection. Authored NRCan's first Geomatics Strategy for Africa. Led scientific and commercial missions to Gabon, Senegal, Kenya, and Ethiopia. Negotiated partnership agreements with key African geomatics organisations including the Centre de Suivi Écologique du Sénégal and the Regional Centre for Mapping of Resources for Development (Kenya).</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e9_desc">Developed an expert system for landslide monitoring and a remote sensing/GIS methodology for rapid change detection. Authored NRCan's first Geomatics Strategy for Africa. Led scientific and commercial missions to Gabon, Senegal, Kenya, and Ethiopia. Negotiated partnership agreements with key African geomatics organisations including the Centre de Suivi Écologique du Sénégal and the Regional Centre for Mapping of Resources for Development (Kenya).</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Geomatics &amp; Earth Observation Consultant</div>
-          <div class="sheet-exp-org">INERA (Burkina Faso) / GEOMAT International (Montréal)</div>
+          <div class="sheet-exp-role" data-i18n="experience.e10_role">Geomatics &amp; Earth Observation Consultant</div>
+          <div class="sheet-exp-org" data-i18n="experience.e10_org">INERA (Burkina Faso) / GEOMAT International (Montréal)</div>
         </div>
-        <div class="sheet-exp-years">Oct 2001 — Apr 2002</div>
+        <div class="sheet-exp-years" data-i18n="experience.e10_years">Oct 2001 — Apr 2002</div>
       </div>
-      <div class="sheet-exp-desc">Strengthened scientific and technical capacity of researchers at INERA in Earth observation and GIS for sustainable development. Automated horticulture mapping using remote sensing in Montérégie for GEOMAT International.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e10_desc">Strengthened scientific and technical capacity of researchers at INERA in Earth observation and GIS for sustainable development. Automated horticulture mapping using remote sensing in Montérégie for GEOMAT International.</div>
     </div>
 
     <div class="sheet-exp-item">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Research Associate &amp; University Lecturer</div>
-          <div class="sheet-exp-org">Université de Sherbrooke, Canada</div>
+          <div class="sheet-exp-role" data-i18n="experience.e11_role">Research Associate &amp; University Lecturer</div>
+          <div class="sheet-exp-org" data-i18n="experience.e11_org">Université de Sherbrooke, Canada</div>
         </div>
-        <div class="sheet-exp-years">Sept 1996 — Aug 2001</div>
+        <div class="sheet-exp-years" data-i18n="experience.e11_years">Sept 1996 — Aug 2001</div>
       </div>
-      <div class="sheet-exp-desc">Taught undergraduate courses in hydrology, Earth observation (satellite image processing and analysis), geopolitics and geography of Africa, climatology and hydrometeorology, GIS, and geographical methods and techniques. Developed an original remote sensing approach for land-cover and land-use change estimation and a new water erosion model for high-relief semi-arid regions using satellite imagery. Published multiple scientific papers.</div>
+      <div class="sheet-exp-desc" data-i18n="experience.e11_desc">Taught undergraduate courses in hydrology, Earth observation (satellite image processing and analysis), geopolitics and geography of Africa, climatology and hydrometeorology, GIS, and geographical methods and techniques. Developed an original remote sensing approach for land-cover and land-use change estimation and a new water erosion model for high-relief semi-arid regions using satellite imagery. Published multiple scientific papers.</div>
     </div>
 
     <div class="sheet-exp-item" style="border-bottom:none;">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Education &amp; Professional Development</div>
-          <div class="sheet-exp-org">Selected qualifications</div>
+          <div class="sheet-exp-role" data-i18n="sheets.experience_edu_title">Education &amp; Professional Development</div>
+          <div class="sheet-exp-org" data-i18n="sheets.experience_edu_sub">Selected qualifications</div>
         </div>
       </div>
       <div class="sheet-exp-desc">
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;padding:0;">
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> PhD in Remote Sensing and Geographical Information Systems — Université de Sherbrooke, 2001</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Master's in Remote Sensing and GIS — Université de Sherbrooke, 1996</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Master's in Physical Geography — Université Cocody-Abidjan, Côte d'Ivoire, 1993</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Executive Leadership Program — Canada School of Public Service, 2010</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.edu1"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> PhD in Remote Sensing and Geographical Information Systems — Université de Sherbrooke, 2001</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.edu2"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Master's in Remote Sensing and GIS — Université de Sherbrooke, 1996</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.edu3"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Master's in Physical Geography — Université Cocody-Abidjan, Côte d'Ivoire, 1993</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.edu4"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Executive Leadership Program — Canada School of Public Service, 2010</li>
         </ul>
       </div>
     </div>
@@ -716,19 +723,19 @@
     <div class="sheet-exp-item" style="border-bottom:none;padding-top:20px;">
       <div class="sheet-exp-header">
         <div>
-          <div class="sheet-exp-role">Honours &amp; Distinctions</div>
-          <div class="sheet-exp-org">Selected recognitions</div>
+          <div class="sheet-exp-role" data-i18n="sheets.experience_honours_title">Honours &amp; Distinctions</div>
+          <div class="sheet-exp-org" data-i18n="sheets.experience_honours_sub">Selected recognitions</div>
         </div>
       </div>
       <div class="sheet-exp-desc">
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;padding:0;">
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Prix d'Excellence du Meilleur Ivoirien de la Diaspora, 2023</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> SpaceSTAR Conference Recognition Award — Sousse, 2023</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> African Association of Geomatics Professionals Award, 2022</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> AU Commissioner's Award — Department of Science, Technology &amp; Innovation, 2021</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Natural Resources Canada Merit Award, 2008</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Knight of the Order of Academic Palms — Burkina Faso, 2006</li>
-          <li style="display:flex;gap:12px;"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Canadian Space Agency President's Award, 2005</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour1"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Prix d'Excellence du Meilleur Ivoirien de la Diaspora, 2023</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour2"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> SpaceSTAR Conference Recognition Award — Sousse, 2023</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour3"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> African Association of Geomatics Professionals Award, 2022</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour4"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> AU Commissioner's Award — Department of Science, Technology &amp; Innovation, 2021</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour5"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Natural Resources Canada Merit Award, 2008</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour6"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Knight of the Order of Academic Palms — Burkina Faso, 2006</li>
+          <li style="display:flex;gap:12px;" data-i18n="experience.honour7"><i class="fal fa-chevron-right" style="color:var(--gold);flex-shrink:0;margin-top:3px;"></i> Canadian Space Agency President's Award, 2005</li>
         </ul>
       </div>
     </div>
@@ -740,18 +747,18 @@
 <script type="text/html" id="tmpl-sheet-author">
 <div class="sheet" id="sheet-author">
   <div class="sheet-header">
-    <div class="sheet-header-label">Author</div>
+    <div class="sheet-header-label" data-i18n="sheets.author_header">Author</div>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
   <div class="sheet-subtabs">
-    <button class="sheet-subtab active" data-subtab="author-books">Books</button>
-    <button class="sheet-subtab" data-subtab="author-interviews">Interviews &amp; Media</button>
-    <button class="sheet-subtab" data-subtab="author-speeches">Selected Speeches</button>
+    <button class="sheet-subtab active" data-subtab="author-books" data-i18n="sheets.author_tab_books">Books</button>
+    <button class="sheet-subtab" data-subtab="author-interviews" data-i18n="sheets.author_tab_interviews">Interviews &amp; Media</button>
+    <button class="sheet-subtab" data-subtab="author-speeches" data-i18n="sheets.author_tab_speeches">Selected Speeches</button>
   </div>
   <div class="sheet-body">
     <div class="subtab-panel active" id="subtab-author-books">
-      <div class="sheet-title">Books by H.E. Dr. Tidiane Ouattara</div>
-      <div class="sheet-subtitle">Each title available in English &amp; French</div>
+      <div class="sheet-title" data-i18n="sheets.author_books_title">Books by H.E. Dr. Tidiane Ouattara</div>
+      <div class="sheet-subtitle" data-i18n="sheets.author_books_subtitle">Each title available in English &amp; French</div>
       <div class="sheet-divider"></div>
 
       <div class="sheet-book-detail">
@@ -764,10 +771,10 @@
           </div>
         </div>
         <div>
-          <div class="book-status">Online Publication</div>
+          <div class="book-status" data-i18n="sheets.online_publication">Online Publication</div>
           <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">The Evolution of the African Space Policy and Strategy</div>
           <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">A comprehensive account of the journey towards a unified African space policy framework. This book traces the diplomatic, scientific, and political milestones that shaped the continent's collective space agenda, from early resolutions of the African Union to the establishment of the African Space Agency and the ratification of the African Space Policy and Strategy by all 55 member states.</div>
-          <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
+          <button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>
         </div>
       </div>
 
@@ -781,10 +788,10 @@
           </div>
         </div>
         <div>
-          <div class="book-status">Online Publication</div>
+          <div class="book-status" data-i18n="sheets.online_publication">Online Publication</div>
           <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">L'Évolution de la Politique et de la Stratégie Spatiales Africaines</div>
           <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">Un récit complet du cheminement vers un cadre unifié de politique spatiale africaine. Cet ouvrage retrace les étapes diplomatiques, scientifiques et politiques qui ont façonné l'agenda spatial collectif du continent, des premières résolutions de l'Union africaine à la création de l'Agence spatiale africaine et à la ratification de la Politique et de la Stratégie spatiales africaines par les 55 États membres.</div>
-          <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
+          <button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>
         </div>
       </div>
 
@@ -798,10 +805,10 @@
           </div>
         </div>
         <div>
-          <div class="book-status">Online Publication</div>
+          <div class="book-status" data-i18n="sheets.online_publication">Online Publication</div>
           <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">Space Governance in Africa</div>
           <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">An examination of the institutional, legal, and regulatory frameworks shaping space activities across the African continent. This volume analyses the mechanisms for continental coordination, the harmonisation of national space legislation, and the role of regional cooperation in building Africa's space governance architecture.</div>
-          <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
+          <button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>
         </div>
       </div>
 
@@ -815,10 +822,10 @@
           </div>
         </div>
         <div>
-          <div class="book-status">Online Publication</div>
+          <div class="book-status" data-i18n="sheets.online_publication">Online Publication</div>
           <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">La Gouvernance de l'Espace en Afrique</div>
           <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">Un examen des cadres institutionnels, juridiques et réglementaires qui façonnent les activités spatiales à travers le continent africain. Ce volume analyse les mécanismes de coordination continentale, l'harmonisation des législations spatiales nationales et le rôle de la coopération régionale dans la construction de l'architecture de gouvernance spatiale africaine.</div>
-          <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
+          <button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>
         </div>
       </div>
 
@@ -832,10 +839,10 @@
           </div>
         </div>
         <div>
-          <div class="book-status">Online Publication</div>
+          <div class="book-status" data-i18n="sheets.online_publication">Online Publication</div>
           <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">Considerations for a Sound African Space Programme</div>
           <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">A strategic blueprint outlining the technical, financial, and human-capital considerations necessary for building a sustainable and sovereign African space programme. The book addresses infrastructure development, workforce training, international cooperation, and the economic case for space investment across the continent.</div>
-          <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
+          <button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>
         </div>
       </div>
 
@@ -849,32 +856,32 @@
           </div>
         </div>
         <div>
-          <div class="book-status">Online Publication</div>
+          <div class="book-status" data-i18n="sheets.online_publication">Online Publication</div>
           <div class="book-meta-title" style="font-family:var(--ff-display);font-size:1.2rem;color:var(--white);margin-bottom:10px;">Considérations pour un Programme Spatial Africain Robuste</div>
           <div style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">Un plan stratégique décrivant les considérations techniques, financières et de capital humain nécessaires à la construction d'un programme spatial africain durable et souverain. L'ouvrage aborde le développement des infrastructures, la formation de la main-d'œuvre, la coopération internationale et les arguments économiques en faveur de l'investissement spatial sur le continent.</div>
-          <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
+          <button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>
         </div>
       </div>
 
     </div>
 
     <div class="subtab-panel" id="subtab-author-interviews">
-      <div class="sheet-title">Interviews &amp; Media</div>
-      <div class="sheet-subtitle">Press, broadcast, and digital media appearances</div>
+      <div class="sheet-title" data-i18n="sheets.interviews_title">Interviews &amp; Media</div>
+      <div class="sheet-subtitle" data-i18n="sheets.interviews_subtitle">Press, broadcast, and digital media appearances</div>
       <div class="sheet-divider"></div>
       <div class="subtab-placeholder">
         <div class="subtab-placeholder-icon"><i class="fal fa-microphone"></i></div>
-        <div class="subtab-placeholder-text">Content coming soon</div>
+        <div class="subtab-placeholder-text" data-i18n="sheets.content_soon">Content coming soon</div>
       </div>
     </div>
 
     <div class="subtab-panel" id="subtab-author-speeches">
-      <div class="sheet-title">Selected Speeches</div>
-      <div class="sheet-subtitle">Keynote addresses and presentations</div>
+      <div class="sheet-title" data-i18n="sheets.speeches_title">Selected Speeches</div>
+      <div class="sheet-subtitle" data-i18n="sheets.speeches_subtitle">Keynote addresses and presentations</div>
       <div class="sheet-divider"></div>
       <div class="subtab-placeholder">
         <div class="subtab-placeholder-icon"><i class="fal fa-podium"></i></div>
-        <div class="subtab-placeholder-text">Content coming soon</div>
+        <div class="subtab-placeholder-text" data-i18n="sheets.content_soon">Content coming soon</div>
       </div>
     </div>
 

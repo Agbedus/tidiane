@@ -1,3 +1,56 @@
+/* ── Internationalization (i18n) ───────────────────────── */
+let currentLang = localStorage.getItem('tidiane-lang') || 'en';
+let translations = {};
+
+async function loadTranslations(lang) {
+  try {
+    const res = await fetch(`/api/translations/${lang}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    translations = await res.json();
+    currentLang = lang;
+    localStorage.setItem('tidiane-lang', lang);
+    applyTranslations();
+    updateLangToggle();
+    updateHtmlLang();
+  } catch (err) {
+    console.error('Failed to load translations:', err);
+  }
+}
+
+function getNestedValue(obj, path) {
+  return path.split('.').reduce((acc, key) => acc && acc[key], obj);
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const value = getNestedValue(translations, key);
+    if (value) el.textContent = value;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    const value = getNestedValue(translations, key);
+    if (value) el.placeholder = value;
+  });
+}
+
+function updateLangToggle() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === currentLang);
+  });
+}
+
+function updateHtmlLang() {
+  document.documentElement.lang = currentLang;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadTranslations(currentLang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => loadTranslations(btn.dataset.lang));
+  });
+});
+
 /* ── NAV scroll ─────────────────────────────────────────── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -128,3 +181,43 @@ function loadSheetPartials() {
 }
 
 loadSheetPartials();
+
+/* ── Contact form ───────────────────────────────────────── */
+const contactForm = document.getElementById('contact-form');
+const feedback = document.getElementById('cf-feedback');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('cf-submit');
+    const origText = btn.textContent;
+    btn.textContent = getNestedValue(translations, 'contact.form_sending') || 'Sending…';
+    btn.disabled = true;
+
+    const payload = {
+      name: document.getElementById('cf-name').value,
+      organisation: document.getElementById('cf-org').value,
+      email: document.getElementById('cf-email').value,
+      message: document.getElementById('cf-message').value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      feedback.style.display = 'block';
+      feedback.style.color = data.success ? 'var(--gold)' : '#e74c3c';
+      feedback.textContent = data.detail;
+      if (data.success) contactForm.reset();
+    } catch {
+      feedback.style.display = 'block';
+      feedback.style.color = '#e74c3c';
+      feedback.textContent = getNestedValue(translations, 'contact.form_error') || 'Could not reach the server. Please try again later.';
+    } finally {
+      btn.textContent = origText;
+      btn.disabled = false;
+    }
+  });
+}

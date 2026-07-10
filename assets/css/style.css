@@ -1110,6 +1110,40 @@ footer span { color: var(--gold); }
 .nav-links a {
   transition: color .25s, transform .3s cubic-bezier(.22,1,.36,1);
 }
+
+/* ── LANGUAGE TOGGLE ─────────────────────────────────────── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.lang-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+.lang-btn {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--ff-mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  cursor: pointer;
+  transition: background .25s, color .25s;
+}
+.lang-btn:first-child {
+  border-right: 1px solid var(--border);
+}
+.lang-btn:hover {
+  color: var(--gold);
+}
+.lang-btn.active {
+  background: rgba(184,151,90,.15);
+  color: var(--gold);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column; gap: 5px;
