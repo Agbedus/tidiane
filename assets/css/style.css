@@ -1,4 +1,6 @@
 /* ── FONTS ─────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @font-face {
   font-family: 'French Free Demo';
   src: url('../fonts/french-typeface/French-FreeDemo-BF674ee644817f6.otf') format('opentype');
@@ -19,9 +21,11 @@
   --white:      #FFFFFF;
   --text-muted: #8899AA;
   --border:     rgba(184,151,90,.22);
+  --navy-deep:  #071422;
   --sheet-bg:   #0D1F35;
 
   --ff-display: 'French Free Demo', Georgia, serif;
+  --ff-heading: 'Playfair Display', Georgia, serif;
   --ff-display-alt: 'Cormorant Garamond', Georgia, serif;
   --ff-body:    'Inter', system-ui, sans-serif;
   --ff-mono:    'DM Mono', monospace;
@@ -36,8 +40,9 @@ body {
   background: var(--navy);
   color: var(--cream);
   font-family: var(--ff-body);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
+  letter-spacing: .015em;
   overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
@@ -68,6 +73,7 @@ img { display: block; width: 100%; }
   width: auto;
   display: block;
   transition: opacity .3s;
+  mix-blend-mode: multiply;
 }
 .nav-logo-img:hover { opacity: .8; }
 .fal, .fa-light { font-size: inherit; }
@@ -88,8 +94,7 @@ img { display: block; width: 100%; }
 
 /* ── HERO ─────────────────────────────────────────────────── */
 #hero {
-  min-height: 0;
-  height: 95vh;
+  min-height: 95vh;
   display: grid;
   grid-template-columns: 1.3fr 0.8fr;
   position: relative;
@@ -112,7 +117,7 @@ img { display: block; width: 100%; }
   transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
 }
 .hero-name {
-  font-family: var(--ff-display);
+  font-family: var(--ff-heading);
   font-size: clamp(4.5rem, 8vw, 8rem);
   font-weight: 500;
   line-height: 1.05;
@@ -313,7 +318,7 @@ section { padding: 120px 80px; position: relative; }
   margin-bottom: 16px;
 }
 .section-heading {
-  font-family: var(--ff-display);
+  font-family: var(--ff-heading);
   font-size: clamp(2.4rem, 4vw, 3.6rem);
   font-weight: 500;
   line-height: 1.1;
@@ -324,7 +329,7 @@ section { padding: 120px 80px; position: relative; }
 
 /* ── ABOUT ────────────────────────────────────────────────── */
 #about {
-  background: var(--navy);
+  background: var(--navy-deep);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -369,7 +374,7 @@ section { padding: 120px 80px; position: relative; }
   margin-top: 6px;
   letter-spacing: .05em;
 }
-.about-text p { color: rgba(245,240,232,.7); margin-bottom: 20px; font-size: .95rem; }
+.about-text p { color: rgba(245,240,232,.7); margin-bottom: 20px; font-size: 1rem; letter-spacing: .02em; }
 .about-quote {
   margin-top: 40px;
   padding: 28px 32px;
@@ -383,7 +388,8 @@ section { padding: 120px 80px; position: relative; }
 
 /* ── CARDS GRID (events, photos, experience) ──────────────── */
 .cards-section {
-  background: var(--navy);
+  padding: 120px 80px;
+  background: var(--navy-mid);
   border-top: 1px solid var(--border);
   position: relative;
 }
@@ -442,7 +448,7 @@ section { padding: 120px 80px; position: relative; }
   line-height: 1.3;
   margin-bottom: 10px;
 }
-.card-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.65; }
+.card-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.65; letter-spacing: .015em; }
 .card-arrow {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: 18px;
@@ -466,7 +472,7 @@ section { padding: 120px 80px; position: relative; }
 
 /* ── EXPERIENCE TIMELINE ─────────────────────────────────── */
 #experience {
-  background: var(--navy-mid);
+  background: var(--navy-deep);
   border-top: 1px solid var(--border);
 }
 .timeline {
@@ -520,11 +526,11 @@ section { padding: 120px 80px; position: relative; }
   font-weight: 500;
   margin-bottom: 12px;
 }
-.tl-desc { font-size: .88rem; color: rgba(245,240,232,.6); line-height: 1.75; }
+.tl-desc { font-size: .92rem; color: rgba(245,240,232,.6); line-height: 1.75; letter-spacing: .015em; }
 
 /* ── BOOKS ───────────────────────────────────────────────── */
 #books {
-  background: var(--navy);
+  background: var(--navy-mid);
   border-top: 1px solid var(--border);
 }
 .books-grid {
@@ -553,7 +559,7 @@ section { padding: 120px 80px; position: relative; }
   position: relative;
 }
 .book-cover-title {
-  font-family: var(--ff-display);
+  font-family: var(--ff-heading);
   font-size: 1.3rem;
   font-weight: 500;
   color: var(--white);
@@ -595,7 +601,7 @@ section { padding: 120px 80px; position: relative; }
   color: var(--cream);
   margin-bottom: 8px;
 }
-.book-meta-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; }
+.book-meta-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.6; letter-spacing: .015em; }
 .book-buy-btn {
   display: inline-flex; align-items: center; gap: 8px;
   margin-top: 16px;
@@ -614,14 +620,14 @@ section { padding: 120px 80px; position: relative; }
 
 /* ── CONTACT / FOOTER ─────────────────────────────────────── */
 #contact {
-  background: var(--navy-mid);
+  background: var(--navy);
   border-top: 1px solid var(--border);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: start;
 }
-.contact-info p { color: rgba(245,240,232,.6); font-size: .9rem; margin-bottom: 32px; max-width: 380px; }
+.contact-info p { color: rgba(245,240,232,.6); font-size: .95rem; margin-bottom: 32px; max-width: 380px; letter-spacing: .015em; }
 .contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
 .contact-link {
   display: flex; align-items: center; gap: 14px;
@@ -726,7 +732,7 @@ footer span { color: var(--gold); }
 .sheet-body::-webkit-scrollbar { width: 3px; }
 .sheet-body::-webkit-scrollbar-thumb { background: var(--gold-dim); }
 .sheet-title {
-  font-family: var(--ff-display);
+  font-family: var(--ff-heading);
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 1.1;
@@ -817,7 +823,7 @@ footer span { color: var(--gold); }
   color: var(--gold);
   margin-bottom: 8px;
 }
-.event-info-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.6; }
+.event-info-desc { font-size: .88rem; color: var(--text-muted); line-height: 1.6; letter-spacing: .015em; }
 
 /* Sheet experience */
 .sheet-exp-item {
@@ -844,7 +850,7 @@ footer span { color: var(--gold); }
   letter-spacing: .1em;
   white-space: nowrap;
 }
-.sheet-exp-desc { font-size: .87rem; color: rgba(245,240,232,.6); line-height: 1.75; }
+.sheet-exp-desc { font-size: .92rem; color: rgba(245,240,232,.6); line-height: 1.75; letter-spacing: .015em; }
 
 /* Sheet book */
 .sheet-book-detail {
@@ -1147,33 +1153,102 @@ footer span { color: var(--gold); }
 .nav-toggle {
   display: none;
   flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 4px;
+  cursor: pointer; padding: 8px;
 }
 .nav-toggle span {
   display: block;
-  width: 24px; height: 1px;
+  width: 24px; height: 1.5px;
   background: var(--cream);
-  transition: .3s;
+  transition: transform .3s, opacity .3s;
+}
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 900px) {
-  section { padding: 80px 32px; }
+  section { padding: 80px 16px; }
+  .cards-section { padding: 80px 16px; }
   #hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 120px 32px 48px; }
-  .hero-right { display: none; }
-  #about { grid-template-columns: 1fr; gap: 40px; padding: 80px 32px; }
+  .hero-left { padding: 120px 16px 48px; }
+  .hero-right {
+    display: block;
+    height: 50vh;
+    min-height: 280px;
+    max-height: 400px;
+  }
+  .portrait-art {
+    width: 100%;
+    transform: none;
+  }
+  .portrait-badge { bottom: 32px; left: 16px; }
+  #about { grid-template-columns: 1fr; gap: 40px; padding: 80px 16px; }
   .cards-grid { grid-template-columns: 1fr; }
   .books-grid { grid-template-columns: 1fr; }
   .timeline { grid-template-columns: 80px 1fr; gap: 0 24px; }
   .timeline::before { left: 79px; }
-  #contact { grid-template-columns: 1fr; gap: 48px; padding: 80px 32px; }
-  footer { padding: 24px 32px; flex-direction: column; gap: 12px; text-align: center; }
-  nav { padding: 0 24px; }
+  #contact { grid-template-columns: 1fr; gap: 48px; padding: 80px 16px; }
+  footer { padding: 24px 16px; flex-direction: column; gap: 12px; text-align: center; }
+  nav { padding: 0 16px; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .sheet-photo-grid { grid-template-columns: 1fr; }
   .sheet-book-detail { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr 1fr; }
   .cards-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  section { padding: 60px 16px; }
+  .cards-section { padding: 60px 16px; }
+  .hero-left { padding: 100px 16px 32px; }
+  .hero-name { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .hero-title { font-size: .85rem; }
+  .hero-bio { font-size: .82rem; }
+  .hero-cta-row { flex-direction: column; gap: 12px; }
+  .hero-cta-row .btn-primary,
+  .hero-cta-row .btn-ghost { width: 100%; justify-content: center; }
+  .hero-right {
+    height: 40vh;
+    min-height: 220px;
+    max-height: 320px;
+  }
+  .portrait-badge { bottom: 20px; left: 16px; padding-left: 14px; }
+  .portrait-badge-title { font-size: .55rem; }
+  .portrait-badge-org { font-size: .9rem; }
+  #about { padding: 60px 16px; gap: 32px; }
+  .about-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-number { font-size: 2rem; }
+  .stat-label { font-size: .72rem; }
+  .about-quote { padding: 20px 16px; font-size: 1rem; }
+  .section-heading { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .timeline { grid-template-columns: 1fr; gap: 0; }
+  .timeline::before { display: none; }
+  .tl-year { text-align: left; padding-bottom: 8px; }
+  .tl-content { padding: 0 0 40px 0; }
+  .tl-content::before { display: none; }
+  .tl-role { font-size: 1rem; }
+  .tl-desc { font-size: .82rem; }
+  .books-grid { gap: 24px; }
+  .book-cover { height: 260px; }
+  .book-cover-title { font-size: 1.1rem; }
+  #contact { padding: 60px 16px; gap: 32px; }
+  .contact-info p { font-size: .82rem; }
+  .sheet-body { padding: 32px 16px; }
+  .sheet-title { font-size: 1.8rem; }
+  .sheet-event-item { grid-template-columns: 72px 1fr; gap: 16px; }
+  .sheet-exp-header { flex-direction: column; gap: 6px; }
+  .sheet-exp-years { white-space: normal; }
+  footer { padding: 20px 16px; }
+  /* Bigger touch targets for mobile nav */
+  .nav-links a {
+    font-size: .85rem;
+    padding: 12px 0;
+  }
 }
