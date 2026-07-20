@@ -93,15 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => loadTranslations(btn.dataset.lang));
   });
   try { loadSheetPartials(); } catch(e) { console.error('Sheet load error:', e); }
-  loadGalleryPhotos();
+  try { loadGalleryPhotos(); } catch(e) { console.error('Gallery load error:', e); }
   loadTranslations(currentLang);
 });
 
 /* ── NAV scroll ─────────────────────────────────────────── */
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+}
 
 /* ── Theme toggle (light / dark) ───────────────────────── */
 function applyTheme(theme) {
@@ -536,9 +538,9 @@ document.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await fetchTestimonials();
-  renderTestimonials();
-  startTestimonialAutoplay();
+  try { await fetchTestimonials(); } catch(e) { console.error('Testimonials fetch error:', e); }
+  try { renderTestimonials(); } catch(e) { console.error('Testimonials render error:', e); }
+  try { startTestimonialAutoplay(); } catch(e) { console.error('Autoplay error:', e); }
 
   const track = document.getElementById('testimonials-track');
   if (track) {
@@ -550,5 +552,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, { passive: true });
   }
 
-  loadBooks();
+  try { loadBooks(); } catch(e) { console.error('Books load error:', e); }
 });

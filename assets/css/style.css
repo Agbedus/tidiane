@@ -719,7 +719,7 @@ section { padding: 120px 80px; position: relative; }
   background: var(--navy-deep);
   border-top: 1px solid var(--border);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .testimonials-header {
   margin-bottom: 56px;
