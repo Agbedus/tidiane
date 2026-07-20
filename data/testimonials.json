@@ -1,0 +1,49 @@
+{
+  "testimonials": [
+    {
+      "quote_en": "Dr. Ouattara's vision for Africa's space future is nothing short of transformative. His ability to bridge scientific rigor with diplomatic strategy has been instrumental in advancing the continent's space agenda.",
+      "quote_fr": "La vision du Dr Ouattara pour l'avenir spatial de l'Afrique est rien moins que transformatrice. Sa capacité à allier rigueur scientifique et stratégie diplomatique a été déterminante pour l'avancement de l'agenda spatial du continent.",
+      "name_en": "Dr. Aisha Ofori",
+      "name_fr": "Dr. Aisha Ofori",
+      "role_en": "Director, Earth Observation Programme — ESA",
+      "role_fr": "Directrice, Programme d'observation de la Terre — ESA",
+      "initials": "AO"
+    },
+    {
+      "quote_en": "Working alongside Tidiane on the GMES & Africa Programme was a masterclass in leadership. He commands respect not through authority, but through an unwavering commitment to the continent's development.",
+      "quote_fr": "Travailler aux côtés de Tidiane sur le Programme GMES & Afrique a été un cours magistral de leadership. Il s'impose non par l'autorité, mais par un engagement indéfectible envers le développement du continent.",
+      "name_en": "Prof. Moussa Shango",
+      "name_fr": "Prof. Moussa Shango",
+      "role_en": "Vice-Chancellor, Pan-African University",
+      "role_fr": "Vice-chancelier, Université Panafricaine",
+      "initials": "MS"
+    },
+    {
+      "quote_en": "Africa now has a credible, sovereign voice in space governance — and that is largely due to Dr. Ouattara's tireless advocacy. He has built bridges between agencies that had never collaborated before.",
+      "quote_fr": "L'Afrique dispose maintenant d'une voix crédible et souveraine dans la gouvernance spatiale — et cela est largement dû à l'activité infatigable du Dr Ouattara. Il a construit des ponts entre des agences qui n'avaient jamais collaboré auparavant.",
+      "name_en": "Amb. Jean-Claude Brou",
+      "name_fr": "Amb. Jean-Claude Brou",
+      "role_en": "Former Minister of Foreign Affairs — Côte d'Ivoire",
+      "role_fr": "Ancien ministre des Affaires étrangères — Côte d'Ivoire",
+      "initials": "JB"
+    },
+    {
+      "quote_en": "His books on African space policy are foundational texts. They provide the intellectual framework that policymakers across the continent are now using to shape national space strategies.",
+      "quote_fr": "Ses ouvrages sur la politique spatiale africaine sont des textes fondateurs. Ils fournissent le cadre intellectuel que les décideurs à travers le continent utilisent maintenant pour élaborer les stratégies spatiales nationales.",
+      "name_en": "Dr. Sarah Kimani",
+      "name_fr": "Dr. Sarah Kimani",
+      "role_en": "Head of Space Science, NASKenya",
+      "role_fr": "Chef des sciences spatiales, NASKenya",
+      "initials": "SK"
+    },
+    {
+      "quote_en": "Tidiane represents a new generation of African leaders who understand that space is not a luxury — it is essential infrastructure. His work at the African Space Agency is proof of that conviction.",
+      "quote_fr": "Tidiane représente une nouvelle génération de dirigeants africains qui comprennent que l'espace n'est pas un luxe — c'est une infrastructure essentielle. Son travail à l'Agence Spatiale Africaine est la preuve de cette conviction.",
+      "name_en": "Dr. Kwame Asante",
+      "name_fr": "Dr. Kwame Asante",
+      "role_en": "Executive Director, African Astronomical Society",
+      "role_fr": "Directeur exécutif, Société astronomique africaine",
+      "initials": "KA"
+    }
+  ]
+}

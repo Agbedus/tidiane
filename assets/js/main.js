@@ -12,6 +12,7 @@ const I18N = {
     timeline: { t1_role: "President, Council of the African Space Agency", t1_org: "African Space Agency (AfSA), Cairo, Egypt", t1_desc: "Elected by the African Union Assembly as the inaugural President of the AfSA Council. Leading the operationalisation of the Agency \u2014 including the build-out of its headquarters, the recruitment of 156 permanent staff, and the negotiation of strategic partnerships with ESA, NASA, JAXA, ISRO, and CNSA.", t2_role: "Manager, African Space Programme", t2_org: "African Union Commission, Addis Ababa", t2_desc: "Led the development and implementation of the African Outer Space Programme and the GMES & Africa Programme (\u20ac55M). Drove the ratification of the African Space Policy and Strategy by all 55 member states. Mobilised over \u20ac100M in investment, including the Africa\u2013Europe Space Partnership Programme.", t3_role: "Head Manager \u2014 Geospatial Programs", t3_org: "Environment and Climate Change Canada", t3_desc: "Led geospatial data management and ecosystem assessment planning for the Canadian Wildlife Service. Developed the geospatial component of Canada\u2019s National Conservation Plan. Managed teams of 20 staff and a budget of over CAD $3M.", t4_role: "International Relations Manager", t4_org: "Canadian Space Agency", t4_desc: "Managed international space policy portfolios covering Earth Observation, Navigation, Robotics, and Space Sciences for Africa, the Americas, and the United Nations. Led the Canadian delegation to UNCOPUOS.", t5_role: "PhD in Remote Sensing & GIS / Lecturer", t5_org: "Universit\u00e9 de Sherbrooke, Canada", t5_desc: "Earned a PhD in Remote Sensing and Geographical Information Systems. Taught courses in hydrology, satellite image analysis, GIS, and climatology. Published peer-reviewed research on erosion modelling in semi-arid environments." },
     books: { label: "Books", heading: "Books by H.E. Dr. Tidiane Ouattara", btn_copy: "Get your copy \u2192" },
     contact: { label: "Contact", heading: "Get in Touch", info_text: "For media enquiries, speaking engagements, partnership discussions, or institutional correspondence, please reach out through the channels below or submit a message.", form_name: "Full Name", form_name_placeholder: "Your name", form_org: "Organisation", form_org_placeholder: "Your institution or company", form_email: "Email", form_email_placeholder: "your@email.com", form_message: "Message", form_message_placeholder: "Your message\u2026", form_submit: "Send Message \u2192", form_sending: "Sending\u2026", form_success: "Your message has been received. Thank you!", form_error: "Could not reach the server. Please try again later." },
+    testimonials: { label: "Endorsements", heading: "Voices of Recognition" },
     footer: { copyright: "\u00a9 2024 H.E. Dr. Tidiane Ouattara", designed_by: "Designed by Agbedus" },
     sheets: { events_header: "Calendar \u2014 Events", events_title: "Events & Engagements", events_subtitle: "2024\u20132025 \u00b7 Global Agenda", ev1_month: "Nov 2024", ev1_title: "UN Committee on the Peaceful Uses of Outer Space", ev1_loc: "Vienna, Austria", ev1_desc: "Keynote address on behalf of the African Union at COPUOS, presenting the AfSA mandate and advocating for equitable access to orbital slots for developing nations.", ev2_month: "Sep 2024", ev2_title: "African Union Summit Side Event \u2014 Space Policy Dialogue", ev2_loc: "Addis Ababa, Ethiopia", ev2_desc: "Hosted a high-level ministerial dialogue on harmonising Africa\u2019s national space legislations with the continental Space Policy and Strategy framework.", ev3_month: "Jul 2024", ev3_title: "International Astronautical Congress \u2014 Africa Pavilion", ev3_loc: "Milan, Italy", ev3_desc: "Chaired the inaugural Africa Space Pavilion at IAC 2024, spotlighting breakthroughs from AfSA member states and facilitating investment conversations with commercial operators.", ev4_month: "Mar 2025", ev4_title: "AfriTech Space Innovation Forum", ev4_loc: "Nairobi, Kenya", ev4_desc: "Opening ceremony address; announced the AfSA Young Innovators in Space grant programme for sub-Saharan universities. Moderated a panel on NewSpace startups on the continent.", ev5_month: "Jan 2025", ev5_title: "Bilateral Partnership Signing \u2014 ESA & AfSA", ev5_loc: "Paris, France", ev5_desc: "Concluded a landmark Cooperation Agreement with ESA covering Earth Observation data sharing, joint training programs, and co-development of the Africa Environmental Monitoring satellite constellation.", ev6_month: "Jun 2025", ev6_title: "World Economic Forum \u2014 Special Address", ev6_loc: "Cape Town, South Africa", ev6_desc: "Invited address on \u201cSpace as the Fourth Industrial Revolution for Africa,\u201d moderated discussion with heads of state and global technology CEOs on space investment in emerging markets.", photos_header: "Gallery \u2014 Photo Journal", photos_title: "Photo Journal", photos_subtitle: "International Engagements & Field Visits", photos_desc: "A curated selection of photographs documenting H.E. Dr. Ouattara\u2019s work across Africa and on the world stage.", photos_press: "For high-resolution press photography, please contact the AfSA communications office at", experience_header: "Career \u2014 Full Biography", experience_title: "Professional Biography", experience_subtitle: "Space \u00b7 Policy \u00b7 Leadership \u00b7 30+ Years", experience_edu_title: "Education & Professional Development", experience_edu_sub: "Selected qualifications", experience_honours_title: "Honours & Distinctions", experience_honours_sub: "Selected recognitions", experience_bio_section: "Biography", experience_achievements_section: "Key Achievements", author_header: "Author", author_tab_books: "Books", author_tab_interviews: "Interviews & Media", author_tab_speeches: "Selected Speeches", author_books_title: "Books by H.E. Dr. Tidiane Ouattara", author_books_subtitle: "Each title available in English & French", interviews_title: "Interviews & Media", interviews_subtitle: "Press, broadcast, and digital media appearances", speeches_title: "Selected Speeches", speeches_subtitle: "Keynote addresses and presentations", content_soon: "Content coming soon", online_publication: "Online Publication", btn_copy: "Get your copy \u2192" }
   },
@@ -24,6 +25,7 @@ const I18N = {
     timeline: { t1_role: "Pr\u00e9sident, Conseil de l\u2019Agence Spatiale Africaine", t1_org: "Agence Spatiale Africaine (ASA), Le Caire, \u00c9gypte", t1_desc: "\u00c9lu par l\u2019Assembl\u00e9e de l\u2019Union africaine comme premier Pr\u00e9sident du Conseil de l\u2019ASA. Dirige l\u2019op\u00e9rationnalisation de l\u2019Agence \u2014 notamment la construction de son si\u00e8ge, le recrutement de 156 permanents et la n\u00e9gociation de partenariats strat\u00e9giques avec l\u2019ESA, la NASA, la JAXA, l\u2019ISRO et le CNSA.", t2_role: "Directeur, Programme Spatial Africain", t2_org: "Commission de l\u2019Union Africaine, Addis-Abeba", t2_desc: "A dirig\u00e9 le d\u00e9veloppement et la mise en \u0153uvre du Programme Spatial Ext\u00e9rieur Africain et du Programme GMES & Afrique (55 M\u20ac). A conduit la ratification de la Politique et de la Strat\u00e9gie spatiales africaines par les 55 \u00c9tats membres. A mobilis\u00e9 plus de 100 M\u20ac d\u2019investissements, dont le Programme de Partenariat Spatial Afrique\u2013Europe.", t3_role: "Chef de programme \u2014 Programmes g\u00e9ospatiaux", t3_org: "Environnement et Changement Climatique Canada", t3_desc: "A dirig\u00e9 la gestion des donn\u00e9es g\u00e9ospatiales et la planification de l\u2019\u00e9valuation des \u00e9cosyst\u00e8mes pour le Service canadien de la faune. A d\u00e9velopp\u00e9 le volet g\u00e9ospatial du Plan national de conservation du Canada. A g\u00e9r\u00e9 des \u00e9quipes de 20 personnes et un budget de plus de 3 M$ CA.", t4_role: "Chef des relations internationales", t4_org: "Agence spatiale canadienne", t4_desc: "A g\u00e9r\u00e9 les portefeuilles de politique spatiale internationale couvrant l\u2019observation de la Terre, la navigation, la robotique et les sciences spatiales pour l\u2019Afrique, les Am\u00e9riques et l\u2019Organisation des Nations Unies. A dirig\u00e9 la d\u00e9l\u00e9gation canadienne au COPUOS.", t5_role: "Doctorat en t\u00e9l\u00e9d\u00e9tection et SIG / Enseignant", t5_org: "Universit\u00e9 de Sherbrooke, Canada", t5_desc: "A obtenu un doctorat en t\u00e9l\u00e9d\u00e9tection et syst\u00e8mes d\u2019information g\u00e9ographique. A enseign\u00e9 l\u2019hydrologie, l\u2019analyse d\u2019images satellitaires, le SIG et la climatologie. A publi\u00e9 des recherches \u00e9valu\u00e9es par les pairs sur la mod\u00e9lisation de l\u2019\u00e9rosion en milieux semi-arides." },
     books: { label: "Livres", heading: "Livres de S.E. Dr. Tidiane Ouattara", btn_copy: "Obtenir votre exemplaire \u2192" },
     contact: { label: "Contact", heading: "Entrez en contact", info_text: "Pour les demandes de m\u00e9dias, les conf\u00e9rences, les discussions de partenariat ou la correspondance institutionnelle, veuillez nous contacter via les canaux ci-dessous ou soumettre un message.", form_name: "Nom complet", form_name_placeholder: "Votre nom", form_org: "Organisation", form_org_placeholder: "Votre institution ou entreprise", form_email: "Courriel", form_email_placeholder: "votre@courriel.com", form_message: "Message", form_message_placeholder: "Votre message\u2026", form_submit: "Envoyer le message \u2192", form_sending: "Envoi en cours\u2026", form_success: "Votre message a \u00e9t\u00e9 re\u00e7u. Merci!", form_error: "Impossible de joindre le serveur. Veuillez r\u00e9essayer plus tard." },
+    testimonials: { label: "Recommandations", heading: "Voix de Reconnaissance" },
     footer: { copyright: "\u00a9 2024 S.E. Dr. Tidiane Ouattara", designed_by: "Con\u00e7u par Agbedus" },
     sheets: { events_header: "Calendrier \u2014 \u00c9v\u00e9nements", events_title: "\u00c9v\u00e9nements et Engagements", events_subtitle: "2024\u20132025 \u00b7 Agenda mondial", ev1_month: "Nov. 2024", ev1_title: "Comit\u00e9 des Nations Unies pour les utilisations pacifiques de l\u2019espace extra-atmosph\u00e9rique", ev1_loc: "Vienne, Autriche", ev1_desc: "Allocution d\u2019ouverture au nom de l\u2019Union africaine au COPUOS, pr\u00e9sentant le mandat de l\u2019ASA et plaidant pour un acc\u00e8s \u00e9quitable aux positions orbitales pour les nations en d\u00e9veloppement.", ev2_month: "Sept. 2024", ev2_title: "\u00c9v\u00e9nement parall\u00e8le du sommet de l\u2019Union africaine \u2014 Dialogue sur la politique spatiale", ev2_loc: "Addis-Abeba, \u00c9thiopie", ev2_desc: "A accueilli un dialogue minist\u00e9riel de haut niveau sur l\u2019harmonisation des l\u00e9gislations spatiales nationales africaines avec le cadre de la Politique et de la Strat\u00e9gie spatiales continentales.", ev3_month: "Juil. 2024", ev3_title: "Congr\u00e8s astronautique international \u2014 Pavillon de l\u2019Afrique", ev3_loc: "Milan, Italie", ev3_desc: "A pr\u00e9sid\u00e9 le premier Pavillon Spatial Africain \u00e0 l\u2019IAC 2024, mettant en lumi\u00e8re les avanc\u00e9es des \u00c9tats membres de l\u2019ASA et facilitant les discussions d\u2019investissement avec les op\u00e9rateurs commerciaux.", ev4_month: "Mars 2025", ev4_title: "Forum AfriTech sur l\u2019innovation spatiale", ev4_loc: "Nairobi, Kenya", ev4_desc: "Allocution d\u2019ouverture ; annonce du programme de subventions de l\u2019ASA Jeunes Innovateurs de l\u2019Espace pour les universit\u00e9s subsahariennes. Mod\u00e9ration d\u2019un panel sur les start-ups NewSpace sur le continent.", ev5_month: "Janv. 2025", ev5_title: "Signature d\u2019un partenariat bilat\u00e9ral \u2014 ESA & ASA", ev5_loc: "Paris, France", ev5_desc: "A conclu un accord de coop\u00e9ration historique avec l\u2019ESA couvrant le partage de donn\u00e9es d\u2019observation de la Terre, les programmes de formation conjoints et le co-d\u00e9veloppement de la constellation de satellites de surveillance environnementale de l\u2019Afrique.", ev6_month: "Juin 2025", ev6_title: "Forum \u00e9conomique mondial \u2014 Allocution sp\u00e9ciale", ev6_loc: "Le Cap, Afrique du Sud", ev6_desc: "Allocution invit\u00e9e sur \u00ab L\u2019espace comme quatri\u00e8me r\u00e9volution industrielle pour l\u2019Afrique \u00bb, mod\u00e9ration d\u2019une discussion avec des chefs d\u2019\u00c9tat et des PDG de technologies mondiales sur l\u2019investissement spatial dans les march\u00e9s \u00e9mergents.", photos_header: "Galerie \u2014 Journal photo", photos_title: "Journal photo", photos_subtitle: "Engagements internationaux et visites de terrain", photos_desc: "Une s\u00e9lection de photographies documentant le travail du Dr Ouattara \u00e0 travers l\u2019Afrique et sur la sc\u00e8ne mondiale.", photos_press: "Pour la photographie de presse en haute r\u00e9solution, veuillez contacter le bureau de communication de l\u2019ASA \u00e0", experience_header: "Parcours \u2014 Biographie compl\u00e8te", experience_title: "Biographie professionnelle", experience_subtitle: "Espace \u00b7 Politique \u00b7 Leadership \u00b7 30+ ans", experience_edu_title: "Formation et d\u00e9veloppement professionnel", experience_edu_sub: "Dipl\u00f4mes et formations s\u00e9lectionn\u00e9s", experience_honours_title: "Honneurs et distinctions", experience_honours_sub: "Reconnaissances s\u00e9lectionn\u00e9es", experience_bio_section: "Biographie", experience_achievements_section: "R\u00e9alisations cl\u00e9s", author_header: "Auteur", author_tab_books: "Livres", author_tab_interviews: "Interviews et M\u00e9dias", author_tab_speeches: "Discours s\u00e9lectionn\u00e9s", author_books_title: "Livres de S.E. Dr. Tidiane Ouattara", author_books_subtitle: "Chaque titre disponible en anglais et en fran\u00e7ais", interviews_title: "Interviews et M\u00e9dias", interviews_subtitle: "Apparitions dans la presse, \u00e0 la t\u00e9l\u00e9vision et dans les m\u00e9dias num\u00e9riques", speeches_title: "Discours s\u00e9lectionn\u00e9s", speeches_subtitle: "Allocutions et pr\u00e9sentations", content_soon: "Contenu \u00e0 venir", online_publication: "Publication en ligne", btn_copy: "Obtenir votre exemplaire \u2192" }
   }
@@ -41,6 +43,9 @@ async function loadTranslations(lang) {
     currentLang = lang;
     localStorage.setItem('tidiane-lang', lang);
     applyTranslations();
+    if (typeof renderTestimonials === 'function') renderTestimonials();
+    if (typeof renderBooksGrid === 'function' && typeof booksData !== 'undefined') renderBooksGrid(booksData, lang);
+    if (typeof renderAuthorSheetBooks === 'function' && typeof booksData !== 'undefined') renderAuthorSheetBooks(booksData, lang);
     updateLangToggle();
     updateHtmlLang();
   } catch (err) {
@@ -88,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => loadTranslations(btn.dataset.lang));
   });
   try { loadSheetPartials(); } catch(e) { console.error('Sheet load error:', e); }
+  loadGalleryPhotos();
   loadTranslations(currentLang);
 });
 
@@ -95,6 +101,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Theme toggle (light / dark) ───────────────────────── */
+function applyTheme(theme) {
+  document.documentElement.classList.toggle('light-mode', theme === 'light');
+  localStorage.setItem('tidiane-theme', theme);
+}
+const savedTheme = localStorage.getItem('tidiane-theme') || 'dark';
+applyTheme(savedTheme);
+document.addEventListener('click', e => {
+  if (e.target.closest('#theme-toggle')) {
+    const next = document.documentElement.classList.contains('light-mode') ? 'dark' : 'light';
+    applyTheme(next);
+  }
 });
 
 /* ── Hero load animation ────────────────────────────────── */
@@ -191,7 +211,7 @@ function toggleMobileNav() {
     links.style.cssText = `
       display:flex; flex-direction:column; position:fixed;
       top:68px; left:0; right:0;
-      background:rgba(11,25,41,.97); backdrop-filter:blur(12px);
+      background:var(--navy-mid); backdrop-filter:blur(12px);
       padding:24px 32px; gap:0; border-bottom:1px solid var(--border);
       z-index:999;
     `;
@@ -226,6 +246,118 @@ function loadSheetPartials() {
     const child = wrapper.firstElementChild;
     if (child) container.appendChild(child);
   }
+}
+
+/* ── Load gallery photos from API ───────────────────────── */
+async function loadGalleryPhotos() {
+  const grid = document.getElementById('gallery-grid');
+  if (!grid) return;
+  try {
+    const res = await fetch('/api/gallery');
+    const data = await res.json();
+    const photos = data.photos || [];
+    if (!photos.length) {
+      grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">No photos yet. Add them via the admin panel.</p>';
+      return;
+    }
+    grid.innerHTML = photos.map(p => {
+      const spanClass = p.span > 1 ? ' span-' + p.span : '';
+      return '<div class="sheet-photo' + spanClass + '">' +
+        '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy">' +
+        (p.caption ? '<div class="sheet-photo-caption">' + p.caption + '</div>' : '') +
+        '</div>';
+    }).join('');
+  } catch {
+    grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">Could not load gallery.</p>';
+  }
+}
+
+/* ── Load books from API ────────────────────────────────── */
+let booksData = [];
+async function loadBooks() {
+  const grid = document.getElementById('books-grid');
+  if (!grid) return;
+  const lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
+  try {
+    const res = await fetch('/api/books');
+    const data = await res.json();
+    booksData = data.books || [];
+    if (!booksData.length) {
+      grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">No books yet. Add them via the admin panel.</p>';
+      return;
+    }
+    renderBooksGrid(booksData, lang);
+    renderAuthorSheetBooks(booksData, lang);
+  } catch {
+    grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">Could not load books.</p>';
+  }
+}
+
+function renderBooksGrid(books, lang) {
+  const grid = document.getElementById('books-grid');
+  if (!grid) return;
+  grid.innerHTML = books.map((b, i) => {
+    const title = lang === 'fr' ? b.title_fr : b.title_en;
+    const desc = lang === 'fr' ? b.description_fr : b.description_en;
+    const delay = (i * 0.08).toFixed(2);
+    const coverSrc = lang === 'fr' && b.cover_image_fr ? b.cover_image_fr : b.cover_image;
+    const coverClass = coverSrc ? 'book-cover book-cover-image' : 'book-cover bc-' + ((i % 3) + 1);
+    const coverHtml = coverSrc
+      ? '<img src="' + coverSrc + '" alt="' + title + '" loading="lazy">'
+      : '';
+    return '<div class="book-card reveal" onclick="openSheet(\'author\')" style="transition-delay:' + delay + 's;">' +
+      '<div class="' + coverClass + '">' +
+        coverHtml +
+        '<div class="book-spine"></div>' +
+        '<div class="book-cover-inner">' +
+          '<div class="book-cover-title">' + title + '</div>' +
+          '<div class="book-cover-sub">' + (lang === 'fr' ? 'Édition Française' : 'English Edition') + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="book-meta">' +
+        '<div class="book-status">' + b.status + '</div>' +
+        '<div class="book-meta-title">' + title + '</div>' +
+        '<div class="book-meta-desc">' + desc + '</div>' +
+        '<button class="book-buy-btn" onclick="event.stopPropagation(); openSheet(\'books\')" data-i18n="books.btn_copy">Get your copy →</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+function renderAuthorSheetBooks(books, lang) {
+  const list = document.getElementById('sheet-author-books-list');
+  if (!list) return;
+  list.innerHTML = books.map((b, i) => {
+    const titleEn = b.title_en;
+    const titleFr = b.title_fr;
+    const title = lang === 'fr' ? titleFr : titleEn;
+    const desc = lang === 'fr' ? b.description_fr : b.description_en;
+    const editionLabel = lang === 'fr' ? 'ÉDITION FRANÇAISE · H.E. DR. TIDIANE OUATTARA' : 'ENGLISH EDITION · H.E. DR. TIDIANE OUATTARA';
+    const isLast = i === books.length - 1;
+    const borderStyle = isLast ? 'border-bottom:none;' : '';
+    const coverSrc = lang === 'fr' && b.cover_image_fr ? b.cover_image_fr : b.cover_image;
+    const coverClass = coverSrc ? 'sheet-book-cover book-cover-image' : 'sheet-book-cover bc-' + ((i % 3) + 1);
+    const coverHtml = coverSrc
+      ? '<img src="' + coverSrc + '" alt="' + title + '" loading="lazy" style="width:100%;height:auto;display:block;">'
+      : '';
+    return '<div class="sheet-book-detail" style="' + borderStyle + '">' +
+      '<div class="' + coverClass + '" style="position:relative;overflow:hidden;">' +
+        coverHtml +
+        '<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,27,.85) 0%,transparent 60%)"></div>' +
+        '<div style="position:absolute;bottom:20px;left:24px;right:24px;">' +
+          '<div style="font-family:var(--ff-heading);font-size:1rem;font-weight:900;color:var(--white);line-height:1.2;" class="book-cover-light-text">' + title + '</div>' +
+          '<div style="font-family:var(--ff-mono);font-size:.55rem;color:var(--gold-light);margin-top:6px;letter-spacing:.1em;">' + editionLabel + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div>' +
+        '<div class="book-status">' + b.status + '</div>' +
+        '<div class="book-meta-title" style="font-family:var(--ff-heading);font-size:1.2rem;color:var(--white);margin-bottom:10px;">' + title + '</div>' +
+        '<div class="text-muted-dark" style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">' + desc + '</div>' +
+        '<button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
 }
 
 /* ── Contact form ───────────────────────────────────────── */
@@ -267,3 +399,156 @@ if (contactForm) {
     }
   });
 }
+
+/* ── Testimonials Carousel ─────────────────────────────── */
+const TESTIMONIALS_FALLBACK = [
+  {
+    quote_en: "Dr. Ouattara's vision for Africa's space future is nothing short of transformative. His ability to bridge scientific rigor with diplomatic strategy has been instrumental in advancing the continent's space agenda.",
+    quote_fr: "La vision du Dr Ouattara pour l\u2019avenir spatial de l\u2019Afrique est rien moins que transformatrice. Sa capacit\u00e9 \u00e0 allier rigueur scientifique et strat\u00e9gie diplomatique a \u00e9t\u00e9 d\u00e9terminante pour l\u2019avancement de l\u2019agenda spatial du continent.",
+    name_en: "Dr. Aisha Ofori",
+    name_fr: "Dr. Aisha Ofori",
+    role_en: "Director, Earth Observation Programme \u2014 ESA",
+    role_fr: "Directrice, Programme d\u2019observation de la Terre \u2014 ESA",
+    initials: "AO"
+  },
+  {
+    quote_en: "Working alongside Tidiane on the GMES & Africa Programme was a masterclass in leadership. He commands respect not through authority, but through an unwavering commitment to the continent\u2019s development.",
+    quote_fr: "Travailler aux c\u00f4t\u00e9 de Tidiane sur le Programme GMES & Afrique a \u00e9t\u00e9 un cours magistral de leadership. Il s\u2019impose non par l\u2019autorit\u00e9, mais par un engagement ind\u00e9fectible envers le d\u00e9veloppement du continent.",
+    name_en: "Prof. Moussa Shango",
+    name_fr: "Prof. Moussa Shango",
+    role_en: "Vice-Chancellor, Pan-African University",
+    role_fr: "Vice-chancelier, Universit\u00e9 Panafricaine",
+    initials: "MS"
+  },
+  {
+    quote_en: "Africa now has a credible, sovereign voice in space governance \u2014 and that is largely due to Dr. Ouattara\u2019s tireless advocacy. He has built bridges between agencies that had never collaborated before.",
+    quote_fr: "L\u2019Afrique dispose maintenant d\u2019une voix cr\u00e9ible et souveraine dans la gouvernance spatiale \u2014 et cela est largement d\u00e9\u00e0 l\u2019activit\u00e9 infatigable du Dr Ouattara. Il a construit des ponts entre des agences qui n\u2019avaient jamais collabor\u00e9 auparavant.",
+    name_en: "Amb. Jean-Claude Brou",
+    name_fr: "Amb. Jean-Claude Brou",
+    role_en: "Former Minister of Foreign Affairs \u2014 C\u00f4te d\u2019Ivoire",
+    role_fr: "Ancien ministre des Affaires \u00e9trang\u00e8res \u2014 C\u00f4te d\u2019Ivoire",
+    initials: "JB"
+  },
+  {
+    quote_en: "His books on African space policy are foundational texts. They provide the intellectual framework that policymakers across the continent are now using to shape national space strategies.",
+    quote_fr: "Ses ouvrages sur la politique spatiale africaine sont des textes fondateurs. Ils fournissent le cadre intellectuel que les d\u00e9cideurs \u00e0 travers le continent utilisent maintenant pour \u00e9laborer les strat\u00e9gies spatiales nationales.",
+    name_en: "Dr. Sarah Kimani",
+    name_fr: "Dr. Sarah Kimani",
+    role_en: "Head of Space Science, NASKenya",
+    role_fr: "Chef des sciences spatiales, NASKenya",
+    initials: "SK"
+  },
+  {
+    quote_en: "Tidiane represents a new generation of African leaders who understand that space is not a luxury \u2014 it is essential infrastructure. His work at the African Space Agency is proof of that conviction.",
+    quote_fr: "Tidiane repr\u00e9sente une nouvelle g\u00e9n\u00e9ration de dirigeants africains qui comprennent que l\u2019espace n\u2019est pas un luxe \u2014 c\u2019est une infrastructure essentielle. Son travail \u00e0 l\u2019Agence Spatiale Africaine est la preuve de cette conviction.",
+    name_en: "Dr. Kwame Asante",
+    name_fr: "Dr. Kwame Asante",
+    role_en: "Executive Director, African Astronomical Society",
+    role_fr: "Directeur ex\u00e9cutif, Soci\u00e9t\u00e9 astronomique africaine",
+    initials: "KA"
+  }
+];
+
+let TESTIMONIALS = [...TESTIMONIALS_FALLBACK];
+let currentTestimonial = 0;
+let testimonialInterval = null;
+
+async function fetchTestimonials() {
+  try {
+    const res = await fetch('/api/testimonials');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (data.testimonials && data.testimonials.length > 0) {
+      TESTIMONIALS = data.testimonials;
+    }
+  } catch (err) {
+    console.warn('Failed to fetch testimonials, using fallback:', err);
+  }
+}
+
+function renderTestimonials() {
+  const track = document.getElementById('testimonials-track');
+  const dots = document.getElementById('testimonials-dots');
+  if (!track || !dots) return;
+
+  const lang = currentLang || 'en';
+
+  track.innerHTML = TESTIMONIALS.map((t, i) => {
+    const quote = lang === 'fr' ? t.quote_fr : t.quote_en;
+    const name = lang === 'fr' ? t.name_fr : t.name_en;
+    const role = lang === 'fr' ? t.role_fr : t.role_en;
+    const active = i === currentTestimonial;
+    return '<div class="testimonial-slide' + (active ? ' active' : '') + '" data-index="' + i + '">' +
+      '<div class="testimonial-quote">' + quote + '</div>' +
+      '<div class="testimonial-author">' +
+        '<div class="testimonial-avatar">' + t.initials + '</div>' +
+        '<div>' +
+          '<div class="testimonial-name">' + name + '</div>' +
+          '<div class="testimonial-role">' + role + '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  dots.innerHTML = TESTIMONIALS.map((_, i) =>
+    '<button class="testimonial-dot' + (i === currentTestimonial ? ' active' : '') + '" data-index="' + i + '" aria-label="Testimonial ' + (i + 1) + '"></button>'
+  ).join('');
+}
+
+function goToTestimonial(index) {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  if (!slides.length) return;
+
+  const prev = currentTestimonial;
+  currentTestimonial = index;
+
+  slides[prev]?.classList.remove('active');
+  slides[prev]?.classList.add('exit-left');
+  setTimeout(() => slides[prev]?.classList.remove('exit-left'), 500);
+
+  slides[currentTestimonial]?.classList.add('active');
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentTestimonial));
+}
+
+function nextTestimonial() {
+  goToTestimonial((currentTestimonial + 1) % TESTIMONIALS.length);
+}
+
+function prevTestimonial() {
+  goToTestimonial((currentTestimonial - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+}
+
+function startTestimonialAutoplay() {
+  stopTestimonialAutoplay();
+  testimonialInterval = setInterval(nextTestimonial, 6000);
+}
+
+function stopTestimonialAutoplay() {
+  if (testimonialInterval) clearInterval(testimonialInterval);
+}
+
+document.addEventListener('click', e => {
+  if (e.target.closest('#testimonials-next')) { nextTestimonial(); startTestimonialAutoplay(); }
+  if (e.target.closest('#testimonials-prev')) { prevTestimonial(); startTestimonialAutoplay(); }
+  const dot = e.target.closest('.testimonial-dot');
+  if (dot) { goToTestimonial(parseInt(dot.dataset.index)); startTestimonialAutoplay(); }
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await fetchTestimonials();
+  renderTestimonials();
+  startTestimonialAutoplay();
+
+  const track = document.getElementById('testimonials-track');
+  if (track) {
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { diff > 0 ? nextTestimonial() : prevTestimonial(); startTestimonialAutoplay(); }
+    }, { passive: true });
+  }
+
+  loadBooks();
+});

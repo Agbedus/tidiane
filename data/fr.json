@@ -146,6 +146,10 @@
     "form_success": "Votre message a été reçu. Merci!",
     "form_error": "Impossible de joindre le serveur. Veuillez réessayer plus tard."
   },
+  "testimonials": {
+    "label": "Recommandations",
+    "heading": "Voix de Reconnaissance"
+  },
   "footer": {
     "copyright": "© 2024 S.E. Dr. Tidiane Ouattara",
     "designed_by": "Conçu par Agbedus"
