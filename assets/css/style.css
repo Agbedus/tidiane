@@ -41,9 +41,9 @@ html.light-mode {
   --gold:       #8B6E3F;
   --gold-light: #A6854E;
   --gold-dim:   #B8975A;
-  --cream:      #1A1A1A;
+  --cream:      #0D0D0D;
   --white:      #0B1929;
-  --text-muted: #5A6577;
+  --text-muted: #4A5568;
   --border:     rgba(139,110,63,.25);
   --navy-deep:  #EDE7DB;
   --sheet-bg:   #FFFFFF;
@@ -51,6 +51,7 @@ html.light-mode {
 html.light-mode body {
   background: var(--navy);
   color: var(--cream);
+  font-size: 17px;
 }
 html.light-mode #nav.scrolled {
   background: rgba(245,240,232,.92);
@@ -92,12 +93,12 @@ html.light-mode ::-webkit-scrollbar-track { background: var(--navy); }
 html.light-mode ::-webkit-scrollbar-thumb { background: var(--gold-dim); }
 
 /* Light-mode text overrides (hardcoded rgba → readable) */
-html.light-mode .hero-bio { color: rgba(26,26,26,.7); }
-html.light-mode .about-text p { color: rgba(26,26,26,.75); }
-html.light-mode .tl-desc { color: rgba(26,26,26,.7); }
-html.light-mode .contact-info p { color: rgba(26,26,26,.7); }
-html.light-mode .sheet-exp-desc { color: rgba(26,26,26,.7); }
-html.light-mode .text-muted-dark { color: rgba(26,26,26,.7) !important; }
+html.light-mode .hero-bio { color: rgba(13,13,13,.88); }
+html.light-mode .about-text p { color: rgba(13,13,13,.85); }
+html.light-mode .tl-desc { color: rgba(13,13,13,.88); }
+html.light-mode .contact-info p { color: rgba(13,13,13,.88); }
+html.light-mode .sheet-exp-desc { color: rgba(13,13,13,.88); }
+html.light-mode .text-muted-dark { color: rgba(13,13,13,.88) !important; }
 
 /* Book covers stay dark — force light text back */
 html.light-mode .bc-1,
