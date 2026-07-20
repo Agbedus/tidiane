@@ -183,7 +183,7 @@ class BookAdmin(ModelView, model=Book):
     column_default_sort = (Book.sort_order, False)
 
 
-admin = Admin(app, engine, title="Tidiane Admin", authentication_backend=None)
+admin = Admin(app, engine, title="Tidiane Admin", authentication_backend=None, templates_dir=str(ROOT / "backend" / "templates"))
 admin.add_view(ContactMessageAdmin)
 admin.add_view(GalleryPhotoAdmin)
 admin.add_view(TestimonialAdmin)
