@@ -286,8 +286,7 @@ async function loadGalleryPhotos() {
       return;
     }
     grid.innerHTML = photos.map(p => {
-      const spanClass = p.span > 1 ? ' span-' + p.span : '';
-      return '<div class="sheet-photo' + spanClass + '">' +
+      return '<div class="sheet-photo">' +
         '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy">' +
         (p.caption ? '<div class="sheet-photo-caption">' + p.caption + '</div>' : '') +
         '</div>';

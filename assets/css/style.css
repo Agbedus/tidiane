@@ -1025,25 +1025,24 @@ footer span { color: var(--gold); }
   margin-bottom: 32px;
 }
 
-/* Sheet photo grid */
+/* Sheet photo grid — masonry layout */
 .sheet-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  column-count: 3;
+  column-gap: 10px;
   margin-bottom: 40px;
 }
 .sheet-photo {
   background: var(--navy-light);
   position: relative;
   overflow: hidden;
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 4px;
 }
 .sheet-photo img {
   display: block;
   width: 100%;
   height: auto;
-}
-.sheet-photo.span-2 {
-  grid-column: span 2;
 }
 .sheet-photo:hover img { transform: scale(1.05); transition: transform .4s cubic-bezier(.22,1,.36,1); }
 .sheet-photo-caption {
@@ -1491,7 +1490,7 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
   nav { padding: 0 16px; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
-  .sheet-photo-grid { grid-template-columns: 1fr; }
+  .sheet-photo-grid { column-count: 1; }
   .sheet-book-detail { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr 1fr; }
   .cards-header { flex-direction: column; align-items: flex-start; gap: 20px; }
