@@ -20,7 +20,7 @@ from sqladmin import Admin, ModelView
 from sqladmin.authentication import AuthenticationBackend
 from fastapi_storages import FileSystemStorage
 from fastapi_storages.integrations.sqlalchemy import ImageType
-from starlette.middleware.sessions import SessionMiddleware
+
 
 load_dotenv()
 
