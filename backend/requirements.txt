@@ -8,3 +8,4 @@ aiosqlite>=0.20.0
 sqladmin>=0.19.0
 fastapi-storages[sqlalchemy]>=0.4.0
 Pillow>=10.0.0
+itsdangerous>=2.0.0
