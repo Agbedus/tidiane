@@ -8,17 +8,19 @@ from pathlib import Path
 from typing import List, Optional
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Request, UploadFile, File
+from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
+from fastapi.responses import HTMLResponse, FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, EmailStr, field_validator
 from sqlalchemy import Column, DateTime, Integer, String, Text, create_engine, select
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqladmin import Admin, ModelView
+from sqladmin.authentication import AuthenticationBackend
 from fastapi_storages import FileSystemStorage
 from fastapi_storages.integrations.sqlalchemy import ImageType
+from starlette.middleware.sessions import SessionMiddleware
 
 load_dotenv()
 
@@ -123,9 +125,33 @@ app.add_middleware(
 )
 
 
-# ── Admin ────────────────────────────────────────────────────────────
+# ── Admin Auth ───────────────────────────────────────────────────────
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "change-me-in-production")
+
+
+class AdminAuth(AuthenticationBackend):
+    def __init__(self):
+        super().__init__(secret_key=os.getenv("SESSION_SECRET", "tidiane-admin-secret-change-me"))
+
+    async def login(self, request: Request) -> bool:
+        form = await request.form()
+        username = form.get("username", "")
+        password = form.get("password", "")
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+            request.session["admin_user"] = username
+            return True
+        return False
+
+    async def logout(self, request: Request) -> bool:
+        request.session.clear()
+        return True
+
+    async def authenticate(self, request: Request) -> bool:
+        return request.session.get("admin_user") == ADMIN_USERNAME
+
+
+# ── Admin ────────────────────────────────────────────────────────────
 
 
 class ContactMessageAdmin(ModelView, model=ContactMessage):
@@ -184,7 +210,7 @@ class BookAdmin(ModelView, model=Book):
     column_default_sort = (Book.sort_order, False)
 
 
-admin = Admin(app, engine, title="Tidiane Admin", authentication_backend=None, templates_dir=str(ROOT / "backend" / "templates"))
+admin = Admin(app, engine, title="Tidiane Admin", authentication_backend=AdminAuth(), templates_dir=str(ROOT / "backend" / "templates"))
 admin.add_view(ContactMessageAdmin)
 admin.add_view(GalleryPhotoAdmin)
 admin.add_view(TestimonialAdmin)
