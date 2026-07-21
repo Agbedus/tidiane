@@ -85,6 +85,7 @@ class Testimonial(Base):
     role_en = Column(String(255), nullable=False, default="")
     role_fr = Column(String(255), nullable=False, default="")
     initials = Column(String(10), nullable=False, default="")
+    image = Column(ImageType(storage=storage), nullable=True)
     sort_order = Column(Integer, nullable=False, default=0)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
@@ -156,7 +157,7 @@ class GalleryPhotoAdmin(ModelView, model=GalleryPhoto):
 
 
 class TestimonialAdmin(ModelView, model=Testimonial):
-    column_list = [Testimonial.id, Testimonial.name_en, Testimonial.role_en, Testimonial.sort_order]
+    column_list = [Testimonial.id, Testimonial.name_en, Testimonial.role_en, Testimonial.image, Testimonial.sort_order]
     column_searchable_list = [Testimonial.name_en, Testimonial.name_fr, Testimonial.role_en]
     column_sortable_list = [Testimonial.id, Testimonial.sort_order]
     name = "Testimonial"
@@ -195,6 +196,14 @@ admin.add_view(BookAdmin)
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        try:
+            await conn.execute(
+                __import__("sqlalchemy").text(
+                    "ALTER TABLE testimonials ADD COLUMN image VARCHAR"
+                )
+            )
+        except Exception:
+            pass
     logger.info("Database initialized.")
 
     # Seed testimonials from testimonials.json if table is empty
@@ -370,6 +379,18 @@ async def get_testimonials():
             select(Testimonial).order_by(Testimonial.sort_order, Testimonial.id)
         )
         items = result.scalars().all()
+        def to_relative(path: str) -> str:
+            if not path:
+                return ""
+            p = Path(path)
+            try:
+                return str(p.relative_to(ROOT)).replace("\\", "/")
+            except ValueError:
+                if "assets/images" in path:
+                    idx = path.index("assets/images")
+                    return path[idx:].replace("\\", "/")
+                return path.replace("\\", "/")
+
         return {
             "testimonials": [
                 {
@@ -381,6 +402,7 @@ async def get_testimonials():
                     "role_en": t.role_en,
                     "role_fr": t.role_fr,
                     "initials": t.initials,
+                    "image": to_relative(str(t.image)) if t.image else "",
                     "sort_order": t.sort_order,
                 }
                 for t in items

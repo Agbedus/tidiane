@@ -107,7 +107,30 @@ if (nav) {
 
 /* ── Theme toggle (light / dark) ───────────────────────── */
 function applyTheme(theme) {
-  document.documentElement.classList.toggle('light-mode', theme === 'light');
+  const html = document.documentElement;
+  const isLight = theme === 'light';
+  const wasLight = html.classList.contains('light-mode');
+
+  if (isLight !== wasLight) {
+    const btn = document.getElementById('theme-toggle');
+    const rect = btn.getBoundingClientRect();
+    const ox = ((rect.left + rect.width / 2) / window.innerWidth * 100) + '%';
+    const oy = ((rect.top + rect.height / 2) / window.innerHeight * 100) + '%';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'theme-overlay ' + (isLight ? 'sunrise' : 'sunset');
+    overlay.style.setProperty('--ox', ox);
+    overlay.style.setProperty('--oy', oy);
+    document.body.appendChild(overlay);
+
+    html.classList.add('no-scroll');
+    overlay.addEventListener('animationend', () => {
+      overlay.remove();
+      html.classList.remove('no-scroll');
+    }, { once: true });
+  }
+
+  html.classList.toggle('light-mode', isLight);
   localStorage.setItem('tidiane-theme', theme);
 }
 const savedTheme = localStorage.getItem('tidiane-theme') || 'dark';
@@ -483,7 +506,9 @@ function renderTestimonials() {
     return '<div class="testimonial-slide' + (active ? ' active' : '') + '" data-index="' + i + '">' +
       '<div class="testimonial-quote">' + quote + '</div>' +
       '<div class="testimonial-author">' +
-        '<div class="testimonial-avatar">' + t.initials + '</div>' +
+        (t.image
+          ? '<div class="testimonial-avatar"><img src="' + t.image + '" alt="' + name + '" /></div>'
+          : '<div class="testimonial-avatar">' + t.initials + '</div>') +
         '<div>' +
           '<div class="testimonial-name">' + name + '</div>' +
           '<div class="testimonial-role">' + role + '</div>' +

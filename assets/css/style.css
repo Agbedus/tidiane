@@ -119,6 +119,7 @@ html.light-mode .sheet-photo-caption { color: #B0BEC5; }
 /* ── RESET & BASE ─────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+html.no-scroll { overflow: hidden; }
 body {
   background: var(--navy);
   color: var(--cream);
@@ -127,10 +128,36 @@ body {
   line-height: 1.7;
   letter-spacing: .015em;
   overflow-x: hidden;
+  transition: background 1.4s var(--ease-out), color 1s var(--ease-out);
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; width: 100%; }
 ::selection { background: var(--gold); color: var(--navy); }
+
+/* ── THEME TRANSITION OVERLAY ─────────────────────────── */
+.theme-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+}
+.theme-overlay.sunrise {
+  animation: theme-sunrise 1.4s var(--ease-out) forwards;
+}
+.theme-overlay.sunset {
+  animation: theme-sunset 1.4s var(--ease-out) forwards;
+}
+@keyframes theme-sunrise {
+  0%   { opacity: 1; background: radial-gradient(circle at var(--ox) var(--oy), rgba(184,151,90,.45) 0%, transparent 12%); }
+  40%  { opacity: 1; background: radial-gradient(circle at var(--ox) var(--oy), rgba(212,175,122,.25) 0%, rgba(184,151,90,.08) 50%, transparent 70%); }
+  100% { opacity: 0; background: radial-gradient(circle at var(--ox) var(--oy), rgba(245,240,232,.12) 0%, rgba(237,231,219,.06) 50%, transparent 100%); }
+}
+@keyframes theme-sunset {
+  0%   { opacity: 1; background: radial-gradient(circle at var(--ox) var(--oy), rgba(7,20,34,.5) 0%, transparent 12%); }
+  40%  { opacity: 1; background: radial-gradient(circle at var(--ox) var(--oy), rgba(11,25,41,.3) 0%, rgba(7,20,34,.12) 50%, transparent 70%); }
+  100% { opacity: 0; background: radial-gradient(circle at var(--ox) var(--oy), rgba(7,20,34,.08) 0%, rgba(7,20,34,.04) 50%, transparent 100%); }
+}
 
 /* ── SCROLLBAR ────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
@@ -796,6 +823,13 @@ section { padding: 120px 80px; position: relative; }
   font-size: 1.1rem;
   color: var(--gold);
   flex-shrink: 0;
+  overflow: hidden;
+}
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .testimonial-name {
   font-family: var(--ff-display-alt);
