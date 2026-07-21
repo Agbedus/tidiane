@@ -285,12 +285,41 @@ async function loadGalleryPhotos() {
       grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">No photos yet. Add them via the admin panel.</p>';
       return;
     }
-    grid.innerHTML = photos.map(p => {
-      return '<div class="sheet-photo">' +
-        '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy">' +
-        (p.caption ? '<div class="sheet-photo-caption">' + p.caption + '</div>' : '') +
-        '</div>';
-    }).join('');
+
+    const cols = window.innerWidth <= 900 ? 1 : 3;
+    grid.innerHTML = '';
+    const columns = [];
+    for (let c = 0; c < cols; c++) {
+      const col = document.createElement('div');
+      col.className = 'masonry-col';
+      grid.appendChild(col);
+      columns.push(col);
+    }
+
+    photos.forEach(p => {
+      const item = document.createElement('div');
+      item.className = 'sheet-photo';
+      const img = new Image();
+      img.src = p.src;
+      img.alt = p.caption || '';
+      img.loading = 'lazy';
+      img.style.width = '100%';
+      img.style.display = 'block';
+      item.appendChild(img);
+      if (p.caption) {
+        const cap = document.createElement('div');
+        cap.className = 'sheet-photo-caption';
+        cap.textContent = p.caption;
+        item.appendChild(cap);
+      }
+      img.onload = () => {
+        const shortest = columns.reduce((a, b) => a.offsetHeight <= b.offsetHeight ? a : b);
+        shortest.appendChild(item);
+      };
+      img.onerror = () => {
+        item.style.display = 'none';
+      };
+    });
   } catch {
     grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">Could not load gallery.</p>';
   }
