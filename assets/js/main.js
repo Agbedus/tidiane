@@ -46,6 +46,7 @@ async function loadTranslations(lang) {
     if (typeof renderTestimonials === 'function') renderTestimonials();
     if (typeof renderBooksGrid === 'function' && typeof booksData !== 'undefined') renderBooksGrid(booksData, lang);
     if (typeof renderAuthorSheetBooks === 'function' && typeof booksData !== 'undefined') renderAuthorSheetBooks(booksData, lang);
+    applyTranslations();
     updateLangToggle();
     updateHtmlLang();
   } catch (err) {
@@ -368,10 +369,10 @@ function renderBooksGrid(books, lang) {
         '</div>' +
       '</div>' +
       '<div class="book-meta">' +
-        '<div class="book-status">' + b.status + '</div>' +
+        '<div class="book-status">' + (getNestedValue(translations, 'sheets.online_publication') || b.status) + '</div>' +
         '<div class="book-meta-title">' + title + '</div>' +
         '<div class="book-meta-desc">' + desc + '</div>' +
-        '<button class="book-buy-btn" onclick="event.stopPropagation(); openSheet(\'books\')" data-i18n="books.btn_copy">Get your copy →</button>' +
+        '<button class="book-buy-btn" onclick="event.stopPropagation(); openSheet(\'books\')" data-i18n="books.btn_copy">' + (getNestedValue(translations, 'books.btn_copy') || 'Get your copy →') + '</button>' +
       '</div>' +
     '</div>';
   }).join('');
@@ -404,10 +405,10 @@ function renderAuthorSheetBooks(books, lang) {
         '</div>' +
       '</div>' +
       '<div>' +
-        '<div class="book-status">' + b.status + '</div>' +
+        '<div class="book-status">' + (getNestedValue(translations, 'sheets.online_publication') || b.status) + '</div>' +
         '<div class="book-meta-title" style="font-family:var(--ff-heading);font-size:1.2rem;color:var(--white);margin-bottom:10px;">' + title + '</div>' +
         '<div class="text-muted-dark" style="font-size:.85rem;color:rgba(245,240,232,.65);line-height:1.8;margin-bottom:16px;">' + desc + '</div>' +
-        '<button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">Get your copy →</button>' +
+        '<button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">' + (getNestedValue(translations, 'sheets.btn_copy') || 'Get your copy →') + '</button>' +
       '</div>' +
     '</div>';
   }).join('');
