@@ -7,6 +7,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
+import cloudinary
+import cloudinary.uploader
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,8 +20,6 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqladmin import Admin, ModelView
 from sqladmin.authentication import AuthenticationBackend
-from fastapi_storages import FileSystemStorage
-from fastapi_storages.integrations.sqlalchemy import ImageType
 
 
 load_dotenv()
@@ -30,9 +30,14 @@ logger = logging.getLogger("tidianeblog")
 # ── Paths ────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-IMAGES_DIR = ROOT / "assets" / "images"
-IMAGES_DIR.mkdir(parents=True, exist_ok=True)
-storage = FileSystemStorage(path=str(IMAGES_DIR))
+
+# ── Cloudinary ───────────────────────────────────────────────────────
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+    secure=True,
+)
 
 # ── Database ────────────────────────────────────────────────────────
 _DB_DIR = Path(os.getenv("DB_DIR", str(DATA_DIR)))
@@ -65,7 +70,7 @@ class GalleryPhoto(Base):
     __tablename__ = "gallery_photos"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    image_path = Column(ImageType(storage=storage), nullable=False)
+    image_url = Column(String(1000), nullable=False)
     caption = Column(String(500), nullable=False, default="")
     position = Column(String(100), nullable=False, default="center")
     span = Column(Integer, nullable=False, default=1)
@@ -73,7 +78,7 @@ class GalleryPhoto(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     def __str__(self) -> str:
-        return f"{self.caption} ({self.image_path})"
+        return f"{self.caption} ({self.image_url})"
 
 
 class Testimonial(Base):
@@ -87,7 +92,7 @@ class Testimonial(Base):
     role_en = Column(String(255), nullable=False, default="")
     role_fr = Column(String(255), nullable=False, default="")
     initials = Column(String(10), nullable=False, default="")
-    image = Column(ImageType(storage=storage), nullable=True)
+    image_url = Column(String(1000), nullable=True)
     sort_order = Column(Integer, nullable=False, default=0)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
@@ -104,8 +109,8 @@ class Book(Base):
     description_en = Column(Text, nullable=False, default="")
     description_fr = Column(Text, nullable=False, default="")
     status = Column(String(100), nullable=False, default="Online Publication")
-    cover_image = Column(ImageType(storage=storage), nullable=True)
-    cover_image_fr = Column(ImageType(storage=storage), nullable=True)
+    cover_image_url = Column(String(1000), nullable=True)
+    cover_image_fr_url = Column(String(1000), nullable=True)
     sort_order = Column(Integer, nullable=False, default=0)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
@@ -169,7 +174,7 @@ class ContactMessageAdmin(ModelView, model=ContactMessage):
 
 
 class GalleryPhotoAdmin(ModelView, model=GalleryPhoto):
-    column_list = [GalleryPhoto.id, GalleryPhoto.caption, GalleryPhoto.image_path, GalleryPhoto.span, GalleryPhoto.sort_order]
+    column_list = [GalleryPhoto.id, GalleryPhoto.caption, GalleryPhoto.image_url, GalleryPhoto.span, GalleryPhoto.sort_order]
     column_searchable_list = [GalleryPhoto.caption]
     column_sortable_list = [GalleryPhoto.id, GalleryPhoto.sort_order]
     name = "Gallery Photo"
@@ -183,7 +188,7 @@ class GalleryPhotoAdmin(ModelView, model=GalleryPhoto):
 
 
 class TestimonialAdmin(ModelView, model=Testimonial):
-    column_list = [Testimonial.id, Testimonial.name_en, Testimonial.role_en, Testimonial.image, Testimonial.sort_order]
+    column_list = [Testimonial.id, Testimonial.name_en, Testimonial.role_en, Testimonial.image_url, Testimonial.sort_order]
     column_searchable_list = [Testimonial.name_en, Testimonial.name_fr, Testimonial.role_en]
     column_sortable_list = [Testimonial.id, Testimonial.sort_order]
     name = "Testimonial"
@@ -197,7 +202,7 @@ class TestimonialAdmin(ModelView, model=Testimonial):
 
 
 class BookAdmin(ModelView, model=Book):
-    column_list = [Book.id, Book.title_en, Book.title_fr, Book.cover_image, Book.cover_image_fr, Book.sort_order]
+    column_list = [Book.id, Book.title_en, Book.title_fr, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
     column_searchable_list = [Book.title_en, Book.title_fr]
     column_sortable_list = [Book.id, Book.sort_order]
     name = "Book"
@@ -222,14 +227,27 @@ admin.add_view(BookAdmin)
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-        try:
-            await conn.execute(
-                __import__("sqlalchemy").text(
-                    "ALTER TABLE testimonials ADD COLUMN image VARCHAR"
-                )
-            )
-        except Exception:
-            pass
+        # Migrate old image columns to new Cloudinary URL columns
+        import sqlalchemy as sa
+        migrate_statements = [
+            # gallery_photos: image_path -> image_url
+            "ALTER TABLE gallery_photos ADD COLUMN image_url VARCHAR(1000)",
+            "UPDATE gallery_photos SET image_url = image_path WHERE image_path IS NOT NULL AND (image_url IS NULL OR image_url = '')",
+            # testimonials: image -> image_url
+            "ALTER TABLE testimonials ADD COLUMN image_url VARCHAR(1000)",
+            "UPDATE testimonials SET image_url = image WHERE image IS NOT NULL AND (image_url IS NULL OR image_url = '')",
+            # books: cover_image -> cover_image_url
+            "ALTER TABLE books ADD COLUMN cover_image_url VARCHAR(1000)",
+            "UPDATE books SET cover_image_url = cover_image WHERE cover_image IS NOT NULL AND (cover_image_url IS NULL OR cover_image_url = '')",
+            # books: cover_image_fr -> cover_image_fr_url
+            "ALTER TABLE books ADD COLUMN cover_image_fr_url VARCHAR(1000)",
+            "UPDATE books SET cover_image_fr_url = cover_image_fr WHERE cover_image_fr IS NOT NULL AND (cover_image_fr_url IS NULL OR cover_image_fr_url = '')",
+        ]
+        for stmt in migrate_statements:
+            try:
+                await conn.execute(sa.text(stmt))
+            except Exception:
+                pass
     logger.info("Database initialized.")
 
     # Seed testimonials from testimonials.json if table is empty
@@ -269,12 +287,19 @@ async def startup():
                         description_en=b.get("description_en", ""),
                         description_fr=b.get("description_fr", ""),
                         status=b.get("status", "Online Publication"),
-                        cover_image=str(ROOT / cover) if cover else None,
-                        cover_image_fr=str(ROOT / cover_fr) if cover_fr else None,
+                        cover_image_url=cover if cover else None,
+                        cover_image_fr_url=cover_fr if cover_fr else None,
                         sort_order=i,
                     ))
                 await session.commit()
                 logger.info("Seeded %d books from books.json", len(data.get("books", [])))
+
+
+# ── Helpers ──────────────────────────────────────────────────────────
+async def upload_to_cloudinary(file: UploadFile, folder: str = "tidiane") -> str:
+    contents = await file.read()
+    result = cloudinary.uploader.upload(contents, folder=folder)
+    return result["secure_url"]
 
 
 # ── Models ───────────────────────────────────────────────────────────
@@ -356,23 +381,11 @@ async def get_gallery():
         )
         photos = result.scalars().all()
 
-        def to_relative(path: str) -> str:
-            if not path:
-                return ""
-            p = Path(path)
-            try:
-                return str(p.relative_to(ROOT)).replace("\\", "/")
-            except ValueError:
-                if "assets/images" in path:
-                    idx = path.index("assets/images")
-                    return path[idx:].replace("\\", "/")
-                return path.replace("\\", "/")
-
         return {
             "photos": [
                 {
                     "id": p.id,
-                    "src": to_relative(str(p.image_path)),
+                    "src": p.image_url or "",
                     "caption": p.caption,
                     "position": p.position,
                     "span": p.span,
@@ -387,15 +400,9 @@ async def get_gallery():
 async def upload_gallery_image(file: UploadFile = File(...)):
     if not file.content_type or not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="File must be an image")
-    upload_dir = ROOT / "assets" / "images"
-    upload_dir.mkdir(parents=True, exist_ok=True)
-    filename = file.filename or "upload.jpg"
-    dest = upload_dir / filename
-    content = await file.read()
-    dest.write_bytes(content)
-    relative_path = f"assets/images/{filename}"
-    logger.info("Uploaded gallery image: %s", relative_path)
-    return {"path": relative_path, "filename": filename}
+    url = await upload_to_cloudinary(file, folder="tidiane/gallery")
+    logger.info("Uploaded gallery image: %s", url)
+    return {"url": url, "filename": file.filename}
 
 
 @app.get("/api/testimonials")
@@ -405,17 +412,6 @@ async def get_testimonials():
             select(Testimonial).order_by(Testimonial.sort_order, Testimonial.id)
         )
         items = result.scalars().all()
-        def to_relative(path: str) -> str:
-            if not path:
-                return ""
-            p = Path(path)
-            try:
-                return str(p.relative_to(ROOT)).replace("\\", "/")
-            except ValueError:
-                if "assets/images" in path:
-                    idx = path.index("assets/images")
-                    return path[idx:].replace("\\", "/")
-                return path.replace("\\", "/")
 
         return {
             "testimonials": [
@@ -428,7 +424,7 @@ async def get_testimonials():
                     "role_en": t.role_en,
                     "role_fr": t.role_fr,
                     "initials": t.initials,
-                    "image": to_relative(str(t.image)) if t.image else "",
+                    "image": t.image_url or "",
                     "sort_order": t.sort_order,
                 }
                 for t in items
@@ -444,18 +440,6 @@ async def get_books():
         )
         books = result.scalars().all()
 
-        def to_relative(path: str) -> str:
-            if not path:
-                return ""
-            p = Path(path)
-            try:
-                return str(p.relative_to(ROOT)).replace("\\", "/")
-            except ValueError:
-                if "assets/images" in path:
-                    idx = path.index("assets/images")
-                    return path[idx:].replace("\\", "/")
-                return path.replace("\\", "/")
-
         return {
             "books": [
                 {
@@ -465,8 +449,8 @@ async def get_books():
                     "description_en": b.description_en,
                     "description_fr": b.description_fr,
                     "status": b.status,
-                    "cover_image": to_relative(str(b.cover_image)) if b.cover_image else "",
-                    "cover_image_fr": to_relative(str(b.cover_image_fr)) if b.cover_image_fr else "",
+                    "cover_image": b.cover_image_url or "",
+                    "cover_image_fr": b.cover_image_fr_url or "",
                     "sort_order": b.sort_order,
                 }
                 for b in books
