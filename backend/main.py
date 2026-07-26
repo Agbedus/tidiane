@@ -40,11 +40,12 @@ cloudinary.config(
 )
 
 # ── Database ────────────────────────────────────────────────────────
-_DB_DIR = Path(os.getenv("DB_DIR", str(DATA_DIR)))
-_DB_DIR.mkdir(parents=True, exist_ok=True)
-_DB_PATH = _DB_DIR / "tidiane.db"
-DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite+aiosqlite:///{_DB_PATH}")
-engine = create_async_engine(DATABASE_URL, echo=False)
+DATABASE_URL = os.getenv("DATABASE_URL", "")
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL environment variable is required")
+if DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://", 1)
+engine = create_async_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
 async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
 
@@ -227,27 +228,6 @@ admin.add_view(BookAdmin)
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-        # Migrate old image columns to new Cloudinary URL columns
-        import sqlalchemy as sa
-        migrate_statements = [
-            # gallery_photos: image_path -> image_url
-            "ALTER TABLE gallery_photos ADD COLUMN image_url VARCHAR(1000)",
-            "UPDATE gallery_photos SET image_url = image_path WHERE image_path IS NOT NULL AND (image_url IS NULL OR image_url = '')",
-            # testimonials: image -> image_url
-            "ALTER TABLE testimonials ADD COLUMN image_url VARCHAR(1000)",
-            "UPDATE testimonials SET image_url = image WHERE image IS NOT NULL AND (image_url IS NULL OR image_url = '')",
-            # books: cover_image -> cover_image_url
-            "ALTER TABLE books ADD COLUMN cover_image_url VARCHAR(1000)",
-            "UPDATE books SET cover_image_url = cover_image WHERE cover_image IS NOT NULL AND (cover_image_url IS NULL OR cover_image_url = '')",
-            # books: cover_image_fr -> cover_image_fr_url
-            "ALTER TABLE books ADD COLUMN cover_image_fr_url VARCHAR(1000)",
-            "UPDATE books SET cover_image_fr_url = cover_image_fr WHERE cover_image_fr IS NOT NULL AND (cover_image_fr_url IS NULL OR cover_image_fr_url = '')",
-        ]
-        for stmt in migrate_statements:
-            try:
-                await conn.execute(sa.text(stmt))
-            except Exception:
-                pass
     logger.info("Database initialized.")
 
     # Seed testimonials from testimonials.json if table is empty

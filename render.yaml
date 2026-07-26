@@ -8,7 +8,9 @@ services:
       - key: PYTHON_VERSION
         value: "3.12"
       - key: DATABASE_URL
-        value: sqlite+aiosqlite:///./data/tidiane.db
+        fromDatabase:
+          name: tidiane-db
+          property: connectionString
       - key: ADMIN_USERNAME
         sync: false
       - key: ADMIN_PASSWORD
@@ -25,3 +27,15 @@ services:
         sync: false
       - key: CONTACT_FROM
         sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+databases:
+  - name: tidiane-db
+    plan: free
+    databaseName: tidiane
+    ipAllowList: []
