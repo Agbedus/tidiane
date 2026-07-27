@@ -4,6 +4,17 @@ All notable changes to the Tidiane Ouattara website project.
 
 ---
 
+## 2025-07-23 — Render Deployment Fix
+
+### Fixed
+- **DATABASE_URL not injected on Render** — `render.yaml` `fromDatabase` only works with Blueprint deploys. Set `DATABASE_URL` manually in Render dashboard → Environment tab using the database's Internal Database URL.
+
+### Deployment Notes
+- Python 3.14 was used despite `PYTHON_VERSION: "3.12"` in render.yaml — env var may not be taking effect
+- First startup creates all tables via `Base.metadata.create_all` and seeds testimonials/books from JSON
+
+---
+
 ## 2025-07-23 — Cloudinary Image Storage
 
 ### Changed
@@ -94,7 +105,7 @@ All notable changes to the Tidiane Ouattara website project.
 
 | Variable | Purpose | Set In |
 |---|---|---|
-| `DATABASE_URL` | PostgreSQL connection string | Render (auto-injected) |
+| `DATABASE_URL` | PostgreSQL connection string | Render dashboard (manual) |
 | `CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name | Render dashboard |
 | `CLOUDINARY_API_KEY` | Cloudinary API key | Render dashboard |
 | `CLOUDINARY_API_SECRET` | Cloudinary API secret | Render dashboard |
