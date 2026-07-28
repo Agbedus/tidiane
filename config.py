@@ -20,6 +20,7 @@ class Settings:
     CLOUDINARY_API_KEY: str = os.getenv("CLOUDINARY_API_KEY", "")
     CLOUDINARY_API_SECRET: str = os.getenv("CLOUDINARY_API_SECRET", "")
 
+    ROOT: Path = ROOT
     DATA_DIR: Path = ROOT / "data"
     ASSETS_DIR: Path = ROOT / "assets"
     PARTIALS_DIR: Path = ROOT / "partials"
