@@ -3,7 +3,7 @@ import json
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 
-from backend.config import settings
+from config import settings
 
 router = APIRouter()
 

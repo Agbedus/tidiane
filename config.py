@@ -6,7 +6,7 @@ from pathlib import Path
 import cloudinary
 from dotenv import load_dotenv
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent
 load_dotenv(ROOT / ".env")
 
 
@@ -23,7 +23,7 @@ class Settings:
     DATA_DIR: Path = ROOT / "data"
     ASSETS_DIR: Path = ROOT / "assets"
     PARTIALS_DIR: Path = ROOT / "partials"
-    TEMPLATES_DIR: Path = ROOT / "backend" / "templates"
+    TEMPLATES_DIR: Path = ROOT / "templates"
 
     @property
     def async_database_url(self) -> str:

@@ -8,21 +8,21 @@ from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from sqladmin import Admin
 
-from backend.config import settings, configure_cloudinary
-from backend.database import engine
-from backend.admin.auth import AdminAuth
-from backend.admin.views import (
+from config import settings, configure_cloudinary
+from database import engine
+from admin.auth import AdminAuth
+from admin.views import (
     ContactMessageAdmin,
     GalleryPhotoAdmin,
     TestimonialAdmin,
     BookAdmin,
 )
-from backend.api.contact import router as contact_router
-from backend.api.gallery import router as gallery_router
-from backend.api.testimonials import router as testimonials_router
-from backend.api.books import router as books_router
-from backend.api.translations import router as translations_router
-from backend.seed import run_migrations, seed_all
+from api.contact import router as contact_router
+from api.gallery import router as gallery_router
+from api.testimonials import router as testimonials_router
+from api.books import router as books_router
+from api.translations import router as translations_router
+from seed import run_migrations, seed_all
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("tidianeblog")

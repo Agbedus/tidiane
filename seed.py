@@ -3,11 +3,11 @@ import logging
 
 from sqlalchemy import select, text
 
-from backend.database import engine, async_session, Base
-from backend.config import settings
-from backend.models.testimonial import Testimonial
-from backend.models.book import Book
-from backend.models.gallery import GalleryPhoto
+from database import engine, async_session, Base
+from config import settings
+from models.testimonial import Testimonial
+from models.book import Book
+from models.gallery import GalleryPhoto
 
 logger = logging.getLogger("tidianeblog")
 

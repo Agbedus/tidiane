@@ -1,7 +1,7 @@
 from starlette.requests import Request
 from sqladmin.authentication import AuthenticationBackend
 
-from backend.config import settings
+from config import settings
 
 
 class AdminAuth(AuthenticationBackend):

@@ -3,9 +3,9 @@ import logging
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from sqlalchemy import select
 
-from backend.database import async_session
-from backend.models.gallery import GalleryPhoto
-from backend.utils.cloudinary import upload_to_cloudinary
+from database import async_session
+from models.gallery import GalleryPhoto
+from utils.cloudinary import upload_to_cloudinary
 
 logger = logging.getLogger("tidianeblog")
 router = APIRouter()

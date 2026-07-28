@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, String
 
-from backend.database import Base
+from database import Base
 
 
 class GalleryPhoto(Base):

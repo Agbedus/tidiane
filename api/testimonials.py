@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from sqlalchemy import select
 
-from backend.database import async_session
-from backend.models.testimonial import Testimonial
+from database import async_session
+from models.testimonial import Testimonial
 
 router = APIRouter()
 

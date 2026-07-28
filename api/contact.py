@@ -3,9 +3,9 @@ import logging
 from fastapi import APIRouter
 from sqlalchemy import select
 
-from backend.database import async_session
-from backend.models.contact import ContactMessage
-from backend.schemas.contact import ContactForm, ContactResponse
+from database import async_session
+from models.contact import ContactMessage
+from schemas.contact import ContactForm, ContactResponse
 
 logger = logging.getLogger("tidianeblog")
 router = APIRouter()

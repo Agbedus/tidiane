@@ -1,6 +1,6 @@
 from sqladmin import ModelView
 
-from backend.models import ContactMessage, GalleryPhoto, Testimonial, Book
+from models import ContactMessage, GalleryPhoto, Testimonial, Book
 
 
 class ContactMessageAdmin(ModelView, model=ContactMessage):
