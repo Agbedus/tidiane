@@ -18,11 +18,11 @@
   "about": {
     "label": "À propos",
     "heading": "Architecte de la Souveraineté Spatiale de l'Afrique",
-    "p1": "S.E. Dr. Tidiane Ouattara est le Président élu du Conseil de l'Agence Spatiale Africaine. Scientifique spatial titulaire d'un doctorat en télédétection et SIG de l'Université de Sherbrooke (Canada), il a construit une carrière de 29 ans à l'intersection des sciences spatiales, des politiques et de la diplomatie internationale — occupant des postes de direction seniors à l'Agence Spatiale Canadienne, Ressources Naturelles Canada, Environnement et Changement Climatique Canada, et la Commission de l'Union Africaine.",
-    "p2": "Il a mobilisé plus de 155 millions de dollars US pour les programmes spatiaux africains et d'observation de la Terre, dirigé l'initiative GMES & Afrique dans 45 pays, et conduit la ratification de la Politique et Stratégie Spatiales Africaines par les 55 États membres de l'UA. Son travail fait le pont entre science et diplomatie, forgeant des partenariats internationaux qui transforment les connaissances spatiales en résilience agricole, préparation aux catastrophes et action climatique pour les communautés africaines.",
+    "p1": "S.E. Dr. Tidiane Ouattara a mobilisé plus de 155 millions de dollars US pour les programmes spatiaux africains et d'observation de la Terre, dirigé l'initiative GMES & Afrique dans 45 pays, et conduit la ratification de la Politique et Stratégie Spatiales Africaines par les 55 États membres de l'UA. Son travail fait le pont entre science et diplomatie, forgeant des partenariats internationaux qui transforment les connaissances spatiales en résilience agricole, préparation aux catastrophes et action climatique pour les communautés africaines.",
+    "p2": "Il est le Président élu du Conseil de l'Agence Spatiale Africaine. Scientifique spatial titulaire d'un doctorat en télédétection et SIG de l'Université de Sherbrooke (Canada), il a construit une carrière de 30+ ans à l'intersection des sciences spatiales, des politiques et de la diplomatie internationale — occupant des postes de direction seniors à l'Agence Spatiale Canadienne, Ressources Naturelles Canada, Environnement et Changement Climatique Canada, et la Commission de l'Union Africaine.",
     "quote": "L'espace n'est pas un luxe pour l'Afrique. C'est une infrastructure — aussi essentielle que les routes, aussi vitale que l'eau.",
     "stat_55": "États membres représentés",
-    "stat_29": "Années de leadership dans le secteur spatial",
+    "stat_30": "30+ années de leadership dans le secteur spatial",
     "stat_100": "Partenariats internationaux",
     "stat_7": "Livres"
   },
@@ -47,7 +47,7 @@
     "label": "Points saillants du parcours",
     "heading": "Une vie de leadership stratégique",
     "btn_full": "Biographie professionnelle complète →",
-    "bio": "S.E. Dr. Tidiane Ouattara détient un doctorat et une maîtrise en télédétection et systèmes d'information géographique de l'Université de Sherbrooke (Canada) et une maîtrise en géographie physique de l'Université Cocody-Abidjan (Côte d'Ivoire). Il est le Président élu du Conseil de l'Agence Spatiale Africaine. Sur une carrière de 29 ans couvrant l'enseignement, le secteur privé et la fonction publique, il a occupé des postes de direction à l'Agence spatiale canadienne, à Ressources Naturelles Canada, à Environnement et Changement Climatique Canada et à la Commission de l'Union Africaine. Il a mobilisé plus de 155 millions de dollars US pour des programmes spatiaux et d'observation de la Terre et a représenté l'Afrique dans chaque forum majeur de gouvernance spatiale internationale.",
+    "bio": "S.E. Dr. Tidiane Ouattara détient un doctorat et une maîtrise en télédétection et systèmes d'information géographique de l'Université de Sherbrooke (Canada) et une maîtrise en géographie physique de l'Université Cocody-Abidjan (Côte d'Ivoire). Il est le Président élu du Conseil de l'Agence Spatiale Africaine. Sur une carrière de 30+ ans couvrant l'enseignement, le secteur privé et la fonction publique, il a occupé des postes de direction à l'Agence spatiale canadienne, à Ressources Naturelles Canada, à Environnement et Changement Climatique Canada et à la Commission de l'Union Africaine. Il a mobilisé plus de 155 millions de dollars US pour des programmes spatiaux et d'observation de la Terre et a représenté l'Afrique dans chaque forum majeur de gouvernance spatiale internationale.",
     "e1_role": "Président, Conseil de l'Agence Spatiale Africaine",
     "e1_org": "Agence Spatiale Africaine (ASA) — Le Caire, Égypte",
     "e1_years": "Fév. 2024 — Présent",
@@ -151,8 +151,8 @@
     "heading": "Voix de Reconnaissance"
   },
   "footer": {
-    "copyright": "© 2024 S.E. Dr. Tidiane Ouattara",
-    "designed_by": "Conçu par Agbedus"
+    "copyright": "© 2025 S.E. Dr. Tidiane Ouattara",
+    "powered_by": "Propulsé par Agbedus"
   },
   "sheets": {
     "events_header": "Calendrier — Événements",
@@ -189,7 +189,7 @@
     "photos_press": "Pour la photographie de presse en haute résolution, veuillez contacter le bureau de communication de l'ASA à",
     "experience_header": "Parcours — Biographie complète",
     "experience_title": "Biographie professionnelle",
-    "experience_subtitle": "Espace · Politique · Leadership · 29 ans",
+    "experience_subtitle": "Espace · Politique · Leadership · 30+ ans",
     "experience_edu_title": "Formation et développement professionnel",
     "experience_edu_sub": "Diplômes et formations sélectionnés",
     "experience_honours_title": "Honneurs et distinctions",

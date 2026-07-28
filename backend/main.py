@@ -15,7 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, EmailStr, field_validator
-from sqlalchemy import Column, DateTime, Integer, String, Text, create_engine, select
+from sqlalchemy import Column, DateTime, Integer, String, Text, create_engine, select, text
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqladmin import Admin, ModelView
@@ -107,6 +107,8 @@ class Book(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     title_en = Column(String(500), nullable=False)
     title_fr = Column(String(500), nullable=False)
+    teaser_en = Column(Text, nullable=False, default="")
+    teaser_fr = Column(Text, nullable=False, default="")
     description_en = Column(Text, nullable=False, default="")
     description_fr = Column(Text, nullable=False, default="")
     status = Column(String(100), nullable=False, default="Online Publication")
@@ -203,8 +205,8 @@ class TestimonialAdmin(ModelView, model=Testimonial):
 
 
 class BookAdmin(ModelView, model=Book):
-    column_list = [Book.id, Book.title_en, Book.title_fr, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
-    column_searchable_list = [Book.title_en, Book.title_fr]
+    column_list = [Book.id, Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
+    column_searchable_list = [Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr]
     column_sortable_list = [Book.id, Book.sort_order]
     name = "Book"
     name_plural = "Books"
@@ -214,6 +216,7 @@ class BookAdmin(ModelView, model=Book):
     can_delete = True
     can_export = True
     column_default_sort = (Book.sort_order, False)
+    form_columns = [Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.description_en, Book.description_fr, Book.status, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
 
 
 admin = Admin(app, engine, title="Tidiane Admin", authentication_backend=AdminAuth(), templates_dir=str(ROOT / "backend" / "templates"))
@@ -228,6 +231,11 @@ admin.add_view(BookAdmin)
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        # Add teaser columns if they don't exist (migration for existing tables)
+        for col in ["teaser_en", "teaser_fr"]:
+            await conn.execute(
+                text(f"ALTER TABLE books ADD COLUMN IF NOT EXISTS {col} TEXT NOT NULL DEFAULT ''")
+            )
     logger.info("Database initialized.")
 
     # Seed testimonials from testimonials.json if table is empty
@@ -264,6 +272,8 @@ async def startup():
                     session.add(Book(
                         title_en=b.get("title_en", ""),
                         title_fr=b.get("title_fr", ""),
+                        teaser_en=b.get("teaser_en", ""),
+                        teaser_fr=b.get("teaser_fr", ""),
                         description_en=b.get("description_en", ""),
                         description_fr=b.get("description_fr", ""),
                         status=b.get("status", "Online Publication"),
@@ -273,6 +283,24 @@ async def startup():
                     ))
                 await session.commit()
                 logger.info("Seeded %d books from books.json", len(data.get("books", [])))
+
+    # Seed gallery photos from gallery.json if table is empty
+    async with async_session() as session:
+        result = await session.execute(select(GalleryPhoto))
+        if not result.scalars().first():
+            gallery_file = DATA_DIR / "gallery.json"
+            if gallery_file.exists():
+                data = json.loads(gallery_file.read_text(encoding="utf-8"))
+                for i, p in enumerate(data.get("photos", [])):
+                    session.add(GalleryPhoto(
+                        image_url=p.get("src", ""),
+                        caption=p.get("caption", ""),
+                        position=p.get("position", "center"),
+                        span=p.get("span", 1),
+                        sort_order=i,
+                    ))
+                await session.commit()
+                logger.info("Seeded %d gallery photos from gallery.json", len(data.get("photos", [])))
 
 
 # ── Helpers ──────────────────────────────────────────────────────────
@@ -426,6 +454,8 @@ async def get_books():
                     "id": b.id,
                     "title_en": b.title_en,
                     "title_fr": b.title_fr,
+                    "teaser_en": b.teaser_en,
+                    "teaser_fr": b.teaser_fr,
                     "description_en": b.description_en,
                     "description_fr": b.description_fr,
                     "status": b.status,

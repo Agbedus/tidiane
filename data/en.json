@@ -13,16 +13,16 @@
     "title": "Steering Africa's sovereign presence in the space domain",
     "bio": "H.E. Dr. Tidiane Ouattara is a distinguished African space leader, strategist, and international advocate for science, technology, and innovation. He is the elected President of the Council of the African Space Agency and has held senior leadership roles at the Canadian Space Agency and the African Union Commission.",
     "btn_profile": "Profile & Career →",
-    "btn_books": "Books & Research"
+    "btn_books": "Books"
   },
   "about": {
     "label": "About",
     "heading": "Architect of Africa's Space Sovereignty",
-    "p1": "H.E. Dr. Tidiane Ouattara is the elected President of the Council of the African Space Agency. A space scientist with a PhD in Remote Sensing and GIS from Université de Sherbrooke (Canada), he has built a 29-year career at the intersection of space science, policy, and international diplomacy — holding senior leadership roles at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission.",
-    "p2": "He has mobilised over US $155M for African space and Earth observation programmes, led the GMES & Africa initiative across 45 countries, and driven the ratification of the African Space Policy and Strategy by all 55 AU member states. His work bridges science and diplomacy, forging international partnerships that translate space knowledge into agricultural resilience, disaster preparedness, and climate action for African communities.",
+    "p1": "H.E. Dr. Tidiane Ouattara has mobilised over US $155M for African space and Earth observation programmes, led the GMES & Africa initiative across 45 countries, and driven the ratification of the African Space Policy and Strategy by all 55 AU member states. His work bridges science and diplomacy, forging international partnerships that translate space knowledge into agricultural resilience, disaster preparedness, and climate action for African communities.",
+    "p2": "He is the elected President of the Council of the African Space Agency. A space scientist with a PhD in Remote Sensing and GIS from Université de Sherbrooke (Canada), he has built a 30+ year career at the intersection of space science, policy, and international diplomacy — holding senior leadership roles at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission.",
     "quote": "Space is not a luxury for Africa. It is infrastructure — as essential as roads, as vital as water.",
     "stat_55": "Member states represented",
-    "stat_29": "Years of Leadership in the Space Sector",
+    "stat_30": "30+ Years of Leadership in the Space Sector",
     "stat_100": "International Partnerships",
     "stat_7": "Books"
   },
@@ -47,7 +47,7 @@
     "label": "Career Highlights",
     "heading": "A Lifetime of Strategic Leadership",
     "btn_full": "Full Professional Biography →",
-    "bio": "H.E. Dr. Tidiane Ouattara holds a PhD and a Master's degree in Remote Sensing and Geographical Information Systems from Université de Sherbrooke (Canada) and a Master's in Physical Geography from Université Cocody-Abidjan (Côte d'Ivoire). He is the elected President of the Council of the African Space Agency. Over a 29-year career spanning academia, the private sector, and public service, he has held leadership positions at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission. He has mobilised over US $155M for space and Earth observation programmes and has represented Africa at every major international space governance forum.",
+    "bio": "H.E. Dr. Tidiane Ouattara holds a PhD and a Master's degree in Remote Sensing and Geographical Information Systems from Université de Sherbrooke (Canada) and a Master's in Physical Geography from Université Cocody-Abidjan (Côte d'Ivoire). He is the elected President of the Council of the African Space Agency. Over a 30+ year career spanning academia, the private sector, and public service, he has held leadership positions at the Canadian Space Agency, Natural Resources Canada, Environment and Climate Change Canada, and the African Union Commission. He has mobilised over US $155M for space and Earth observation programmes and has represented Africa at every major international space governance forum.",
     "e1_role": "President, Council of the African Space Agency",
     "e1_org": "African Space Agency (AfSA) — Cairo, Egypt",
     "e1_years": "Feb 2024 — Present",
@@ -151,8 +151,8 @@
     "heading": "Voices of Recognition"
   },
   "footer": {
-    "copyright": "© 2024 H.E. Dr. Tidiane Ouattara",
-    "designed_by": "Designed by Agbedus"
+    "copyright": "© 2025 H.E. Dr. Tidiane Ouattara",
+    "powered_by": "Powered by Agbedus"
   },
   "sheets": {
     "events_header": "Calendar — Events",
@@ -189,7 +189,7 @@
     "photos_press": "For high-resolution press photography, please contact the AfSA communications office at",
     "experience_header": "Career — Full Biography",
     "experience_title": "Professional Biography",
-    "experience_subtitle": "Space · Policy · Leadership · 29 Years",
+    "experience_subtitle": "Space · Policy · Leadership · 30+ Years",
     "experience_edu_title": "Education & Professional Development",
     "experience_edu_sub": "Selected qualifications",
     "experience_honours_title": "Honours & Distinctions",
