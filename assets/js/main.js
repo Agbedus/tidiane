@@ -287,13 +287,24 @@ async function loadGalleryPhotos() {
       return;
     }
 
-    const html = photos.map(p =>
-      '<div class="sheet-photo">' +
-        '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy" style="width:100%;display:block">' +
-        (p.caption ? '<div class="sheet-photo-caption">' + p.caption + '</div>' : '') +
-      '</div>'
-    ).join('');
-    grid.innerHTML = html;
+    const cols = window.innerWidth <= 900 ? 1 : 3;
+    grid.innerHTML = '';
+    const columns = [];
+    for (let c = 0; c < cols; c++) {
+      const col = document.createElement('div');
+      col.className = 'masonry-col';
+      grid.appendChild(col);
+      columns.push(col);
+    }
+
+    photos.forEach(p => {
+      const item = document.createElement('div');
+      item.className = 'sheet-photo';
+      item.innerHTML = '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy" style="width:100%;display:block">' +
+        (p.caption ? '<div class="sheet-photo-caption">' + p.caption + '</div>' : '');
+      const shortest = columns.reduce((a, b) => a.offsetHeight <= b.offsetHeight ? a : b);
+      shortest.appendChild(item);
+    });
   } catch {
     grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">Could not load gallery.</p>';
   }
