@@ -1,70 +1,13 @@
 {
   "photos": [
-    {
-      "src": "assets/images/tidiane-gallery-01.jpg",
-      "caption": "Official Portrait — H.E. Dr. Tidiane Ouattara",
-      "position": "center 20%",
-      "span": 2
-    },
-    {
-      "src": "assets/images/tidiane-gallery-03.avif",
-      "caption": "Africa–EU Space Partnership Programme Launch — Cairo 2025",
-      "position": "center 40%",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-05.avif",
-      "caption": "Closing Remarks — NewSpace Africa Conference delivering the AfSA vision",
-      "position": "center 30%",
-      "span": 2
-    },
-    {
-      "src": "assets/images/tidiane-gallery-04.avif",
-      "caption": "NewSpace Africa — delegation & industry leaders",
-      "position": "center",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-06.avif",
-      "caption": "AfSA Council — inaugural meeting, Cairo 2025",
-      "position": "center 30%",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-07.avif",
-      "caption": "Egyptian Space Agency — cooperation visit",
-      "position": "center",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-12.jpg",
-      "caption": "Forbes Afrique — exclusive interview, May 2025",
-      "position": "center 25%",
-      "span": 2
-    },
-    {
-      "src": "assets/images/tidiane-gallery-08.jpg",
-      "caption": "AfSA & ESA — MoU signing, Cairo 2025",
-      "position": "center",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-09.jpg",
-      "caption": "ESA Director greets H.E. Dr. Tidiane Ouattara — Cairo 2025",
-      "position": "center 30%",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-10.jpg",
-      "caption": "Aerospace Innovation Award — Le Bourget, 2026",
-      "position": "center",
-      "span": 1
-    },
-    {
-      "src": "assets/images/tidiane-gallery-11.jpg",
-      "caption": "IAF profile — International Astronautical Federation",
-      "position": "center",
-      "span": 1
-    }
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816888/WhatsApp_Image_2026-06-25_at_11.06.26_hn234i.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816888/WhatsApp_Image_2026-06-25_at_11.06.35_1_vfdh2w.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816889/WhatsApp_Image_2026-06-25_at_11.02.50_1_wj75fw.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816890/WhatsApp_Image_2026-06-25_at_11.02.43_2_vksb4d.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816890/WhatsApp_Image_2026-06-25_at_11.02.44_e6pmr0.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816891/WhatsApp_Image_2026-06-25_at_11.02.39_mhktqp.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816893/WhatsApp_Image_2026-06-25_at_11.02.36_wbrlzu.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816894/WhatsApp_Image_2026-06-25_at_11.02.34_jformf.jpg", "caption": "", "position": "center", "span": 1},
+    {"src": "https://res.cloudinary.com/dmvmc4f1/image/upload/v1784816895/TO_222_tuh8ie.png", "caption": "", "position": "center", "span": 1}
   ]
 }
