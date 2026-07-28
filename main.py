@@ -70,6 +70,16 @@ if settings.PARTIALS_DIR.exists():
     app.mount("/partials", StaticFiles(directory=str(settings.PARTIALS_DIR)), name="partials")
 
 
+@app.get("/robots.txt", response_class=FileResponse)
+async def robots():
+    return settings.ROOT / "robots.txt"
+
+
+@app.get("/sitemap.xml", response_class=FileResponse)
+async def sitemap():
+    return settings.ROOT / "sitemap.xml"
+
+
 @app.middleware("http")
 async def spa_fallback(request: Request, call_next):
     response = await call_next(request)
