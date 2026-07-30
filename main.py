@@ -16,11 +16,13 @@ from admin.views import (
     GalleryPhotoAdmin,
     TestimonialAdmin,
     BookAdmin,
+    ExperienceAdmin,
 )
 from api.contact import router as contact_router
 from api.gallery import router as gallery_router
 from api.testimonials import router as testimonials_router
 from api.books import router as books_router
+from api.experience import router as experience_router
 from api.translations import router as translations_router
 from seed import run_migrations, seed_all
 
@@ -49,11 +51,13 @@ admin.add_view(ContactMessageAdmin)
 admin.add_view(GalleryPhotoAdmin)
 admin.add_view(TestimonialAdmin)
 admin.add_view(BookAdmin)
+admin.add_view(ExperienceAdmin)
 
 app.include_router(contact_router)
 app.include_router(gallery_router)
 app.include_router(testimonials_router)
 app.include_router(books_router)
+app.include_router(experience_router)
 app.include_router(translations_router)
 
 

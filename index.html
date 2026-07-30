@@ -45,7 +45,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/icons/fontawesome/css/all.css" />
-<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/style.css?v=2" />
 <script>
   (function(){ var t = localStorage.getItem('tidiane-theme'); if (t === 'light') document.documentElement.classList.add('light-mode'); })();
 </script>
@@ -202,7 +202,7 @@
     <div class="card reveal" onclick="openSheet('events')">
       <div class="card-thumb">
         <div class="card-thumb-bg" style="background:url('assets/images/africa-globe.png') center/cover"></div>
-        <div class="card-thumb-inner"><i class="fal fa-globe card-thumb-icon"></i></div>
+        <div class="card-thumb-inner"></div>
       </div>
       <div class="card-overlay"></div>
       <div class="card-body">
@@ -215,8 +215,8 @@
 
     <div class="card reveal" onclick="openSheet('photos')" style="transition-delay:.1s;">
       <div class="card-thumb">
-        <div class="card-thumb-bg" style="background:url('assets/images/tidiane-gallery-11.jpg') center/cover"></div>
-        <div class="card-thumb-inner"><i class="fal fa-camera card-thumb-icon"></i></div>
+        <div class="card-thumb-bg" style="background:url('assets/images/tidiane-gallery-12.jpg') center/cover"></div>
+        <div class="card-thumb-inner"></div>
       </div>
       <div class="card-overlay"></div>
       <div class="card-body">
@@ -230,7 +230,7 @@
     <div class="card reveal" onclick="openSheet('experience')" style="transition-delay:.2s;">
       <div class="card-thumb">
         <div class="card-thumb-bg" style="background:url('assets/images/satellite-dishes-night.jpg') center/cover"></div>
-        <div class="card-thumb-inner"><i class="fal fa-satellite card-thumb-icon"></i></div>
+        <div class="card-thumb-inner"></div>
       </div>
       <div class="card-overlay"></div>
       <div class="card-body">
@@ -265,37 +265,7 @@
     <div class="section-label" data-i18n="experience.label">Career Highlights</div>
     <h2 class="section-heading" data-i18n="experience.heading">A Lifetime of<br />Strategic Leadership</h2>
   </div>
-  <div class="timeline">
-    <div class="tl-year reveal"><div class="tl-year-text">2024—</div></div>
-    <div class="tl-content reveal">
-      <div class="tl-role" data-i18n="timeline.t1_role">President, Council of the African Space Agency</div>
-      <div class="tl-org" data-i18n="timeline.t1_org">African Space Agency (AfSA), Cairo, Egypt</div>
-      <div class="tl-desc" data-i18n="timeline.t1_desc">Elected by the African Union Assembly as the inaugural President of the AfSA Council. Leading the operationalisation of the Agency — including the build-out of its headquarters, the recruitment of 156 permanent staff, and the negotiation of strategic partnerships with ESA, NASA, JAXA, ISRO, and CNSA.</div>
-    </div>
-    <div class="tl-year reveal"><div class="tl-year-text">2016–24</div></div>
-    <div class="tl-content reveal">
-      <div class="tl-role" data-i18n="timeline.t2_role">Manager, African Space Programme</div>
-      <div class="tl-org" data-i18n="timeline.t2_org">African Union Commission, Addis Ababa</div>
-      <div class="tl-desc" data-i18n="timeline.t2_desc">Led the development and implementation of the African Outer Space Programme and the GMES &amp; Africa Programme (€55M). Drove the ratification of the African Space Policy and Strategy by all 55 member states. Mobilised over €100M in investment, including the Africa–Europe Space Partnership Programme.</div>
-    </div>
-    <div class="tl-year reveal"><div class="tl-year-text">2010–16</div></div>
-    <div class="tl-content reveal">
-      <div class="tl-role" data-i18n="timeline.t3_role">Head Manager — Geospatial Programs</div>
-      <div class="tl-org" data-i18n="timeline.t3_org">Environment and Climate Change Canada</div>
-      <div class="tl-desc" data-i18n="timeline.t3_desc">Led geospatial data management and ecosystem assessment planning for the Canadian Wildlife Service. Developed the geospatial component of Canada's National Conservation Plan. Managed teams of 20 staff and a budget of over CAD $3M.</div>
-    </div>
-    <div class="tl-year reveal"><div class="tl-year-text">2004–06</div></div>
-    <div class="tl-content reveal">
-      <div class="tl-role" data-i18n="timeline.t4_role">International Relations Manager</div>
-      <div class="tl-org" data-i18n="timeline.t4_org">Canadian Space Agency</div>
-      <div class="tl-desc" data-i18n="timeline.t4_desc">Managed international space policy portfolios covering Earth Observation, Navigation, Robotics, and Space Sciences for Africa, the Americas, and the United Nations. Led the Canadian delegation to UNCOPUOS.</div>
-    </div>
-    <div class="tl-year reveal"><div class="tl-year-text">1996–01</div></div>
-    <div class="tl-content reveal" style="padding-bottom:0;">
-      <div class="tl-role" data-i18n="timeline.t5_role">PhD in Remote Sensing &amp; GIS / Lecturer</div>
-      <div class="tl-org" data-i18n="timeline.t5_org">Université de Sherbrooke, Canada</div>
-      <div class="tl-desc" data-i18n="timeline.t5_desc">Earned a PhD in Remote Sensing and Geographical Information Systems. Taught courses in hydrology, satellite image analysis, GIS, and climatology. Published peer-reviewed research on erosion modelling in semi-arid environments.</div>
-    </div>
+  <div class="timeline" id="timeline-list">
   </div>
   <div style="margin-top:56px;" class="reveal">
     <button class="btn-ghost" onclick="openSheet('experience')" data-i18n="experience.btn_full">Full Professional Biography →</button>
@@ -316,7 +286,7 @@
 <section id="testimonials">
   <div class="testimonials-header reveal">
     <div class="section-label" data-i18n="testimonials.label">Endorsements</div>
-    <h2 class="section-heading" data-i18n="testimonials.heading">Voices of<br />Recognition</h2>
+    <h2 class="section-heading" data-i18n="testimonials.heading">Testimonials</h2>
   </div>
   <div class="testimonials-carousel reveal">
     <div class="testimonials-track" id="testimonials-track"></div>
@@ -764,86 +734,10 @@
 <script type="text/html" id="tmpl-sheet-books">
 <div class="sheet" id="sheet-books">
   <div class="sheet-header">
-    <div class="sheet-header-label">Books</div>
+    <div class="sheet-header-label" data-i18n="books.label">Books</div>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
-  <div class="sheet-body">
-    <div class="sheet-title">Books by H.E. Dr. Tidiane Ouattara</div>
-    <div class="sheet-subtitle">Each title available in English &amp; French</div>
-    <div class="sheet-divider"></div>
-
-    <div class="sheet-book-detail">
-      <div class="sheet-book-cover bc-1" style="height:260px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(184,151,90,.2),transparent 70%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-globe-africa"></i></div>
-      </div>
-      <div>
-        <div class="book-status">Online Publication</div>
-        <div class="sheet-book-desc">A comprehensive account of the journey towards a unified African space policy framework. This book traces the diplomatic, scientific, and political milestones that shaped the continent's collective space agenda, from early resolutions of the African Union to the establishment of the African Space Agency and the ratification of the African Space Policy and Strategy by all 55 member states.</div>
-        <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
-      </div>
-    </div>
-
-    <div class="sheet-book-detail">
-      <div class="sheet-book-cover bc-1" style="height:260px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(184,151,90,.2),transparent 70%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-globe-africa"></i></div>
-      </div>
-      <div>
-        <div class="book-status">Publication en ligne</div>
-        <div class="sheet-book-desc">Un récit complet du cheminement vers un cadre unifié de politique spatiale africaine. Cet ouvrage retrace les étapes diplomatiques, scientifiques et politiques qui ont façonné l'agenda spatial collectif du continent, des premières résolutions de l'Union africaine à la création de l'Agence spatiale africaine et à la ratification de la Politique et de la Stratégie spatiales africaines par les 55 États membres.</div>
-        <button class="sheet-book-buy" onclick="event.stopPropagation()">Obtenir votre exemplaire →</button>
-      </div>
-    </div>
-
-    <div class="sheet-book-detail">
-      <div class="sheet-book-cover bc-2" style="height:260px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(90,151,100,.15),transparent 70%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-satellite"></i></div>
-      </div>
-      <div>
-        <div class="book-status">Online Publication</div>
-        <div class="sheet-book-desc">An examination of the institutional, legal, and regulatory frameworks shaping space activities across the African continent. This volume analyses the mechanisms for continental coordination, the harmonisation of national space legislation, and the role of regional cooperation in building Africa's space governance architecture.</div>
-        <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
-      </div>
-    </div>
-
-    <div class="sheet-book-detail">
-      <div class="sheet-book-cover bc-2" style="height:260px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(90,151,100,.15),transparent 70%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-satellite"></i></div>
-      </div>
-      <div>
-        <div class="book-status">Publication en ligne</div>
-        <div class="sheet-book-desc">Un examen des cadres institutionnels, juridiques et réglementaires qui façonnent les activités spatiales à travers le continent africain. Ce volume analyse les mécanismes de coordination continentale, l'harmonisation des législations spatiales nationales et le rôle de la coopération régionale dans la construction de l'architecture de gouvernance spatiale de l'Afrique.</div>
-        <button class="sheet-book-buy" onclick="event.stopPropagation()">Obtenir votre exemplaire →</button>
-      </div>
-    </div>
-
-    <div class="sheet-book-detail">
-      <div class="sheet-book-cover bc-3" style="height:260px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(184,100,60,.18),transparent 70%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-rocket"></i></div>
-      </div>
-      <div>
-        <div class="book-status">Online Publication</div>
-        <div class="sheet-book-desc">An analytical framework for designing and implementing sustainable, impactful space programmes across African nations. This volume outlines strategic priorities, capacity-building pathways, funding mechanisms, and partnership models essential for building resilient space ecosystems that serve Africa's development priorities.</div>
-        <button class="sheet-book-buy" onclick="event.stopPropagation()">Get your copy →</button>
-      </div>
-    </div>
-
-    <div class="sheet-book-detail" style="border-bottom:none;">
-      <div class="sheet-book-cover bc-3" style="height:260px;position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(184,100,60,.18),transparent 70%)"></div>
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal fa-rocket"></i></div>
-      </div>
-      <div>
-        <div class="book-status">Publication en ligne</div>
-        <div class="sheet-book-desc">Un cadre analytique pour la conception et la mise en œuvre de programmes spatiaux durables et à impact à travers les nations africaines. Cet ouvrage définit les priorités stratégiques, les voies de renforcement des capacités, les mécanismes de financement et les modèles de partenariat essentiels à la construction d'écosystèmes spatiaux résilients au service des priorités de développement de l'Afrique.</div>
-        <button class="sheet-book-buy" onclick="event.stopPropagation()">Obtenir votre exemplaire →</button>
-      </div>
-    </div>
-
+  <div class="sheet-body" id="sheet-books-body">
   </div>
 </div>
 </script>

@@ -419,7 +419,7 @@ body.loaded .hero-divider { opacity: 1; transform: scaleX(1); }
 .reveal-right.visible { opacity: 1; transform: none; }
 
 /* ── SECTION BASE ─────────────────────────────────────────── */
-section { padding: 120px 80px; position: relative; }
+section { padding: 96px 80px 64px 80px; position: relative; }
 .section-label {
   font-family: var(--ff-mono);
   font-size: .65rem;
@@ -446,6 +446,7 @@ section { padding: 120px 80px; position: relative; }
   gap: 80px;
   align-items: center;
   border-top: 1px solid var(--border);
+  padding: 96px 80px 64px 80px;
 }
 .about-stats {
   display: grid;
@@ -499,7 +500,7 @@ section { padding: 120px 80px; position: relative; }
 
 /* ── CARDS GRID (events, photos, experience) ──────────────── */
 .cards-section {
-  padding: 120px 80px;
+  padding: 96px 80px 64px 80px;
   background: var(--navy-mid);
   border-top: 1px solid var(--border);
   position: relative;
@@ -524,7 +525,7 @@ section { padding: 120px 80px; position: relative; }
 }
 .card:hover { transform: translateY(-4px); z-index: 2; }
 .card-thumb {
-  height: 220px;
+  height: 400px;
   background: var(--navy-light);
   overflow: hidden;
   position: relative;
@@ -945,6 +946,7 @@ section { padding: 120px 80px; position: relative; }
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: start;
+  padding: 96px 80px 64px 80px;
 }
 .contact-info p { color: rgba(245,240,232,.6); font-size: .95rem; margin-bottom: 32px; max-width: 380px; letter-spacing: .015em; }
 .contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
@@ -983,7 +985,7 @@ section { padding: 120px 80px; position: relative; }
 .form-input:focus { border-color: var(--gold); }
 .form-textarea { min-height: 120px; resize: vertical; }
 footer {
-  padding: 32px 80px;
+  padding: 96px 80px 64px 80px;
   border-top: 1px solid var(--border);
   display: flex; justify-content: space-between; align-items: center;
   font-family: var(--ff-mono);
@@ -1046,7 +1048,7 @@ footer span { color: var(--gold); }
 .sheet-body {
   flex: 1;
   overflow-y: auto;
-  padding: 48px 80px;
+  padding: 96px 80px 64px 80px;
 }
 .sheet-body::-webkit-scrollbar { width: 3px; }
 .sheet-body::-webkit-scrollbar-thumb { background: var(--gold-dim); }
@@ -1219,6 +1221,52 @@ footer span { color: var(--gold); }
   transition: background .25s;
 }
 .sheet-book-buy:hover { background: var(--gold-light); }
+
+.related-book-card .book-cover { height: 200px; }
+.related-book-card .book-meta-title { font-size: .82rem; }
+
+.book-review-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.book-review-item:last-child { border-bottom: none; }
+.book-review-name {
+  font-family: var(--ff-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.book-review-stars {
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+.book-review-text {
+  font-size: .85rem;
+  color: var(--cream);
+  line-height: 1.6;
+}
+.book-review-empty {
+  font-size: .85rem;
+  color: var(--text-muted);
+  padding: 12px 0;
+}
+.review-input:focus { outline: none; border-color: var(--gold); }
+
+.sheet-book-layout {
+  display: grid;
+  grid-template-columns: 9fr 3fr;
+  gap: 40px;
+  align-items: start;
+}
+.sheet-book-review-col {
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+}
 
 /* ── Sheet sub-tabs ───────────────────────────────────────── */
 .sheet-subtabs {
@@ -1531,9 +1579,9 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (max-width: 900px) {
-  section { padding: 80px 16px; }
-  .cards-section { padding: 80px 16px; }
-  #hero { grid-template-columns: 1fr; min-height: auto; }
+  section { padding: 120px 16px 48px; }
+  .cards-section { padding: 120px 16px 48px; }
+  #hero { padding: 0; grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 120px 16px 48px; }
   .hero-right {
     display: block;
@@ -1546,13 +1594,13 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
     transform: none;
   }
   .portrait-badge { bottom: 32px; left: 16px; }
-  #about { grid-template-columns: 1fr; gap: 40px; padding: 80px 16px; }
+  #about { grid-template-columns: 1fr; gap: 40px; padding: 120px 16px 48px; }
   .cards-grid { grid-template-columns: 1fr; }
   .books-grid { grid-template-columns: 1fr; }
   .timeline { grid-template-columns: 80px 1fr; gap: 0 24px; }
   .timeline::before { left: 79px; }
-  #contact { grid-template-columns: 1fr; gap: 48px; padding: 80px 16px; }
-  footer { padding: 24px 16px; flex-direction: column; gap: 12px; text-align: center; }
+  #contact { grid-template-columns: 1fr; gap: 48px; padding: 120px 16px 48px; }
+  footer { padding: 120px 16px 48px; flex-direction: column; gap: 12px; text-align: center; }
   nav { padding: 0 16px; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
@@ -1564,8 +1612,9 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
 }
 
 @media (max-width: 480px) {
-  section { padding: 60px 16px; }
-  .cards-section { padding: 60px 16px; }
+  section { padding: 100px 16px 32px; }
+  .cards-section { padding: 100px 16px 32px; }
+  #hero { padding: 0; }
   .hero-left { padding: 100px 16px 32px; }
   .hero-name { font-size: clamp(2.8rem, 10vw, 4.5rem); }
   .hero-title { font-size: .85rem; }
@@ -1581,7 +1630,7 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
   .portrait-badge { bottom: 20px; left: 16px; padding-left: 14px; }
   .portrait-badge-title { font-size: .55rem; }
   .portrait-badge-org { font-size: .9rem; }
-  #about { padding: 60px 16px; gap: 32px; }
+  #about { padding: 100px 16px 32px; gap: 32px; }
   .about-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
   .stat-number { font-size: 2rem; }
   .stat-label { font-size: .72rem; }
@@ -1597,9 +1646,9 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
   .books-grid { gap: 24px; }
   .book-cover { height: 260px; }
   .book-cover-title { font-size: 1.1rem; }
-  #contact { padding: 60px 16px; gap: 32px; }
+  #contact { padding: 100px 16px 32px; gap: 32px; }
   .contact-info p { font-size: .82rem; }
-  .sheet-body { padding: 32px 16px; }
+  .sheet-body { padding: 100px 16px 32px; }
   .sheet-title { font-size: 1.8rem; }
   .sheet-event-item { grid-template-columns: 72px 1fr; gap: 16px; }
   .sheet-exp-header { flex-direction: column; gap: 6px; }
@@ -1610,7 +1659,7 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
   .testimonial-quote { font-size: 1.1rem; padding-left: 24px; }
   .testimonial-quote::before { font-size: 3rem; left: -4px; top: -12px; }
   .testimonial-author { padding-left: 24px; }
-  footer { padding: 20px 16px; }
+  footer { padding: 100px 16px 32px; }
   /* Bigger touch targets for mobile nav */
   .nav-links a {
     font-size: .85rem;

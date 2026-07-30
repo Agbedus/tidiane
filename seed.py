@@ -8,6 +8,7 @@ from config import settings
 from models.testimonial import Testimonial
 from models.book import Book
 from models.gallery import GalleryPhoto
+from models.experience import Experience
 
 logger = logging.getLogger("tidianeblog")
 
@@ -89,7 +90,33 @@ async def seed_gallery():
                 logger.info("Seeded %d gallery photos from gallery.json", len(data.get("photos", [])))
 
 
+async def seed_experiences():
+    async with async_session() as session:
+        result = await session.execute(select(Experience))
+        if not result.scalars().first():
+            exp_file = settings.DATA_DIR / "experience.json"
+            if exp_file.exists():
+                data = json.loads(exp_file.read_text(encoding="utf-8"))
+                for i, e in enumerate(data.get("experience", [])):
+                    session.add(Experience(
+                        year=e.get("year", ""),
+                        role_en=e.get("role_en", ""),
+                        role_fr=e.get("role_fr", ""),
+                        org_en=e.get("org_en", ""),
+                        org_fr=e.get("org_fr", ""),
+                        description_en=e.get("description_en", ""),
+                        description_fr=e.get("description_fr", ""),
+                        achievements_en=e.get("achievements_en", ""),
+                        achievements_fr=e.get("achievements_fr", ""),
+                        show_on_timeline=e.get("show_on_timeline", False),
+                        sort_order=i,
+                    ))
+                await session.commit()
+                logger.info("Seeded %d experiences from experience.json", len(data.get("experience", [])))
+
+
 async def seed_all():
     await seed_testimonials()
     await seed_books()
     await seed_gallery()
+    await seed_experiences()

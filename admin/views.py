@@ -1,6 +1,6 @@
 from sqladmin import ModelView
 
-from models import ContactMessage, GalleryPhoto, Testimonial, Book
+from models import ContactMessage, GalleryPhoto, Testimonial, Book, Experience
 
 
 class ContactMessageAdmin(ModelView, model=ContactMessage):
@@ -58,3 +58,18 @@ class BookAdmin(ModelView, model=Book):
     can_export = True
     column_default_sort = (Book.sort_order, False)
     form_columns = [Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.description_en, Book.description_fr, Book.status, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
+
+
+class ExperienceAdmin(ModelView, model=Experience):
+    column_list = [Experience.id, Experience.role_en, Experience.org_en, Experience.year, Experience.show_on_timeline, Experience.sort_order]
+    column_searchable_list = [Experience.role_en, Experience.role_fr, Experience.org_en]
+    column_sortable_list = [Experience.id, Experience.sort_order]
+    name = "Experience"
+    name_plural = "Experiences"
+    icon = "fa-solid fa-briefcase"
+    can_create = True
+    can_edit = True
+    can_delete = True
+    can_export = True
+    column_default_sort = (Experience.sort_order, False)
+    form_columns = [Experience.year, Experience.role_en, Experience.role_fr, Experience.org_en, Experience.org_fr, Experience.description_en, Experience.description_fr, Experience.achievements_en, Experience.achievements_fr, Experience.show_on_timeline, Experience.sort_order]
