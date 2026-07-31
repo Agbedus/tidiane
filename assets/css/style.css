@@ -657,8 +657,21 @@ section { padding: 96px 80px 64px 80px; position: relative; }
   transition: transform .3s var(--ease-out);
 }
 .book-card:hover { transform: translateY(-6px); }
+/* Index page only — compact covers (book sheet untouched) */
+#books .book-cover {
+  width: 50%;
+  margin: 0 auto 20px;
+  height: 250px;
+}
+#books .book-cover-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#books .book-cover-inner { padding: 26px; }
+#books .book-cover-title { font-size: 1.05rem; }
 .book-cover {
-  height: 340px;
+  height: 280px;
   position: relative;
   overflow: hidden;
   margin-bottom: 24px;
@@ -672,7 +685,7 @@ section { padding: 96px 80px 64px 80px; position: relative; }
 }
 .book-cover-title {
   font-family: var(--ff-heading);
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 500;
   color: var(--white);
   line-height: 1.2;
@@ -1644,8 +1657,8 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
   .tl-role { font-size: 1rem; }
   .tl-desc { font-size: .82rem; }
   .books-grid { gap: 24px; }
-  .book-cover { height: 260px; }
-  .book-cover-title { font-size: 1.1rem; }
+  #books .book-cover { height: 210px; }
+  #books .book-cover-title { font-size: .95rem; }
   #contact { padding: 100px 16px 32px; gap: 32px; }
   .contact-info p { font-size: .82rem; }
   .sheet-body { padding: 100px 16px 32px; }
