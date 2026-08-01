@@ -126,8 +126,12 @@
   },
   "books": {
     "label": "Livres",
-    "heading": "Livres de S.E. Dr. Tidiane Ouattara",
+    "heading": "Livres du Dr Ouattara",
     "btn_copy": "Obtenir votre exemplaire →"
+  },
+  "honours": {
+    "label": "Reconnaissance",
+    "heading": "Honneurs et distinctions"
   },
   "contact": {
     "label": "Contact",
@@ -192,8 +196,6 @@
     "experience_subtitle": "Espace · Politique · Leadership · 30+ ans",
     "experience_edu_title": "Formation et développement professionnel",
     "experience_edu_sub": "Diplômes et formations sélectionnés",
-    "experience_honours_title": "Honneurs et distinctions",
-    "experience_honours_sub": "Reconnaissances sélectionnées",
     "experience_bio_section": "Biographie",
     "experience_achievements_section": "Réalisations clés",
     "author_header": "Auteur",

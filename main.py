@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import logging
 
 from fastapi import FastAPI, Request
@@ -92,8 +97,11 @@ async def spa_fallback(request: Request, call_next):
             return response
         file_path = settings.ROOT / request.url.path.lstrip("/")
         if file_path.is_file():
-            return FileResponse(str(file_path))
-        index_path = settings.ROOT / "index.html"
-        if index_path.exists():
-            return HTMLResponse(content=index_path.read_bytes(), status_code=200)
+            response = FileResponse(str(file_path))
+        else:
+            index_path = settings.ROOT / "index.html"
+            if index_path.exists():
+                response = HTMLResponse(content=index_path.read_bytes(), status_code=200)
+        if response.status_code == 200 and str(request.url.path).endswith((".html", "/", "")):
+            response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     return response

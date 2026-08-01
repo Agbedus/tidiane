@@ -126,8 +126,12 @@
   },
   "books": {
     "label": "Books",
-    "heading": "Books by H.E. Dr. Tidiane Ouattara",
+    "heading": "Books by Dr. Ouattara",
     "btn_copy": "Get your copy →"
+  },
+  "honours": {
+    "label": "Recognition",
+    "heading": "Honours & Distinctions"
   },
   "contact": {
     "label": "Contact",
@@ -192,8 +196,6 @@
     "experience_subtitle": "Space · Policy · Leadership · 30+ Years",
     "experience_edu_title": "Education & Professional Development",
     "experience_edu_sub": "Selected qualifications",
-    "experience_honours_title": "Honours & Distinctions",
-    "experience_honours_sub": "Selected recognitions",
     "experience_bio_section": "Biography",
     "experience_achievements_section": "Key Achievements",
     "author_header": "Author",
