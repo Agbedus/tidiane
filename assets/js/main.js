@@ -304,14 +304,72 @@ async function loadGalleryPhotos() {
     photos.forEach(p => {
       const item = document.createElement('div');
       item.className = 'sheet-photo';
-      item.innerHTML = '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy" style="width:100%;display:block">' +
+      item.innerHTML =
+        '<a class="glightbox" href="' + p.src + '"' +
+          (p.caption ? ' data-title="' + p.caption + '"' : '') + '>' +
+          '<img src="' + p.src + '" alt="' + (p.caption || '') + '" loading="lazy" style="width:100%;display:block">' +
+        '</a>' +
         (p.caption ? '<div class="sheet-photo-caption">' + p.caption + '</div>' : '');
       const shortest = columns.reduce((a, b) => a.offsetHeight <= b.offsetHeight ? a : b);
       shortest.appendChild(item);
     });
+
+    setupGalleryLightbox();
+    gsap.fromTo(grid.querySelectorAll('.sheet-photo'),
+      { autoAlpha: 0, y: 24 },
+      { autoAlpha: 1, y: 0, duration: .6, ease: 'power2.out', stagger: .05 });
   } catch {
     grid.innerHTML = '<p style="color:var(--text-muted);font-size:.88rem;">Could not load gallery.</p>';
   }
+}
+
+/* ── Gallery lightbox (GLightbox + GSAP) ────────────────── */
+let galleryLightbox = null;
+let galleryWheelAccum = 0;
+let galleryWheelTimer = null;
+
+function galleryWheelNav(e) {
+  if (!galleryLightbox) return;
+  e.preventDefault();
+  galleryWheelAccum += e.deltaY;
+  if (galleryWheelTimer) return;
+  galleryWheelTimer = setTimeout(() => {
+    if (galleryWheelAccum > 40) galleryLightbox.next();
+    else if (galleryWheelAccum < -40) galleryLightbox.prev();
+    galleryWheelAccum = 0;
+    galleryWheelTimer = null;
+  }, 140);
+}
+
+function setupGalleryLightbox() {
+  if (typeof GLightbox === 'undefined') return;
+  if (galleryLightbox) { galleryLightbox.refresh(); return; }
+  galleryLightbox = GLightbox({
+    selector: '.glightbox',
+    openEffect: 'zoom',
+    closeEffect: 'zoom',
+    slideEffect: 'slide',
+    loop: true,
+    keyboardNavigation: true,
+    touchNavigation: true,
+    draggable: true,
+    onOpen: () => {
+      const cont = document.querySelector('.glightbox-container');
+      if (!cont) return;
+      cont.removeEventListener('wheel', galleryWheelNav);
+      cont.addEventListener('wheel', galleryWheelNav, { passive: false });
+      const slide = cont.querySelector('.gslide');
+      if (slide) gsap.fromTo(slide, { scale: .94, y: 24 }, { scale: 1, y: 0, duration: .55, ease: 'power2.out' });
+    },
+    onClose: () => {
+      const cont = document.querySelector('.glightbox-container');
+      if (cont) cont.removeEventListener('wheel', galleryWheelNav);
+    },
+    onSlideChange: () => {
+      const cap = document.querySelector('.glightbox-container .gslide-description');
+      if (cap) gsap.fromTo(cap, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .5, ease: 'power2.out' });
+    }
+  });
 }
 
 /* ── Load books from API ────────────────────────────────── */
