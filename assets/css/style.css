@@ -949,10 +949,27 @@ section { padding: 96px 160px 64px 160px; position: relative; }
   margin-bottom: 32px;
   position: relative;
   padding-left: 32px;
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
+  max-height: 15.5rem;
   overflow: hidden;
+  transition: max-height .65s cubic-bezier(.22,1,.36,1);
+}
+.testimonial-quote::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4rem;
+  background: linear-gradient(to top, var(--navy-deep), transparent);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+.testimonial-slide:hover .testimonial-quote {
+  max-height: 80rem;
+}
+.testimonial-slide:hover .testimonial-quote::after {
+  opacity: 0;
 }
 .testimonial-quote::before {
   content: '\201C';
@@ -1760,6 +1777,7 @@ html.light-mode .theme-toggle .theme-icon-light { display: inline; }
   .testimonial-quote {
     grid-area: quote;
     font-size: 1.05rem;
+    max-height: 12.5rem;
     margin-bottom: 0;
     padding-left: 24px;
   }

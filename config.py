@@ -20,6 +20,9 @@ class Settings:
     CLOUDINARY_API_KEY: str = os.getenv("CLOUDINARY_API_KEY", "")
     CLOUDINARY_API_SECRET: str = os.getenv("CLOUDINARY_API_SECRET", "")
 
+    SELF_PING_URL: str = os.getenv("SELF_PING_URL", "")
+    SELF_PING_INTERVAL: int = int(os.getenv("SELF_PING_INTERVAL", "600"))
+
     ROOT: Path = ROOT
     DATA_DIR: Path = ROOT / "data"
     ASSETS_DIR: Path = ROOT / "assets"

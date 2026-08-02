@@ -1,15 +1,16 @@
 from __future__ import annotations
 
+import asyncio
+import logging
 import os
 import sys
+import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import logging
-
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from sqladmin import Admin
 
@@ -66,10 +67,35 @@ app.include_router(experience_router)
 app.include_router(translations_router)
 
 
+def _ping(url: str) -> None:
+    try:
+        with urllib.request.urlopen(url, timeout=10) as resp:
+            logger.info("Self-ping OK (%s)", resp.status)
+    except Exception as exc:  # noqa: BLE001
+        logger.error("Self-ping failed: %s", exc)
+
+
+async def self_ping_loop(url: str, interval: int) -> None:
+    while True:
+        await asyncio.to_thread(_ping, url)
+        await asyncio.sleep(interval)
+
+
 @app.on_event("startup")
 async def startup():
     await run_migrations()
     await seed_all()
+    if settings.SELF_PING_URL:
+        asyncio.create_task(
+            self_ping_loop(settings.SELF_PING_URL, settings.SELF_PING_INTERVAL)
+        )
+    else:
+        logger.warning("SELF_PING_URL not set - self-ping keep-alive is disabled")
+
+
+@app.get("/health", response_class=JSONResponse)
+async def health():
+    return {"status": "ok"}
 
 
 if settings.ASSETS_DIR.exists():
