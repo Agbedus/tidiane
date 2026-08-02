@@ -686,20 +686,20 @@ section { padding: 96px 160px 64px 160px; position: relative; }
   width: 340px;
   min-height: 240px;
   flex-shrink: 0;
-  background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy-mid) 100%);
-  border: 1px solid var(--border);
+  background: linear-gradient(160deg, #D4AF7A 0%, #B8975A 100%);
+  border: 1px solid #8B6E3F;
   border-radius: 0;
   padding: 40px 36px 36px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(190,198,210,.12);
+  box-shadow: 0 10px 30px rgba(184,151,90,.18);
   transition: transform .45s var(--ease-out), border-color .45s var(--ease-out), box-shadow .45s var(--ease-out);
 }
 .honour-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(184,151,90,.6);
-  box-shadow: 0 20px 46px rgba(190,198,210,.2);
+  border-color: #D4AF7A;
+  box-shadow: 0 20px 46px rgba(184,151,90,.32);
 }
 .honour-top {
   display: flex;
@@ -710,24 +710,26 @@ section { padding: 96px 160px 64px 160px; position: relative; }
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 1px solid var(--gold);
-  background: radial-gradient(circle at 32% 30%, rgba(184,151,90,.16), rgba(184,151,90,.02) 68%);
+  border: 1px solid #071422;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
+  color: #071422;
   font-size: 1.35rem;
-  transition: transform .45s var(--ease-out);
+  transition: transform .45s var(--ease-out), background .45s var(--ease-out), color .45s var(--ease-out);
 }
 .honour-card:hover .honour-medal {
   transform: scale(1.08) rotate(-5deg);
+  background: #071422;
+  color: #D4AF7A;
 }
 .honour-year {
   font-family: var(--ff-mono);
   font-size: .72rem;
   letter-spacing: .2em;
-  color: var(--gold);
-  border: 1px solid rgba(184,151,90,.35);
+  color: #071422;
+  border: 1px solid rgba(7,20,34,.45);
   padding: 4px 12px;
   border-radius: 0;
 }
@@ -735,7 +737,7 @@ section { padding: 96px 160px 64px 160px; position: relative; }
   font-family: var(--ff-display-alt);
   font-size: 1.9rem;
   font-weight: 500;
-  color: var(--white);
+  color: #071422;
   line-height: 1.3;
 }
 
