@@ -96,7 +96,7 @@
   <ul class="nav-links">
     <li><a onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="nav.home">Home</a></li>
     <li><a onclick="openSheet('experience')" data-i18n="nav.achievements">Achievements</a></li>
-    <li><a onclick="openSheet('author')" data-i18n="nav.author">Author</a></li>
+    <li><a onclick="openSheet('author')" data-i18n="nav.author">Publications</a></li>
     <li><a onclick="openSheet('photos')" data-i18n="nav.gallery">Gallery</a></li>
     <li><a onclick="scrollToSection('contact')" data-i18n="nav.connect">Connect with Tidiane</a></li>
   </ul>
@@ -689,13 +689,16 @@
 <script type="text/html" id="tmpl-sheet-author">
 <div class="sheet" id="sheet-author">
   <div class="sheet-header">
-    <div class="sheet-header-label" data-i18n="sheets.author_header">Author</div>
+    <div class="sheet-header-label" data-i18n="sheets.author_header">Publications</div>
     <button class="sheet-close" onclick="closeSheet()">✕</button>
   </div>
   <div class="sheet-subtabs">
     <button class="sheet-subtab active" data-subtab="author-books" data-i18n="sheets.author_tab_books">Books</button>
-    <button class="sheet-subtab" data-subtab="author-interviews" data-i18n="sheets.author_tab_interviews">Interviews &amp; Media</button>
-    <button class="sheet-subtab" data-subtab="author-speeches" data-i18n="sheets.author_tab_speeches">Selected Speeches</button>
+    <button class="sheet-subtab" data-subtab="author-article" data-i18n="sheets.author_tab_article">Articles</button>
+    <button class="sheet-subtab" data-subtab="author-interview" data-i18n="sheets.author_tab_interview">Interviews</button>
+    <button class="sheet-subtab" data-subtab="author-profile" data-i18n="sheets.author_tab_profile">Profiles</button>
+    <button class="sheet-subtab" data-subtab="author-video" data-i18n="sheets.author_tab_video">Videos</button>
+    <button class="sheet-subtab" data-subtab="author-speech" data-i18n="sheets.author_tab_speech">Speeches</button>
   </div>
   <div class="sheet-body">
     <div class="subtab-panel active" id="subtab-author-books">
@@ -706,24 +709,39 @@
       </div>
     </div>
 
-    <div class="subtab-panel" id="subtab-author-interviews">
-      <div class="sheet-title" data-i18n="sheets.interviews_title">Interviews &amp; Media</div>
-      <div class="sheet-subtitle" data-i18n="sheets.interviews_subtitle">Press, broadcast, and digital media appearances</div>
+    <div class="subtab-panel" id="subtab-author-article">
+      <div class="sheet-title" data-i18n="sheets.media_article_title">Articles &amp; Coverage</div>
+      <div class="sheet-subtitle" data-i18n="sheets.media_article_subtitle">Reporting on Dr. Ouattara's work across the continent and beyond</div>
       <div class="sheet-divider"></div>
-      <div class="subtab-placeholder">
-        <div class="subtab-placeholder-icon"><i class="fal fa-microphone"></i></div>
-        <div class="subtab-placeholder-text" data-i18n="sheets.content_soon">Content coming soon</div>
-      </div>
+      <div id="sheet-author-article-list"></div>
     </div>
 
-    <div class="subtab-panel" id="subtab-author-speeches">
-      <div class="sheet-title" data-i18n="sheets.speeches_title">Selected Speeches</div>
-      <div class="sheet-subtitle" data-i18n="sheets.speeches_subtitle">Keynote addresses and presentations</div>
+    <div class="subtab-panel" id="subtab-author-interview">
+      <div class="sheet-title" data-i18n="sheets.media_interview_title">Interviews</div>
+      <div class="sheet-subtitle" data-i18n="sheets.media_interview_subtitle">Conversations with leading press and broadcast media</div>
       <div class="sheet-divider"></div>
-      <div class="subtab-placeholder">
-        <div class="subtab-placeholder-icon"><i class="fal fa-podium"></i></div>
-        <div class="subtab-placeholder-text" data-i18n="sheets.content_soon">Content coming soon</div>
-      </div>
+      <div id="sheet-author-interview-list"></div>
+    </div>
+
+    <div class="subtab-panel" id="subtab-author-profile">
+      <div class="sheet-title" data-i18n="sheets.media_profile_title">Profiles</div>
+      <div class="sheet-subtitle" data-i18n="sheets.media_profile_subtitle">Speaker and biography profiles from international platforms</div>
+      <div class="sheet-divider"></div>
+      <div id="sheet-author-profile-list"></div>
+    </div>
+
+    <div class="subtab-panel" id="subtab-author-video">
+      <div class="sheet-title" data-i18n="sheets.media_video_title">Videos</div>
+      <div class="sheet-subtitle" data-i18n="sheets.media_video_subtitle">Recorded interviews and keynote addresses</div>
+      <div class="sheet-divider"></div>
+      <div id="sheet-author-video-list"></div>
+    </div>
+
+    <div class="subtab-panel" id="subtab-author-speech">
+      <div class="sheet-title" data-i18n="sheets.media_speech_title">Speeches &amp; Keynotes</div>
+      <div class="sheet-subtitle" data-i18n="sheets.media_speech_subtitle">Selected addresses at conferences and forums</div>
+      <div class="sheet-divider"></div>
+      <div id="sheet-author-speech-list"></div>
     </div>
 
   </div>

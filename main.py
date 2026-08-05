@@ -29,6 +29,7 @@ from api.gallery import router as gallery_router
 from api.testimonials import router as testimonials_router
 from api.books import router as books_router
 from api.experience import router as experience_router
+from api.media import router as media_router
 from api.translations import router as translations_router
 from seed import run_migrations, seed_all
 
@@ -64,6 +65,7 @@ app.include_router(gallery_router)
 app.include_router(testimonials_router)
 app.include_router(books_router)
 app.include_router(experience_router)
+app.include_router(media_router)
 app.include_router(translations_router)
 
 

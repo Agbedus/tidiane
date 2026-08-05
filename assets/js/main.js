@@ -4,7 +4,7 @@ let translations = {};
 
 const I18N = {
   en: {
-    nav: { home: "Home", achievements: "Achievements", author: "Author", gallery: "Gallery", connect: "Connect with Tidiane" },
+    nav: { home: "Home", achievements: "Achievements", author: "Publications", gallery: "Gallery", connect: "Connect with Tidiane" },
     hero: { eyebrow: "LEADER AND EXPERT IN THE AFRICAN SPACE SECTOR", name_line1: "H.E. Dr. Tidiane", name_line2: "Ouattara", title: "Steering Africa\u2019s sovereign presence in the space domain", bio: "H.E. Dr. Tidiane Ouattara is a distinguished African space leader, strategist, and international advocate for science, technology, and innovation. He is the elected President of the Council of the African Space Agency and has held senior leadership roles at the Canadian Space Agency and the African Union Commission.", btn_profile: "Profile & Career \u2192", btn_books: "Books" },
     about: { label: "About", heading: "Architect of Africa\u2019s Space Sovereignty", p1: "H.E. Dr. Tidiane Ouattara is leading the implementation of the African Space Policy and Strategy, driving Africa\u2019s collective ambition to harness space science and technology for sustainable development. Over the last decade, he has mobilised over US$155 million for African space and Earth observation programmes, led the implementation of GMES & Africa across 45 African countries, and played a central role in establishing the African Space Agency (AfSA).", p2: "Today, as President of the African Space Council, he provides strategic leadership for Africa\u2019s continental space agenda, strengthening international partnerships and advancing the use of space technologies to support climate resilience, agriculture, disaster risk management, environmental sustainability, and socioeconomic development across the continent.", quote: "Africa is the New El Dorado for the Global Space Business.", stat_55: "Member states represented", stat_30: "30+ Years of Leadership in the Space Sector", stat_100: "International Partnerships", stat_7: "Books" },
     cards: { label: "Explore", heading: "Milestones & Moments", subtitle: "From global summits to landmark policy achievements \u2014 a profile in leadership.", events_tag: "Calendar", events_title: "Upcoming & Recent Events", events_desc: "Summits, keynotes, intergovernmental engagements, and public addresses across five continents.", events_link: "View Events \u2192", photos_tag: "Gallery", photos_title: "Photo Journal", photos_desc: "A visual record of H.E. Dr. Ouattara at international forums, space installations, and diplomatic missions.", photos_link: "View Gallery \u2192", career_tag: "Career", career_title: "Professional Experience", career_desc: "From early research roles to leading the continental space agenda \u2014 a career spanning science, policy, and leadership.", career_link: "Full Biography \u2192" },
@@ -15,10 +15,10 @@ const I18N = {
     contact: { label: "Contact", heading: "Get in Touch", info_text: "For media enquiries, speaking engagements, partnership discussions, or institutional correspondence, please reach out through the channels below or submit a message.", form_name: "Full Name", form_name_placeholder: "Your name", form_org: "Organisation", form_org_placeholder: "Your institution or company", form_email: "Email", form_email_placeholder: "your@email.com", form_message: "Message", form_message_placeholder: "Your message\u2026", form_submit: "Send Message \u2192", form_sending: "Sending\u2026", form_success: "Your message has been received. Thank you!", form_error: "Could not reach the server. Please try again later." },
     testimonials: { label: "Endorsements", heading: "Testimonials" },
     footer: { copyright: "\u00a9 2025 H.E. Dr. Tidiane Ouattara", powered_by: "Powered by Agbedus" },
-    sheets: { events_header: "Calendar \u2014 Events", events_title: "Events & Engagements", events_subtitle: "2024\u20132025 \u00b7 Global Agenda", ev1_month: "Nov 2024", ev1_title: "UN Committee on the Peaceful Uses of Outer Space", ev1_loc: "Vienna, Austria", ev1_desc: "Keynote address on behalf of the African Union at COPUOS, presenting the AfSA mandate and advocating for equitable access to orbital slots for developing nations.", ev2_month: "Sep 2024", ev2_title: "African Union Summit Side Event \u2014 Space Policy Dialogue", ev2_loc: "Addis Ababa, Ethiopia", ev2_desc: "Hosted a high-level ministerial dialogue on harmonising Africa\u2019s national space legislations with the continental Space Policy and Strategy framework.", ev3_month: "Jul 2024", ev3_title: "International Astronautical Congress \u2014 Africa Pavilion", ev3_loc: "Milan, Italy", ev3_desc: "Chaired the inaugural Africa Space Pavilion at IAC 2024, spotlighting breakthroughs from AfSA member states and facilitating investment conversations with commercial operators.", ev4_month: "Mar 2025", ev4_title: "AfriTech Space Innovation Forum", ev4_loc: "Nairobi, Kenya", ev4_desc: "Opening ceremony address; announced the AfSA Young Innovators in Space grant programme for sub-Saharan universities. Moderated a panel on NewSpace startups on the continent.", ev5_month: "Jan 2025", ev5_title: "Bilateral Partnership Signing \u2014 ESA & AfSA", ev5_loc: "Paris, France", ev5_desc: "Concluded a landmark Cooperation Agreement with ESA covering Earth Observation data sharing, joint training programs, and co-development of the Africa Environmental Monitoring satellite constellation.", ev6_month: "Jun 2025", ev6_title: "World Economic Forum \u2014 Special Address", ev6_loc: "Cape Town, South Africa", ev6_desc: "Invited address on \u201cSpace as the Fourth Industrial Revolution for Africa,\u201d moderated discussion with heads of state and global technology CEOs on space investment in emerging markets.", photos_header: "Gallery \u2014 Photo Journal", photos_title: "Photo Journal", photos_subtitle: "International Engagements & Field Visits", photos_desc: "A curated selection of photographs documenting H.E. Dr. Ouattara\u2019s work across Africa and on the world stage.", photos_press: "For high-resolution press photography, please contact the AfSA communications office at", experience_header: "Career \u2014 Full Biography", experience_title: "Professional Biography", experience_subtitle: "Space \u00b7 Policy \u00b7 Leadership \u00b7 29 Years", experience_edu_title: "Education & Professional Development", experience_edu_sub: "Selected qualifications", experience_bio_section: "Biography", experience_achievements_section: "Key Achievements", author_header: "Author", author_tab_books: "Books", author_tab_interviews: "Interviews & Media", author_tab_speeches: "Selected Speeches", author_books_title: "Books by H.E. Dr. Tidiane Ouattara", author_books_subtitle: "Each title available in English & French", interviews_title: "Interviews & Media", interviews_subtitle: "Press, broadcast, and digital media appearances", speeches_title: "Selected Speeches", speeches_subtitle: "Keynote addresses and presentations", content_soon: "Content coming soon", online_publication: "Online Publication", btn_copy: "Get your copy \u2192" }
+    sheets: { events_header: "Calendar \u2014 Events", events_title: "Events & Engagements", events_subtitle: "2024\u20132025 \u00b7 Global Agenda", ev1_month: "Nov 2024", ev1_title: "UN Committee on the Peaceful Uses of Outer Space", ev1_loc: "Vienna, Austria", ev1_desc: "Keynote address on behalf of the African Union at COPUOS, presenting the AfSA mandate and advocating for equitable access to orbital slots for developing nations.", ev2_month: "Sep 2024", ev2_title: "African Union Summit Side Event \u2014 Space Policy Dialogue", ev2_loc: "Addis Ababa, Ethiopia", ev2_desc: "Hosted a high-level ministerial dialogue on harmonising Africa\u2019s national space legislations with the continental Space Policy and Strategy framework.", ev3_month: "Jul 2024", ev3_title: "International Astronautical Congress \u2014 Africa Pavilion", ev3_loc: "Milan, Italy", ev3_desc: "Chaired the inaugural Africa Space Pavilion at IAC 2024, spotlighting breakthroughs from AfSA member states and facilitating investment conversations with commercial operators.", ev4_month: "Mar 2025", ev4_title: "AfriTech Space Innovation Forum", ev4_loc: "Nairobi, Kenya", ev4_desc: "Opening ceremony address; announced the AfSA Young Innovators in Space grant programme for sub-Saharan universities. Moderated a panel on NewSpace startups on the continent.", ev5_month: "Jan 2025", ev5_title: "Bilateral Partnership Signing \u2014 ESA & AfSA", ev5_loc: "Paris, France", ev5_desc: "Concluded a landmark Cooperation Agreement with ESA covering Earth Observation data sharing, joint training programs, and co-development of the Africa Environmental Monitoring satellite constellation.", ev6_month: "Jun 2025", ev6_title: "World Economic Forum \u2014 Special Address", ev6_loc: "Cape Town, South Africa", ev6_desc: "Invited address on \u201cSpace as the Fourth Industrial Revolution for Africa,\u201d moderated discussion with heads of state and global technology CEOs on space investment in emerging markets.", photos_header: "Gallery \u2014 Photo Journal", photos_title: "Photo Journal", photos_subtitle: "International Engagements & Field Visits", photos_desc: "A curated selection of photographs documenting H.E. Dr. Ouattara\u2019s work across Africa and on the world stage.", photos_press: "For high-resolution press photography, please contact the AfSA communications office at", experience_header: "Career \u2014 Full Biography", experience_title: "Professional Biography", experience_subtitle: "Space \u00b7 Policy \u00b7 Leadership \u00b7 29 Years", experience_edu_title: "Education & Professional Development", experience_edu_sub: "Selected qualifications", experience_bio_section: "Biography", experience_achievements_section: "Key Achievements", author_header: "Publications", author_tab_books: "Books", author_tab_article: "Articles", author_tab_interview: "Interviews", author_tab_profile: "Profiles", author_tab_video: "Videos", author_tab_speech: "Speeches", author_books_title: "Books by H.E. Dr. Tidiane Ouattara", author_books_subtitle: "Each title available in English & French", media_article_title: "Articles & Coverage", media_article_subtitle: "Reporting on Dr. Ouattara's work across the continent and beyond", media_interview_title: "Interviews", media_interview_subtitle: "Conversations with leading press and broadcast media", media_profile_title: "Profiles", media_profile_subtitle: "Speaker and biography profiles from international platforms", media_video_title: "Videos", media_video_subtitle: "Recorded interviews and keynote addresses", media_speech_title: "Speeches & Keynotes", media_speech_subtitle: "Selected addresses at conferences and forums", media_read_article: "Read Article \u2192", media_read_interview: "Read Interview \u2192", media_read_profile: "View Profile \u2192", media_read_video: "Watch Video \u2192", media_read_speech: "View Speech \u2192", online_publication: "Online Publication", btn_copy: "Get your copy \u2192" }
   },
   fr: {
-    nav: { home: "Accueil", achievements: "R\u00e9alisations", author: "Auteur", gallery: "Galerie", connect: "Contactez Tidiane" },
+    nav: { home: "Accueil", achievements: "R\u00e9alisations", author: "Publications", gallery: "Galerie", connect: "Contactez Tidiane" },
     hero: { eyebrow: "LEADER ET EXPERT DU SECTEUR SPATIAL AFRICAIN", name_line1: "S.E. Dr. Tidiane", name_line2: "Ouattara", title: "Orienter la pr\u00e9sence souveraine de l\u2019Afrique dans le domaine spatial", bio: "S.E. Dr. Tidiane Ouattara est un distingu\u00e9 dirigeant spatial africain, strat\u00e8ge et d\u00e9fenseur international de la science, de la technologie et de l\u2019innovation. Il est le Pr\u00e9sident \u00e9lu du Conseil de l\u2019Agence Spatiale Africaine et a occup\u00e9 des postes de direction au sein de l\u2019Agence Spatiale Canadienne et de la Commission de l\u2019Union Africaine.", btn_profile: "Profil et Parcours \u2192", btn_books: "Livres et Recherches" },
     about: { label: "\u00c0 propos", heading: "Architecte de la Souverainet\u00e9 Spatiale de l\u2019Afrique", p1: "S.E. Dr Tidiane Ouattara dirige la mise en \u0153uvre de la Politique et de la Strat\u00e9gie spatiales africaines, portant l\u2019ambition collective de l\u2019Afrique de mobiliser la science et la technologie spatiales pour le d\u00e9veloppement durable. Au cours de la derni\u00e8re d\u00e9cennie, il a mobilis\u00e9 plus de 155 millions de dollars US pour les programmes spatiaux africains et d\u2019observation de la Terre, dirig\u00e9 la mise en \u0153uvre de GMES & Afrique dans 45 pays africains et jou\u00e9 un r\u00f4le central dans la cr\u00e9ation de l\u2019Agence Spatiale Africaine (AfSA).", p2: "Aujourd\u2019hui, en tant que Pr\u00e9sident du Conseil Spatial Africain, il assure un leadership strat\u00e9gique pour l\u2019agenda spatial continental de l\u2019Afrique, renfor\u00e7ant les partenariats internationaux et faisant progresser l\u2019utilisation des technologies spatiales au service de la r\u00e9silience climatique, de l\u2019agriculture, de la gestion des risques de catastrophe, de la durabilit\u00e9 environnementale et du d\u00e9veloppement socio\u00e9conomique \u00e0 travers le continent.", quote: "L\u2019Afrique est le nouvel Eldorado pour les affaires spatiales mondiales.", stat_55: "\u00c9tats membres repr\u00e9sent\u00e9s", stat_30: "30+ années de leadership dans le secteur spatial", stat_100: "Partenariats internationaux", stat_7: "Livres" },
     cards: { label: "Explorer", heading: "\u00c9tapes et Moments", subtitle: "Des sommets mondiaux aux r\u00e9alisations politiques embl\u00e9matiques \u2014 un portrait du leadership.", events_tag: "Calendrier", events_title: "\u00c9v\u00e9nements \u00e0 venir et r\u00e9cents", events_desc: "Sommets, conf\u00e9rences, engagements intergouvernementaux et adresses publiques sur cinq continents.", events_link: "Voir les \u00e9v\u00e9nements \u2192", photos_tag: "Galerie", photos_title: "Journal photo", photos_desc: "Un enregistrement visuel du Dr Ouattara dans les forums internationaux, installations spatiales et missions diplomatiques.", photos_link: "Voir la galerie \u2192", career_tag: "Parcours", career_title: "Exp\u00e9rience professionnelle", career_desc: "Des premiers r\u00f4les de recherche \u00e0 la direction de l\u2019agenda spatial continental \u2014 un parcours alliant sciences, politiques et leadership.", career_link: "Biographie compl\u00e8te \u2192" },
@@ -29,7 +29,7 @@ const I18N = {
     contact: { label: "Contact", heading: "Entrez en contact", info_text: "Pour les demandes de m\u00e9dias, les conf\u00e9rences, les discussions de partenariat ou la correspondance institutionnelle, veuillez nous contacter via les canaux ci-dessous ou soumettre un message.", form_name: "Nom complet", form_name_placeholder: "Votre nom", form_org: "Organisation", form_org_placeholder: "Votre institution ou entreprise", form_email: "Courriel", form_email_placeholder: "votre@courriel.com", form_message: "Message", form_message_placeholder: "Votre message\u2026", form_submit: "Envoyer le message \u2192", form_sending: "Envoi en cours\u2026", form_success: "Votre message a \u00e9t\u00e9 re\u00e7u. Merci!", form_error: "Impossible de joindre le serveur. Veuillez r\u00e9essayer plus tard." },
     testimonials: { label: "Recommandations", heading: "Témoignages" },
     footer: { copyright: "\u00a9 2025 S.E. Dr. Tidiane Ouattara", powered_by: "Propuls\u00e9 par Agbedus" },
-    sheets: { events_header: "Calendrier \u2014 \u00c9v\u00e9nements", events_title: "\u00c9v\u00e9nements et Engagements", events_subtitle: "2024\u20132025 \u00b7 Agenda mondial", ev1_month: "Nov. 2024", ev1_title: "Comit\u00e9 des Nations Unies pour les utilisations pacifiques de l\u2019espace extra-atmosph\u00e9rique", ev1_loc: "Vienne, Autriche", ev1_desc: "Allocution d\u2019ouverture au nom de l\u2019Union africaine au COPUOS, pr\u00e9sentant le mandat de l\u2019ASA et plaidant pour un acc\u00e8s \u00e9quitable aux positions orbitales pour les nations en d\u00e9veloppement.", ev2_month: "Sept. 2024", ev2_title: "\u00c9v\u00e9nement parall\u00e8le du sommet de l\u2019Union africaine \u2014 Dialogue sur la politique spatiale", ev2_loc: "Addis-Abeba, \u00c9thiopie", ev2_desc: "A accueilli un dialogue minist\u00e9riel de haut niveau sur l\u2019harmonisation des l\u00e9gislations spatiales nationales africaines avec le cadre de la Politique et de la Strat\u00e9gie spatiales continentales.", ev3_month: "Juil. 2024", ev3_title: "Congr\u00e8s astronautique international \u2014 Pavillon de l\u2019Afrique", ev3_loc: "Milan, Italie", ev3_desc: "A pr\u00e9sid\u00e9 le premier Pavillon Spatial Africain \u00e0 l\u2019IAC 2024, mettant en lumi\u00e8re les avanc\u00e9es des \u00c9tats membres de l\u2019ASA et facilitant les discussions d\u2019investissement avec les op\u00e9rateurs commerciaux.", ev4_month: "Mars 2025", ev4_title: "Forum AfriTech sur l\u2019innovation spatiale", ev4_loc: "Nairobi, Kenya", ev4_desc: "Allocution d\u2019ouverture ; annonce du programme de subventions de l\u2019ASA Jeunes Innovateurs de l\u2019Espace pour les universit\u00e9s subsahariennes. Mod\u00e9ration d\u2019un panel sur les start-ups NewSpace sur le continent.", ev5_month: "Janv. 2025", ev5_title: "Signature d\u2019un partenariat bilat\u00e9ral \u2014 ESA & ASA", ev5_loc: "Paris, France", ev5_desc: "A conclu un accord de coop\u00e9ration historique avec l\u2019ESA couvrant le partage de donn\u00e9es d\u2019observation de la Terre, les programmes de formation conjoints et le co-d\u00e9veloppement de la constellation de satellites de surveillance environnementale de l\u2019Afrique.", ev6_month: "Juin 2025", ev6_title: "Forum \u00e9conomique mondial \u2014 Allocution sp\u00e9ciale", ev6_loc: "Le Cap, Afrique du Sud", ev6_desc: "Allocution invit\u00e9e sur \u00ab L\u2019espace comme quatri\u00e8me r\u00e9volution industrielle pour l\u2019Afrique \u00bb, mod\u00e9ration d\u2019une discussion avec des chefs d\u2019\u00c9tat et des PDG de technologies mondiales sur l\u2019investissement spatial dans les march\u00e9s \u00e9mergents.", photos_header: "Galerie \u2014 Journal photo", photos_title: "Journal photo", photos_subtitle: "Engagements internationaux et visites de terrain", photos_desc: "Une s\u00e9lection de photographies documentant le travail du Dr Ouattara \u00e0 travers l\u2019Afrique et sur la sc\u00e8ne mondiale.", photos_press: "Pour la photographie de presse en haute r\u00e9solution, veuillez contacter le bureau de communication de l\u2019ASA \u00e0", experience_header: "Parcours \u2014 Biographie compl\u00e8te", experience_title: "Biographie professionnelle", experience_subtitle: "Espace \u00b7 Politique \u00b7 Leadership \u00b7 29 ans", experience_edu_title: "Formation et d\u00e9veloppement professionnel", experience_edu_sub: "Dipl\u00f4mes et formations s\u00e9lectionn\u00e9s", experience_bio_section: "Biographie", experience_achievements_section: "R\u00e9alisations cl\u00e9s", author_header: "Auteur", author_tab_books: "Livres", author_tab_interviews: "Interviews et M\u00e9dias", author_tab_speeches: "Discours s\u00e9lectionn\u00e9s", author_books_title: "Livres de S.E. Dr. Tidiane Ouattara", author_books_subtitle: "Chaque titre disponible en anglais et en fran\u00e7ais", interviews_title: "Interviews et M\u00e9dias", interviews_subtitle: "Apparitions dans la presse, \u00e0 la t\u00e9l\u00e9vision et dans les m\u00e9dias num\u00e9riques", speeches_title: "Discours s\u00e9lectionn\u00e9s", speeches_subtitle: "Allocutions et pr\u00e9sentations", content_soon: "Contenu \u00e0 venir", online_publication: "Publication en ligne", btn_copy: "Obtenir votre exemplaire \u2192" }
+    sheets: { events_header: "Calendrier \u2014 \u00c9v\u00e9nements", events_title: "\u00c9v\u00e9nements et Engagements", events_subtitle: "2024\u20132025 \u00b7 Agenda mondial", ev1_month: "Nov. 2024", ev1_title: "Comit\u00e9 des Nations Unies pour les utilisations pacifiques de l\u2019espace extra-atmosph\u00e9rique", ev1_loc: "Vienne, Autriche", ev1_desc: "Allocution d\u2019ouverture au nom de l\u2019Union africaine au COPUOS, pr\u00e9sentant le mandat de l\u2019ASA et plaidant pour un acc\u00e8s \u00e9quitable aux positions orbitales pour les nations en d\u00e9veloppement.", ev2_month: "Sept. 2024", ev2_title: "\u00c9v\u00e9nement parall\u00e8le du sommet de l\u2019Union africaine \u2014 Dialogue sur la politique spatiale", ev2_loc: "Addis-Abeba, \u00c9thiopie", ev2_desc: "A accueilli un dialogue minist\u00e9riel de haut niveau sur l\u2019harmonisation des l\u00e9gislations spatiales nationales africaines avec le cadre de la Politique et de la Strat\u00e9gie spatiales continentales.", ev3_month: "Juil. 2024", ev3_title: "Congr\u00e8s astronautique international \u2014 Pavillon de l\u2019Afrique", ev3_loc: "Milan, Italie", ev3_desc: "A pr\u00e9sid\u00e9 le premier Pavillon Spatial Africain \u00e0 l\u2019IAC 2024, mettant en lumi\u00e8re les avanc\u00e9es des \u00c9tats membres de l\u2019ASA et facilitant les discussions d\u2019investissement avec les op\u00e9rateurs commerciaux.", ev4_month: "Mars 2025", ev4_title: "Forum AfriTech sur l\u2019innovation spatiale", ev4_loc: "Nairobi, Kenya", ev4_desc: "Allocution d\u2019ouverture ; annonce du programme de subventions de l\u2019ASA Jeunes Innovateurs de l\u2019Espace pour les universit\u00e9s subsahariennes. Mod\u00e9ration d\u2019un panel sur les start-ups NewSpace sur le continent.", ev5_month: "Janv. 2025", ev5_title: "Signature d\u2019un partenariat bilat\u00e9ral \u2014 ESA & ASA", ev5_loc: "Paris, France", ev5_desc: "A conclu un accord de coop\u00e9ration historique avec l\u2019ESA couvrant le partage de donn\u00e9es d\u2019observation de la Terre, les programmes de formation conjoints et le co-d\u00e9veloppement de la constellation de satellites de surveillance environnementale de l\u2019Afrique.", ev6_month: "Juin 2025", ev6_title: "Forum \u00e9conomique mondial \u2014 Allocution sp\u00e9ciale", ev6_loc: "Le Cap, Afrique du Sud", ev6_desc: "Allocution invit\u00e9e sur \u00ab L\u2019espace comme quatri\u00e8me r\u00e9volution industrielle pour l\u2019Afrique \u00bb, mod\u00e9ration d\u2019une discussion avec des chefs d\u2019\u00c9tat et des PDG de technologies mondiales sur l\u2019investissement spatial dans les march\u00e9s \u00e9mergents.", photos_header: "Galerie \u2014 Journal photo", photos_title: "Journal photo", photos_subtitle: "Engagements internationaux et visites de terrain", photos_desc: "Une s\u00e9lection de photographies documentant le travail du Dr Ouattara \u00e0 travers l\u2019Afrique et sur la sc\u00e8ne mondiale.", photos_press: "Pour la photographie de presse en haute r\u00e9solution, veuillez contacter le bureau de communication de l\u2019ASA \u00e0", experience_header: "Parcours \u2014 Biographie compl\u00e8te", experience_title: "Biographie professionnelle", experience_subtitle: "Espace \u00b7 Politique \u00b7 Leadership \u00b7 29 ans", experience_edu_title: "Formation et d\u00e9veloppement professionnel", experience_edu_sub: "Dipl\u00f4mes et formations s\u00e9lectionn\u00e9s", experience_bio_section: "Biographie", experience_achievements_section: "R\u00e9alisations cl\u00e9s", author_header: "Publications", author_tab_books: "Livres", author_tab_article: "Articles", author_tab_interview: "Interviews", author_tab_profile: "Profils", author_tab_video: "Vid\u00e9os", author_tab_speech: "Discours", author_books_title: "Livres de S.E. Dr. Tidiane Ouattara", author_books_subtitle: "Chaque titre disponible en anglais et en fran\u00e7ais", media_article_title: "Articles et couverture", media_article_subtitle: "Reportages sur le travail du Dr Ouattara \u00e0 travers le continent et au-del\u00e0", media_interview_title: "Interviews", media_interview_subtitle: "Conversations avec la presse et les m\u00e9dias audiovisuels", media_profile_title: "Profils", media_profile_subtitle: "Profils de conf\u00e9renciers et biographies issus de plateformes internationales", media_video_title: "Vid\u00e9os", media_video_subtitle: "Interviews enregistr\u00e9es et allocutions", media_speech_title: "Discours et allocutions", media_speech_subtitle: "S\u00e9lection d'allocutions lors de conf\u00e9rences et forums", media_read_article: "Lire l'article \u2192", media_read_interview: "Lire l'interview \u2192", media_read_profile: "Voir le profil \u2192", media_read_video: "Regarder la vid\u00e9o \u2192", media_read_speech: "Voir le discours \u2192", online_publication: "Publication en ligne", btn_copy: "Obtenir votre exemplaire \u2192" }
   }
 };
 
@@ -48,6 +48,7 @@ async function loadTranslations(lang) {
     if (typeof renderTestimonials === 'function') renderTestimonials();
     if (typeof renderBooksGrid === 'function' && typeof booksData !== 'undefined') renderBooksGrid(booksData, lang);
     if (typeof renderAuthorSheetBooks === 'function' && typeof booksData !== 'undefined') renderAuthorSheetBooks(booksData, lang);
+    if (typeof renderMedia === 'function' && mediaData.length) renderMedia();
     if (typeof experienceData !== 'undefined') renderTimeline(experienceData, lang);
     renderHonours();
     applyTranslations();
@@ -565,6 +566,120 @@ function renderAuthorSheetBooks(books, lang) {
   }).join('');
 }
 
+/* ── Load media portfolio from API ─────────────────────── */
+let mediaData = [];
+const MEDIA_TYPE_META = {
+  article:  { icon: 'fa-newspaper' },
+  interview:{ icon: 'fa-microphone' },
+  profile:  { icon: 'fa-id-card' },
+  video:    { icon: 'fa-circle-play' },
+  speech:   { icon: 'fa-microphone' },
+};
+
+function formatMediaDate(raw) {
+  if (!raw) return '';
+  if (raw.toLowerCase() === 'n/a') return '';
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  let m = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (m) {
+    const mon = months[parseInt(m[2], 10) - 1];
+    if (mon) return m[1] + ' ' + mon + ' ' + m[3];
+  }
+  m = raw.match(/^(\d{4})-(\d{2})$/);
+  if (m) {
+    const mon = months[parseInt(m[2], 10) - 1];
+    if (mon) return mon + ' ' + m[1];
+  }
+  return raw;
+}
+
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function mediaLinkLabel(type) {
+  return getNestedValue(translations, 'media_read_' + type) ||
+    getNestedValue(translations, 'media_read_article') ||
+    'Read More \u2192';
+}
+
+function mediaItemHtml(m) {
+  const type = (m.type || 'article').toLowerCase();
+  const icon = (MEDIA_TYPE_META[type] || MEDIA_TYPE_META.article).icon;
+  const date = formatMediaDate(m.date);
+  const link = m.link ? '<a class="sheet-media-link" href="' + m.link + '" target="_blank" rel="noopener">' + escapeHtml(mediaLinkLabel(type)) + '</a>' : '';
+  const iconHtml = '<div class=&quot;sheet-media-icon&quot;><i class=&quot;fal ' + icon + '&quot;></i></div>';
+  const onErr = "this.onerror=null;var t=this.closest('.sheet-media-thumb');if(t)t.outerHTML='" + iconHtml + "';";
+  const thumbInner = '<img src="' + m.image + '" alt="' + escapeHtml(m.title) + '" loading="lazy" onerror="' + onErr + '">';
+  const leadMedia = m.image
+    ? (m.link
+        ? '<a class="sheet-media-thumb" href="' + m.link + '" target="_blank" rel="noopener">' + thumbInner + '</a>'
+        : '<div class="sheet-media-thumb">' + thumbInner + '</div>')
+    : '<div class="sheet-media-icon"><i class="fal ' + icon + '"></i></div>';
+  return '<div class="sheet-media-item">' +
+    '<div class="sheet-media-lead">' +
+      leadMedia +
+      (m.source ? '<div class="sheet-media-source">' + escapeHtml(m.source) + '</div>' : '') +
+      (date ? '<div class="sheet-media-date">' + escapeHtml(date) + '</div>' : '') +
+    '</div>' +
+    '<div class="sheet-media-content">' +
+      '<div class="sheet-media-type">' + escapeHtml(m.type) + '</div>' +
+      '<h3 class="sheet-media-title">' + escapeHtml(m.title) + '</h3>' +
+      (m.excerpt ? '<p class="sheet-media-excerpt">' + escapeHtml(m.excerpt) + '</p>' : '') +
+      link +
+    '</div>' +
+  '</div>';
+}
+
+function videoCardHtml(m) {
+  const date = formatMediaDate(m.date);
+  const thumb = m.image
+    ? '<img src="' + m.image + '" alt="' + escapeHtml(m.title) + '" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML=\'<div class=&quot;sheet-video-thumb-fallback&quot;><i class=&quot;fal fa-circle-play&quot;></i></div>\';">'
+    : '<div class="sheet-video-thumb-fallback"><i class="fal fa-circle-play"></i></div>';
+  return '<a class="sheet-video-card" href="' + m.link + '" target="_blank" rel="noopener">' +
+    '<div class="sheet-video-thumb">' + thumb +
+      '<span class="sheet-video-play"><i class="fal fa-play"></i></span>' +
+    '</div>' +
+    '<div class="sheet-video-body">' +
+      (m.source ? '<div class="sheet-video-source">' + escapeHtml(m.source) + '</div>' : '') +
+      '<div class="sheet-video-title">' + escapeHtml(m.title) + '</div>' +
+      (date ? '<div class="sheet-video-date">' + escapeHtml(date) + '</div>' : '') +
+    '</div>' +
+  '</a>';
+}
+
+function renderMedia() {
+  if (!mediaData.length) return;
+  const groups = {};
+  mediaData.forEach(m => {
+    const t = (m.type || 'article').toLowerCase();
+    (groups[t] = groups[t] || []).push(m);
+  });
+  Object.keys(groups).forEach(t => {
+    const container = document.getElementById('sheet-author-' + t + '-list');
+    if (!container) return;
+    container.innerHTML = t === 'video'
+      ? '<div class="sheet-video-grid">' + groups[t].map(videoCardHtml).join('') + '</div>'
+      : groups[t].map(mediaItemHtml).join('');
+  });
+}
+
+async function loadMedia() {
+  try {
+    const res = await fetch('/api/media');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    mediaData = data.media || [];
+    renderMedia();
+  } catch (err) {
+    console.error('Could not load media:', err);
+  }
+}
+
 /* ── Load experience from API ──────────────────────────── */
 let experienceData = [];
 async function loadExperience() {
@@ -862,7 +977,7 @@ function prevTestimonial() {
 
 function startTestimonialAutoplay() {
   stopTestimonialAutoplay();
-  testimonialInterval = setInterval(nextTestimonial, 28000);
+  testimonialInterval = setInterval(nextTestimonial, 10000);
 }
 
 function stopTestimonialAutoplay() {
@@ -902,4 +1017,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try { loadBooks(); } catch(e) { console.error('Books load error:', e); }
   try { loadExperience(); } catch(e) { console.error('Experience load error:', e); }
+  try { loadMedia(); } catch(e) { console.error('Media load error:', e); }
 });
