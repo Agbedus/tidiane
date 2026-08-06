@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from sqlalchemy import select
 
-from database import async_session
+from database import dual_db
 from models.experience import Experience
 
 router = APIRouter()
@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/api/experience")
 async def get_experience():
-    async with async_session() as session:
+    async with dual_db.get_read_session() as session:
         result = await session.execute(
             select(Experience).order_by(Experience.sort_order, Experience.id)
         )

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from sqlalchemy import select
 
-from database import async_session
+from database import dual_db
 from models.book import Book
 
 router = APIRouter()
@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/api/books")
 async def get_books():
-    async with async_session() as session:
+    async with dual_db.get_read_session() as session:
         result = await session.execute(
             select(Book).order_by(Book.sort_order, Book.id)
         )

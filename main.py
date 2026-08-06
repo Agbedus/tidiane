@@ -15,7 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from sqladmin import Admin
 
 from config import settings, configure_cloudinary
-from database import engine
+from database import dual_db
 from admin.auth import AdminAuth
 from admin.views import (
     ContactMessageAdmin,
@@ -49,7 +49,7 @@ app.add_middleware(
 )
 
 admin = Admin(
-    app, engine,
+    app, dual_db.active_engine,
     title="Tidiane Admin",
     authentication_backend=AdminAuth(),
     templates_dir=str(settings.TEMPLATES_DIR),
@@ -85,6 +85,7 @@ async def self_ping_loop(url: str, interval: int) -> None:
 
 @app.on_event("startup")
 async def startup():
+    await dual_db.initialize()
     await run_migrations()
     await seed_all()
     if settings.SELF_PING_URL:
@@ -93,6 +94,11 @@ async def startup():
         )
     else:
         logger.warning("SELF_PING_URL not set - self-ping keep-alive is disabled")
+
+
+@app.on_event("shutdown")
+async def shutdown():
+    await dual_db.close()
 
 
 @app.get("/health", response_class=JSONResponse)

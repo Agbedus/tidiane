@@ -3,7 +3,7 @@ import logging
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from sqlalchemy import select
 
-from database import async_session
+from database import dual_db
 from models.gallery import GalleryPhoto
 from utils.cloudinary import upload_to_cloudinary
 
@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.get("/api/gallery")
 async def get_gallery():
-    async with async_session() as session:
+    async with dual_db.get_read_session() as session:
         result = await session.execute(
             select(GalleryPhoto).order_by(GalleryPhoto.sort_order, GalleryPhoto.id)
         )
