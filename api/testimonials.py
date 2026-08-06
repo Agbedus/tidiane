@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from sqlalchemy import select
 
-from database import dual_db
+from database import async_session
 from models.testimonial import Testimonial
 
 router = APIRouter()
@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/api/testimonials")
 async def get_testimonials():
-    async with dual_db.get_read_session() as session:
+    async with async_session() as session:
         result = await session.execute(
             select(Testimonial).order_by(Testimonial.sort_order, Testimonial.id)
         )

@@ -12,9 +12,6 @@ load_dotenv(ROOT / ".env")
 
 class Settings:
     DATABASE_URL: str = os.getenv("DATABASE_URL", "")
-    MYSQL_URL: str = os.getenv("MYSQL_URL", "")
-    DATABASE_PRIMARY: str = os.getenv("DATABASE_PRIMARY", "auto")
-
     ADMIN_USERNAME: str = os.getenv("ADMIN_USERNAME", "admin")
     ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "change-me-in-production")
     SESSION_SECRET: str = os.getenv("SESSION_SECRET", "tidiane-admin-secret-change-me")
@@ -37,13 +34,6 @@ class Settings:
         url = self.DATABASE_URL
         if url.startswith("postgresql://"):
             url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
-        return url
-
-    @property
-    def async_mysql_url(self) -> str:
-        url = self.MYSQL_URL
-        if url.startswith("mysql://"):
-            url = url.replace("mysql://", "mysql+aiomysql://", 1)
         return url
 
 
