@@ -576,6 +576,21 @@ const MEDIA_TYPE_META = {
   speech:   { icon: 'fa-microphone' },
 };
 
+function mediaSortValue(raw) {
+  if (!raw) return null;
+  const s = String(raw).trim();
+  if (s.toLowerCase() === 'n/a') return null;
+  let y, mo, d;
+  let m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (m) { d = parseInt(m[1], 10); mo = parseInt(m[2], 10); y = parseInt(m[3], 10); }
+  else if ((m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/))) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+  else if ((m = s.match(/^(\d{4})-(\d{2})$/))) { y = +m[1]; mo = +m[2]; d = 31; }
+  else if ((m = s.match(/^(\d{4})$/))) { y = +m[1]; mo = 12; d = 31; }
+  else return null;
+  if (!y) return null;
+  return Date.UTC(y, (mo || 1) - 1, d || 1);
+}
+
 function formatMediaDate(raw) {
   if (!raw) return '';
   if (raw.toLowerCase() === 'n/a') return '';
@@ -662,6 +677,7 @@ function renderMedia() {
   Object.keys(groups).forEach(t => {
     const container = document.getElementById('sheet-author-' + t + '-list');
     if (!container) return;
+    groups[t].sort((a, b) => (mediaSortValue(b.date) || 0) - (mediaSortValue(a.date) || 0));
     container.innerHTML = t === 'video'
       ? '<div class="sheet-video-grid">' + groups[t].map(videoCardHtml).join('') + '</div>'
       : groups[t].map(mediaItemHtml).join('');
