@@ -421,8 +421,13 @@ function openBookSheet(index) {
     const realIdx = booksData.indexOf(b);
     const t = lang === 'fr' ? b.title_fr : b.title_en;
     const src = lang === 'fr' && b.cover_image_fr ? b.cover_image_fr : b.cover_image;
+    const relIcons = ['fa-globe-africa', 'fa-satellite', 'fa-rocket'];
+    const relColors = ['rgba(184,151,90,.2)', 'rgba(90,151,100,.15)', 'rgba(184,100,60,.18)'];
     const cls = src ? 'book-cover book-cover-image' : 'book-cover bc-' + ((realIdx % 3) + 1);
-    const img = src ? '<img src="' + src + '" alt="' + t + '" loading="lazy">' : '';
+    const img = src
+      ? '<img src="' + src + '" alt="' + t + '" loading="lazy">'
+      : '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,' + relColors[realIdx % 3] + ',transparent 70%)"></div>' +
+        '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal ' + relIcons[realIdx % 3] + '"></i></div>';
     return '<div class="book-card related-book-card" onclick="openBookSheet(' + realIdx + ')" style="cursor:pointer;">' +
       '<div class="' + cls + '">' + img + '<div class="book-spine"></div><div class="book-cover-inner"></div></div>' +
       '<div class="book-meta">' +
@@ -512,10 +517,13 @@ function renderBooksGrid(books, lang) {
     const teaser = lang === 'fr' ? b.teaser_fr : b.teaser_en;
     const delay = (i * 0.08).toFixed(2);
     const coverSrc = lang === 'fr' && b.cover_image_fr ? b.cover_image_fr : b.cover_image;
+    const fallbackIcons = ['fa-globe-africa', 'fa-satellite', 'fa-rocket'];
+    const fallbackColors = ['rgba(184,151,90,.2)', 'rgba(90,151,100,.15)', 'rgba(184,100,60,.18)'];
     const coverClass = coverSrc ? 'book-cover book-cover-image' : 'book-cover bc-' + ((i % 3) + 1);
     const coverHtml = coverSrc
       ? '<img src="' + coverSrc + '" alt="' + title + '" loading="lazy">'
-      : '';
+      : '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,' + fallbackColors[i % 3] + ',transparent 70%)"></div>' +
+        '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal ' + fallbackIcons[i % 3] + '"></i></div>';
     const readMoreText = lang === 'fr' ? 'Lire la suite →' : 'Read more →';
     return '<div class="book-card reveal" onclick="openBookSheet(' + i + ')" style="transition-delay:' + delay + 's;">' +
       '<div class="' + coverClass + '">' +
@@ -548,9 +556,12 @@ function renderAuthorSheetBooks(books, lang) {
       const isLast = idx === books.length * 2 - 1;
       const borderStyle = isLast ? 'border-bottom:none;' : '';
       const coverClass = e.coverSrc ? 'sheet-book-cover book-cover-image' : 'sheet-book-cover bc-' + ((i % 3) + 1);
+      const authorIcons = ['fa-globe-africa', 'fa-satellite', 'fa-rocket'];
+      const authorColors = ['rgba(184,151,90,.2)', 'rgba(90,151,100,.15)', 'rgba(184,100,60,.18)'];
       const coverHtml = e.coverSrc
         ? '<img src="' + e.coverSrc + '" alt="' + e.title + '" loading="lazy" style="width:100%;height:auto;display:block;">'
-        : '';
+        : '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,' + authorColors[i % 3] + ',transparent 70%)"></div>' +
+          '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal ' + authorIcons[i % 3] + '"></i></div>';
       const formattedDesc = e.desc.replace(/\n/g, '<br>');
       return '<div class="sheet-book-detail" style="' + borderStyle + '">' +
         '<div class="' + coverClass + '" style="position:relative;overflow:hidden;">' +
