@@ -46,7 +46,7 @@ class TestimonialAdmin(ModelView, model=Testimonial):
 
 
 class BookAdmin(ModelView, model=Book):
-    column_list = [Book.id, Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
+    column_list = [Book.id, Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.cover_image_url, Book.cover_image_fr_url, Book.buy_url_en, Book.buy_url_fr, Book.sort_order]
     column_searchable_list = [Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr]
     column_sortable_list = [Book.id, Book.sort_order]
     name = "Book"
@@ -57,7 +57,7 @@ class BookAdmin(ModelView, model=Book):
     can_delete = True
     can_export = True
     column_default_sort = (Book.sort_order, False)
-    form_columns = [Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.description_en, Book.description_fr, Book.status, Book.cover_image_url, Book.cover_image_fr_url, Book.sort_order]
+    form_columns = [Book.title_en, Book.title_fr, Book.teaser_en, Book.teaser_fr, Book.description_en, Book.description_fr, Book.status, Book.cover_image_url, Book.cover_image_fr_url, Book.buy_url_en, Book.buy_url_fr, Book.sort_order]
 
 
 class ExperienceAdmin(ModelView, model=Experience):

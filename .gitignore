@@ -12,6 +12,7 @@ venv/
 
 # Database
 *.db
+*.db.bak*
 
 # OS files
 .DS_Store

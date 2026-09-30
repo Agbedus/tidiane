@@ -18,6 +18,8 @@ class Book(Base):
     status = Column(String(100), nullable=False, default="Online Publication")
     cover_image_url = Column(String(1000), nullable=True)
     cover_image_fr_url = Column(String(1000), nullable=True)
+    buy_url_en = Column(String(1000), nullable=True)
+    buy_url_fr = Column(String(1000), nullable=True)
     sort_order = Column(Integer, nullable=False, default=0)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 

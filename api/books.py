@@ -27,6 +27,8 @@ async def get_books():
                     "status": b.status,
                     "cover_image": b.cover_image_url or "",
                     "cover_image_fr": b.cover_image_fr_url or "",
+                    "buy_url_en": b.buy_url_en or "",
+                    "buy_url_fr": b.buy_url_fr or "",
                     "sort_order": b.sort_order,
                 }
                 for b in books

@@ -375,6 +375,24 @@ function setupGalleryLightbox() {
 
 /* ── Load books from API ────────────────────────────────── */
 let booksData = [];
+
+/* Admin-supplied URLs land in innerHTML, so only http(s) is allowed through and
+   quote characters are dropped to keep them from breaking out of the attribute. */
+function safeExternalUrl(raw) {
+  if (!raw) return '';
+  const url = String(raw).trim();
+  if (!/^https?:\/\//i.test(url)) return '';
+  return url.replace(/["'<>]/g, '');
+}
+
+/* English entry falls back to the French link and vice versa, so a book only
+   needs one URL set. Returns '' when neither is configured. */
+function bookBuyUrl(book, locale) {
+  const en = safeExternalUrl(book.buy_url_en);
+  const fr = safeExternalUrl(book.buy_url_fr);
+  return locale === 'fr' ? (fr || en) : (en || fr);
+}
+
 function openBookSheet(index) {
   if (!booksData.length) return;
   const body = document.getElementById('sheet-books-body');
@@ -406,12 +424,16 @@ function openBookSheet(index) {
       ? (getNestedValue(translations, 'sheets.online_publication_fr') || 'Publication en ligne')
       : (getNestedValue(translations, 'sheets.online_publication') || b.status);
     const btnText = locale === 'fr' ? 'Obtenir votre exemplaire \u2192' : 'Get your copy \u2192';
+    const buyUrl = bookBuyUrl(b, locale);
+    const buyHtml = buyUrl
+      ? '<a class="sheet-book-buy" href="' + buyUrl + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">' + btnText + '</a>'
+      : '';
     return '<div class="sheet-book-detail">' +
       coverHtml(src, index) +
       '<div>' +
         '<div class="book-status">' + statusText + '</div>' +
         '<div class="sheet-book-desc" style="font-size:.85rem;line-height:1.8;margin-bottom:16px;">' + desc.replace(/\n/g, '<br>') + '</div>' +
-        '<button class="sheet-book-buy" onclick="event.stopPropagation()">' + btnText + '</button>' +
+        buyHtml +
       '</div>' +
     '</div>';
   }
@@ -525,6 +547,10 @@ function renderBooksGrid(books, lang) {
       : '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,' + fallbackColors[i % 3] + ',transparent 70%)"></div>' +
         '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal ' + fallbackIcons[i % 3] + '"></i></div>';
     const readMoreText = lang === 'fr' ? 'Lire la suite →' : 'Read more →';
+    const buyUrl = bookBuyUrl(b, lang);
+    const buyHtml = buyUrl
+      ? '<a class="book-buy-btn" href="' + buyUrl + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n="books.btn_copy">' + (getNestedValue(translations, 'books.btn_copy') || 'Get your copy →') + '</a>'
+      : '';
     return '<div class="book-card reveal" onclick="openBookSheet(' + i + ')" style="transition-delay:' + delay + 's;">' +
       '<div class="' + coverClass + '">' +
         coverHtml +
@@ -536,7 +562,7 @@ function renderBooksGrid(books, lang) {
         '<div class="book-status">' + (getNestedValue(translations, 'sheets.online_publication') || b.status) + '</div>' +
         '<div class="book-meta-desc truncated">' + teaser + '</div>' +
         '<button class="book-read-more" onclick="event.stopPropagation(); openBookSheet(' + i + ')">' + readMoreText + '</button>' +
-        '<button class="book-buy-btn" onclick="event.stopPropagation(); openBookSheet(' + i + ')" data-i18n="books.btn_copy">' + (getNestedValue(translations, 'books.btn_copy') || 'Get your copy →') + '</button>' +
+        buyHtml +
       '</div>' +
     '</div>';
   }).join('');
@@ -548,8 +574,8 @@ function renderAuthorSheetBooks(books, lang) {
   if (!list) return;
   list.innerHTML = books.flatMap((b, i) => {
     const entries = [
-      { title: b.title_en, desc: b.description_en, coverSrc: b.cover_image || '' },
-      { title: b.title_fr, desc: b.description_fr, coverSrc: b.cover_image_fr || b.cover_image || '' },
+      { title: b.title_en, desc: b.description_en, coverSrc: b.cover_image || '', locale: 'en' },
+      { title: b.title_fr, desc: b.description_fr, coverSrc: b.cover_image_fr || b.cover_image || '', locale: 'fr' },
     ];
     return entries.map((e, j) => {
       const idx = i * 2 + j;
@@ -563,6 +589,10 @@ function renderAuthorSheetBooks(books, lang) {
         : '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,' + authorColors[i % 3] + ',transparent 70%)"></div>' +
           '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.15"><i class="fal ' + authorIcons[i % 3] + '"></i></div>';
       const formattedDesc = e.desc.replace(/\n/g, '<br>');
+      const buyUrl = bookBuyUrl(b, e.locale);
+      const buyHtml = buyUrl
+        ? '<a class="sheet-book-buy" href="' + buyUrl + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">' + (getNestedValue(translations, 'sheets.btn_copy') || 'Get your copy →') + '</a>'
+        : '';
       return '<div class="sheet-book-detail" style="' + borderStyle + '">' +
         '<div class="' + coverClass + '" style="position:relative;overflow:hidden;">' +
           coverHtml +
@@ -570,7 +600,7 @@ function renderAuthorSheetBooks(books, lang) {
         '<div>' +
           '<div class="book-status">' + (getNestedValue(translations, 'sheets.online_publication') || b.status) + '</div>' +
           '<div class="sheet-book-desc" style="font-size:.85rem;line-height:1.8;margin-bottom:16px;">' + formattedDesc + '</div>' +
-          '<button class="sheet-book-buy" onclick="event.stopPropagation()" data-i18n="sheets.btn_copy">' + (getNestedValue(translations, 'sheets.btn_copy') || 'Get your copy →') + '</button>' +
+          buyHtml +
         '</div>' +
       '</div>';
     });

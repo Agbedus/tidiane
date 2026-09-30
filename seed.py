@@ -1,7 +1,8 @@
 import json
 import logging
 
-from sqlalchemy import select, text
+from sqlalchemy import inspect, select
+from sqlalchemy.schema import CreateColumn
 
 from database import engine, async_session, Base
 from config import settings
@@ -16,11 +17,26 @@ logger = logging.getLogger("tidianeblog")
 async def run_migrations():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-        for col in ["teaser_en", "teaser_fr"]:
-            await conn.execute(
-                text(f"ALTER TABLE books ADD COLUMN IF NOT EXISTS {col} TEXT NOT NULL DEFAULT ''")
-            )
+        await conn.run_sync(_add_missing_columns)
     logger.info("Database initialized.")
+
+
+def _add_missing_columns(connection):
+    """Add columns that exist in the models but not yet in the database.
+
+    create_all only creates whole tables, so databases created before a column
+    was added keep the old shape. The DDL is compiled per dialect, so this works
+    on both PostgreSQL and SQLite.
+    """
+    inspector = inspect(connection)
+    for table in Base.metadata.sorted_tables:
+        existing = {c["name"] for c in inspector.get_columns(table.name)}
+        for column in table.columns:
+            if column.name in existing:
+                continue
+            ddl = str(CreateColumn(column).compile(dialect=connection.dialect))
+            connection.exec_driver_sql(f"ALTER TABLE {table.name} ADD COLUMN {ddl}")
+            logger.info("Added missing column %s.%s", table.name, column.name)
 
 
 async def seed_testimonials():
@@ -55,6 +71,8 @@ async def seed_books():
                 for i, b in enumerate(data.get("books", [])):
                     cover = b.get("cover_image", "")
                     cover_fr = b.get("cover_image_fr", "")
+                    buy_en = b.get("buy_url_en", "")
+                    buy_fr = b.get("buy_url_fr", "")
                     session.add(Book(
                         title_en=b.get("title_en", ""),
                         title_fr=b.get("title_fr", ""),
@@ -65,6 +83,8 @@ async def seed_books():
                         status=b.get("status", "Online Publication"),
                         cover_image_url=cover if cover else None,
                         cover_image_fr_url=cover_fr if cover_fr else None,
+                        buy_url_en=buy_en if buy_en else None,
+                        buy_url_fr=buy_fr if buy_fr else None,
                         sort_order=i,
                     ))
                 await session.commit()
